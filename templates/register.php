@@ -15,8 +15,8 @@ if (!empty($registration_success)) {
     echo '
     <div id="register-success-popup" class="popup-overlay">
         <div class="popup-content">
-            <h3>Registration Successful!</h3>
-            <p>You can now <a href="' . esc_url(home_url('/login')) . '">log in</a>.</p>
+            <h3>Registration Successful!</h3>          
+            <div><a href="/login" class="btn btn-primary">Login</a> </div>                 
             <button onclick="document.getElementById(\'register-success-popup\').style.display = \'none\'">Close</button>
         </div>
     </div>';
@@ -64,7 +64,7 @@ if (!empty($registration_success)) {
 
                         <!-- Buttons -->
                         <div class="form-switch-btns">
-                            <a href="login.html" class="btn btn-primary">Login</a>
+                            <a href="/login" class="btn btn-primary">Login</a>
                             <a href="register.html" class="btn btn-primary ms-2 active">Register</a>
                         </div>
 

@@ -20,7 +20,34 @@ Text Domain: mysightbooking
 }
 .popup-content {
     background: #fff;
-    padding: 2rem;
+    padding: 4rem;
     border-radius: 8px;
     text-align: center;
+    position: relative;
+}
+
+#register-success-popup button {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+}
+#register-success-popup a {
+    top: 20px;
+    color: #040404;
+    height: 60px;
+    padding: 14px 50px;
+    border-radius: 10px;
+    border: 2px solid #101010;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+#register-success-popup a:hover{
+    border: 2px solid #72bd2f;
+    background: #72bd2f;
+    color: #fff;
 }
