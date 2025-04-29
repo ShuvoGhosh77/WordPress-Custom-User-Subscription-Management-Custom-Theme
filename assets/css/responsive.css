@@ -1,0 +1,1867 @@
+@media screen and (max-width: 1800px) {
+
+    .dashboard-wrapper .layout-main {
+        padding-left: 40px;
+        margin-left: 0;
+    }
+
+    .plan-box-wrapper .donation-plan-box h2 {
+        font-size: 28px;
+    }
+
+}
+
+
+
+@media screen and (max-width: 1600px) {
+
+    .screening-process .screening-form-wrap {
+        padding: 60px 0 0 60px;
+    }
+
+    .dashboard-wrapper .sidebar {
+        padding: 100px 40px 50px 40px;
+        width: 400px;
+    }
+
+    .dashboard-wrapper .layout-main {
+        padding-left: 60px;
+    }
+
+}
+
+
+@media screen and (min-width:1400px) {
+    .screening-form-wrap .screening-form {
+        max-height: calc(78vh - 70px);
+    }
+
+    .screening-block .screening-description {
+        padding-right: 66px;
+    }
+}
+
+
+
+
+@media screen and (max-width: 1400px) {
+
+    .auth-wrapper::after {
+        width: 60%;
+        clip-path: circle(61% at 80% 50%);
+    }
+
+    .screening-process .screening-form-wrap {
+        padding: 60px 0 0 40px;
+    }
+
+    .screening-form-wrap .screening-form {
+        padding-right: 30px;
+    }
+
+    .screening-text-wrap h1 {
+        font-size: 50px;
+    }
+
+    .dashboard-wrapper .sidebar {
+        padding: 60px 32px 50px 32px;
+        width: 370px;
+    }
+
+    .dashboard-wrapper .layout-main {
+        padding-top: 170px;
+    }
+
+    .dashboard-wrapper .donation-plan {
+        max-width: 100%;
+    }
+
+    .invoice-blank .invoice-box .img-container {
+        right: 20px;
+    }
+
+    .invoice-active .invoice-box table>thead>tr>th {
+        padding: 15px 24px;
+    }
+
+    .invoice-active .invoice-box table>tbody>tr>td {
+        padding: 13px 24px;
+    }
+
+
+}
+
+
+
+@media screen and (max-width: 1200px) {
+
+
+
+    .container-fluid {
+        padding-right: 40px !important;
+        padding-left: 40px !important;
+    }
+
+    .auth-wrapper .auth-form {
+        width: auto;
+    }
+
+    .auth-text span {
+        font-size: 22px;
+    }
+
+    .auth-text h1 {
+        font-size: 80px;
+    }
+
+    .auth-wrapper .auth-form {
+        width: auto;
+        padding: 32px 24px;
+        margin-top: 50px;
+    }
+
+
+    .navbar .nav-item .nav-link {
+        margin-left: 32px;
+    }
+
+    .select-screening .screening-left {
+        max-width: 90%;
+    }
+
+    .screening-left h1 {
+        font-size: 40px;
+    }
+
+    .screening-left p {
+        font-size: 18px;
+    }
+
+    .screening-left .client-area {
+        margin-top: 40px;
+    }
+
+    .select-screening .screening-right {
+        width: auto;
+        padding: 40px 32px;
+    }
+
+    .screening-right h2 {
+        font-size: 32px;
+    }
+
+    .screening-right .screening-box {
+        padding: 24px 12px 0;
+    }
+
+    .screening-left .client-area {
+        margin-top: 32px;
+    }
+
+    .select-screening .screening-right {
+        margin-top: 40px;
+        padding: 32px 24px;
+    }
+
+    .screening-right h2 {
+        margin-bottom: 24px;
+        font-size: 24px;
+    }
+
+    .screening-right .screening-box {
+        padding: 16px 12px 0;
+        min-height: 142px;
+    }
+
+    .screening-form-wrap h2 {
+        font-size: 40px;
+    }
+
+
+    .screening-text-wrap p {
+        font-size: 18px;
+    }
+
+    .dashboard-wrapper .sidebar {
+        width: 320px;
+    }
+
+    .sidebar .sidebar-menu-wrap {
+        padding-top: 40px;
+    }
+
+    .sidebar-menu-wrap .sidebar-menu ul li a {
+        padding: 10px 16px;
+        margin-bottom: 18px
+    }
+
+
+    .plan-box-wrapper .donation-plan-box {
+        padding: 32px 16px;
+    }
+
+    .invoice-blank .invoice-box .img-container {
+        display: none;
+    }
+
+    .join-team-wrapper .join-form-wrapper {
+        padding: 32px 0;
+    }
+
+    .join-team-wrapper .form-image {
+        margin: 24px 0;
+        padding: 24px;
+    }
+
+
+    .tabs-wrapper--panel .prayer-cards-wrapper .prayer-card {
+        padding: 24px 16px;
+    }
+
+    .prayer-card .prayer-card--user>img {
+        max-width: 70px;
+        margin-right: 12px;
+    }
+
+    .prayer-card .prayer-card--user .user-info>h5 {
+        font-size: 18px;
+    }
+
+    .prayer-card .prayer-card--user .user-info>.request-date {
+        font-size: 14px;
+    }
+
+    .divine-steps-left .divine-steps-progress .divine-steps-name>li {
+        font-size: 14px;
+    }
+
+    .divine-meet-step .divine-steps-form {
+        padding: 60px 24px;
+    }
+
+    .divine-steps-form .form-group .form-label {
+        font-size: 15px;
+    }
+
+    .divine-steps-form .upload-file-box {
+        padding: 24px 16px;
+    }
+
+    .divine-steps-form .upload-file-box p {
+        font-size: 14px;
+    }
+
+    .layout-main.matches-main .no-match-block h2 {
+        font-size: 30px;
+        padding-bottom: 16px;
+    }
+
+    .layout-main.matches-main .no-match-block p {
+        font-size: 18px;
+    }
+
+}
+
+
+
+@media screen and (max-width: 991px) {
+
+    .single-header {
+        position: relative;
+    }
+
+    .light-header {
+        position: relative;
+    }
+
+    .navbar {
+        padding: 18px 0;
+    }
+
+    .navbar .nav-item .nav-link {
+        margin-left: 0;
+        border-bottom: 1px solid #ccc;
+        padding: 12px 0;
+    }
+
+    .navbar .nav-item .nav-link:hover {
+        color: #72bd2f;
+    }
+
+    .navbar .nav-item .nav-link::before {
+        display: none;
+    }
+
+    .auth-wrapper::after {
+        display: none;
+    }
+
+    .select-screening {
+        padding: 80px 0;
+    }
+
+    .select-screening .screening-left {
+        max-width: 100%;
+    }
+
+    .select-screening .screening-right {
+        margin-top: 60px;
+        padding: 42px 40px;
+    }
+
+    .carousel-indicators {
+        margin-top: 24px;
+    }
+
+    .screening-right .btn.btn-primary {
+        margin-top: 24px;
+    }
+
+    .screening-process {
+        padding: 60px 0;
+    }
+
+    .screening-text-wrap .screening-text-bg {
+        width: 100%;
+    }
+
+    .screening-process .screening-form-wrap {
+        padding: 50px 32px 32px;
+        border-radius: 10px;
+        position: relative;
+    }
+
+    .screening-form-wrap .cancel-form {
+        padding: 24px;
+    }
+
+    .screening-form-wrap .cancel-form>i {
+        font-size: 18px;
+    }
+
+    .screening-form-wrap .screening-form {
+        max-height: none;
+        height: 100%;
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+
+    .screening-form-wrap .screening-form.long-scroll {
+        max-height: none;
+    }
+
+    .screening-process .screening-text-wrap {
+        padding-bottom: 40px;
+    }
+
+    .screening-process .btn.btn-primary {
+        position: relative;
+        width: 100%;
+        border-radius: 50px;
+        margin-top: 40px;
+        font-size: 16px;
+    }
+
+    .dashboard-wrapper .sidebar {
+        top: 0;
+        left: -350px;
+        transition: left .5s;
+    }
+
+    .dashboard-wrapper .layout-main {
+        padding-left: 0;
+        padding-top: 60px;
+    }
+
+    .dashboard-wrapper .layout-main.invoice-blank,
+    .dashboard-wrapper .layout-main.invoice-active,
+    .dashboard-wrapper .layout-main.support-main {
+        padding-top: 60px;
+    }
+
+
+    .quote-wrapper .quote-text {
+        padding-left: 0;
+    }
+
+    .quote-wrapper .quote-text img {
+        width: 60px;
+        padding-bottom: 20px;
+    }
+
+    .quote-wrapper .quote-text p {
+        font-size: 20px;
+    }
+
+    .donation-section .donation-image {
+        position: relative;
+        min-height: 600px;
+        background-position: top;
+        margin-top: 40px
+    }
+
+    .donation-section-right {
+        padding: 75px 0;
+    }
+
+    .join-team-section {
+        margin: 60px 0;
+    }
+
+    .join-team-section .box-container {
+        padding: 24px;
+    }
+
+    .featurette-section .featurette-wrapper h2 {
+        margin-bottom: 40px;
+    }
+
+    .featurette-section .featurette-wrapper h2::before {
+        bottom: -20px;
+    }
+
+    .donation-hero-section p::before {
+        width: 100%;
+    }
+
+    .cannot-find-question {
+        max-width: 700px;
+    }
+
+    .join-form-wrapper .btn.btn-primary {
+        margin-top: 40px;
+    }
+
+    .join-team-wrapper .form-image {
+        min-height: 100vh;
+    }
+
+    .join-team-wrapper .form-image::before {
+        display: block;
+    }
+
+    .support-main .support-text-box {
+        padding-top: 90px;
+    }
+
+
+    .screening-detail-hero {
+        padding: 80px 0;
+    }
+
+    .screening-detail-hero .img-fluid {
+        max-width: 50px;
+    }
+
+    .screening-detail-hero span {
+        font-size: 20px;
+    }
+
+    .screening-detail-hero span::before {
+        max-width: 460px;
+    }
+
+    .filter-wrapper .btn.btn-secondary span:not(.filter-count) {
+        display: none;
+    }
+
+    .panel-controls .filter-wrapper .btn.btn-secondary>img {
+        margin-right: 0;
+    }
+
+    .panel-controls .filter-wrapper .btn.btn-secondary>.filter-count {
+        margin-left: 12px;
+    }
+
+    .tabs-wrapper .panel-controls .btn.btn-primary {
+        font-size: 16px;
+        padding: 0 24px;
+    }
+
+    .tabs-wrapper .panel-controls .btn.btn-primary>img {
+        padding-right: 8px;
+        width: 28px;
+    }
+
+    .prayer-card .prayer-card--request {
+        min-height: auto;
+    }
+
+    .prayer-card .prayer-card--request .request-text {
+        max-height: 100px;
+        -webkit-line-clamp: 4;
+    }
+
+    .prayer-card .comment-share-block {
+        padding-top: 24px;
+    }
+
+    .prayer-card .praying-btn-group {
+        min-height: auto;
+    }
+
+    .comment-wrapper .comment-box {
+        padding: 8px 16px 14px;
+        min-width: 280px;
+    }
+
+    .comment-wrapper .comment-box ul {
+        max-height: 170px;
+        margin-top: 20px;
+    }
+
+    .comment-wrapper .comment-box ul>li {
+        padding-bottom: 14px;
+        padding-right: 6px;
+    }
+
+    .testimony-cards-wrapper .testimony-header h1 {
+        font-size: 28px;
+    }
+
+    .divine-meet-register .divine-register-left .couple-img {
+        margin-top: 56px;
+    }
+
+    .tabs-wrapper--header .nav li {
+        padding: 0 8px;
+    }
+
+    .tabs-wrapper--header .nav li a {
+        font-size: 14px;
+        padding: 16px 10px;
+    }
+
+    .tabs-wrapper--header .nav li a>.img-fluid {
+        max-width: 24px;
+        margin-right: 6px;
+    }
+
+    .add-testimony-modal .modal-dialog,
+    .add-request-modal .modal-dialog,
+    .testimony-submitted-modal .modal-dialog,
+    .prayer-submitted-modal .modal-dialog {
+        padding: 40px;
+    }
+
+    .tabs-wrapper--panel .divine-meet-step .divine-steps-left {
+        border-bottom-left-radius: 0;
+    }
+
+    .divine-steps-form .upload-file-box {
+        padding: 24px 36px;
+    }
+
+    .quality-video-popup.modal .modal-dialog {
+        padding: 40px;
+    }
+
+    .quality-video-popup.modal .modal-dialog .modal-content {
+        padding: 40px 16px 0px;
+    }
+
+    .quality-video-popup.modal .btn-close {
+        top: 12px;
+        right: 12px;
+    }
+
+    .quality-video-popup.modal h1 {
+        font-size: 20px;
+        padding-bottom: 24px;
+    }
+
+}
+
+
+
+@media screen and (min-width:992px) and (max-width:1400px) {
+    .featurette-section .featurette-wrapper h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+
+    .featurette-section .featurette-wrapper h2:before {
+        bottom: -20px;
+    }
+}
+
+
+@media screen and (max-width:768px) {
+    .member-box .header {
+        padding: 24px 32px 50px 32px;
+    }
+
+    .member-box .header span {
+        padding: 6px 24px;
+    }
+
+    .member-box .header h1 {
+        font-size: 40px;
+    }
+
+
+    .member-box .header .card-alert {
+        padding: 12px;
+        margin-top: 16px;
+    }
+
+    .member-box .plan-member-info {
+        padding: 0 32px 40px;
+    }
+
+
+    .member-box .plan-member-info .status-wrap h5 {
+        font-size: 16px;
+        padding-bottom: 8px;
+    }
+
+
+    .plan-member-info .inquire-session-wrap .box {
+        padding: 12px 18px;
+    }
+
+    .plan-member-info .date-catg {
+        padding-top: 24px;
+    }
+
+    .member-box .button-group {
+        padding: 30px 24px;
+    }
+
+    .member-box .button-group .btn.btn-primary {
+        padding: 5px 24px;
+        height: 40px;
+    }
+
+    .member-box .button-group .btn.btn-primary.cancel-btn {
+        margin-top: 16px;
+    }
+
+    .steps-wrapper {
+        display: none;
+    }
+
+    .plan-selection .plans-wrapper {
+        padding: 90px 0;
+    }
+
+    .featurette-section .featurette-wrapper {
+        padding: 40px 0;
+    }
+
+    .donation-section .donation-image {
+        min-height: 500px;
+    }
+
+    .donation-section-right {
+        padding: 40px 0;
+    }
+
+    .donation-section .donation-section-right h2 {
+        font-size: 36px;
+        padding: 32px 0 16px 0;
+    }
+
+    .cannot-find-question {
+        max-width: 500px;
+    }
+
+    .donation-hero-section h1 {
+        font-size: 40px;
+    }
+
+    .support-main .support-text-box {
+        padding-top: 90px;
+    }
+
+    .tabs-wrapper--header .nav li {
+        max-width: 20%;
+        padding: 0 8px;
+    }
+
+    .tabs-wrapper--header .nav li.active {
+        max-width: 40%;
+    }
+
+    .tabs-wrapper--header .nav li a {
+        font-size: 15px;
+    }
+
+
+    .tabs-wrapper--header .nav li a span {
+        display: none;
+    }
+
+    .tabs-wrapper--header .nav li.active a span {
+        display: block;
+    }
+
+    .tabs-wrapper--header .nav li a>.img-fluid {
+        max-width: 28px;
+        margin-right: 0;
+    }
+
+    .tabs-wrapper--header .nav li.active a>.img-fluid {
+        margin-right: 8px;
+    }
+
+    .add-testimony-modal .modal-dialog,
+    .add-request-modal .modal-dialog {
+        max-width: 540px;
+        padding: 40px;
+    }
+
+    .testimony-submitted-modal .modal-content,
+    .add-testimony-modal .modal-content,
+    .prayer-submitted-modal .modal-content,
+    .add-request-modal .modal-content {
+        padding: 40px 32px;
+    }
+
+    .testimony-submitted-modal .modal-content h2,
+    .add-testimony-modal .modal-content h2,
+    .prayer-submitted-modal .modal-content h2,
+    .add-request-modal .modal-content h2 {
+        font-size: 24px;
+    }
+
+    .add-testimony-modal .modal-content .form-control,
+    .add-request-modal .modal-content .form-control {
+        height: 200px;
+    }
+
+    .add-testimony-modal .priority-block h3,
+    .add-request-modal .priority-block h3 {
+        font-size: 24px;
+    }
+
+    .add-testimony-modal .priority-block,
+    .add-request-modal .priority-block {
+        margin-bottom: 40px;
+    }
+
+
+    .divine-steps-form.summary-form .form-btn-group {
+        margin-bottom: 0;
+        margin-top: 60px;
+    }
+
+    .tabs-wrapper--panel .review-request-wrapper h2 {
+        font-size: 24px;
+    }
+
+}
+
+
+
+@media screen and (max-width: 576px) {
+
+
+    /* Container */
+    .container-fluid {
+        padding-right: 16px !important;
+        padding-left: 16px !important;
+    }
+
+    .light-header .logo>img,
+    .navbar .navbar-brand>img,
+    .single-header .logo>img {
+        max-width: 160px;
+    }
+
+
+    /* Authentication Wrapper */
+    .auth-wrapper {
+        padding: 60px 0;
+    }
+
+    .auth-wrapper::after {
+        display: none;
+    }
+
+    /* Authentication Text */
+    .auth-text span {
+        font-size: 18px;
+    }
+
+    .auth-text h1 {
+        font-size: 54px;
+        margin-top: 6px;
+    }
+
+    .auth-text p {
+        font-size: 16px;
+    }
+
+    /* Authentication Form */
+    .auth-text .form-switch-btns .btn.btn-primary {
+        font-size: 18px;
+        height: 50px;
+        padding: 8px 32px;
+    }
+
+    .auth-wrapper .auth-form {
+        width: auto;
+        padding: 32px 24px;
+    }
+
+    .auth-form .form-title {
+        padding-bottom: 24px;
+        font-size: 24px;
+    }
+
+    .auth-form .form-check label {
+        font-size: 14px;
+    }
+
+    /* Select Screening */
+    .select-screening {
+        padding: 60px 0;
+    }
+
+    .screening-left h1 {
+        font-size: 32px;
+    }
+
+    .screening-left p {
+        font-size: 14px;
+    }
+
+    .screening-left .btn.btn-primary,
+    .screening-right .btn.btn-primary {
+        height: 60px;
+    }
+
+    /* Screening Text Wrap */
+    .screening-text-wrap h1 {
+        font-size: 40px;
+    }
+
+    .screening-text-wrap p {
+        max-width: 100%;
+        font-size: 17px;
+    }
+
+    /* Screening Form Wrap */
+    .screening-form-wrap h2 {
+        font-size: 28px;
+        margin-bottom: 32px;
+    }
+
+    .screening-form-wrap .screening-form {
+        height: auto;
+        overflow-y: auto;
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+
+
+    .screening-form-wrap .screening-form h3 {
+        font-size: 20px;
+    }
+
+    .screening-form .question-section h5 {
+        font-size: 16px;
+        margin-bottom: 24px;
+    }
+
+    .screening-form .upload-file-box p {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+
+    .screening-form .question-section .add-question-btn,
+    .screening-form .question-section p {
+        font-size: 14px;
+    }
+
+    .question-section .question-limit ul li {
+        font-size: 12px;
+    }
+
+    /* Sidebar */
+    .sidebar-menu-wrap .sidebar-menu ul li a img {
+        width: 24px;
+        height: auto;
+        margin-right: 12px;
+    }
+
+
+    /* Account Setting Wrapper */
+    .dashboard-wrapper .sidebar {
+        padding: 60px 16px 40px 16px;
+        width: 280px;
+    }
+
+    .layout-main .profile-section {
+        padding: 24px;
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+
+    .layout-main .profile-section .profile-item {
+        margin-top: 32px;
+    }
+
+    .layout-main .delete-ac-section {
+        padding: 24px;
+    }
+
+    .layout-main .delete-ac-section p {
+        font-size: 14px;
+    }
+
+    .delete-account-wrapper .delete-account-box {
+        padding: 24px;
+    }
+
+    .delete-account-wrapper .delete-account-box .btn.btn-primary {
+        margin-top: 14px;
+    }
+
+
+    .plan-selection .plans-wrapper {
+        padding: 50px 0;
+    }
+
+    .plan-selection .plans-wrapper h1 {
+        font-size: 32px;
+    }
+
+
+    .invoice-blank .invoice-box {
+        padding: 0 24px;
+    }
+
+    .invoice-box .text-container h1 {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+
+    .invoice-box .text-container p:nth-child(2) {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .invoice-box .text-container p:nth-child(3) {
+        font-size: 16px;
+    }
+
+
+
+    .member-box .header {
+        padding: 24px 16px 50px 16px;
+    }
+
+    .member-box .plan-member-info {
+        padding: 0 16px 40px;
+    }
+
+    .member-box .header .card-alert {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .member-box .button-group {
+        padding: 24px 16px;
+    }
+
+    .plan-member-info .inquire-session-wrap .box {
+        width: auto;
+    }
+
+    .cancel-plan-wrapper .cancel-plan-box {
+        margin: 60px 0;
+        padding: 32px 24px;
+    }
+
+    .cancel-plan-wrapper .cancel-plan-box h1 {
+        font-size: 32px;
+    }
+
+    .cancel-plan-wrapper .cancel-plan-box p {
+        font-size: 18px;
+    }
+
+    .cancel-plan-wrapper .cancel-plan-box ul li {
+        font-size: 14px;
+        padding-bottom: 10px;
+    }
+
+    .cancel-plan-box .button-group {
+        margin-top: 32px;
+    }
+
+    .support-main .create-ticket-box,
+    .support-main .support-text-box {
+        padding: 32px 24px;
+        margin-bottom: 24px;
+    }
+
+    .support-main .support-text-box {
+        padding-top: 90px;
+    }
+
+
+    .support-text-box .support-info {
+        left: 0;
+    }
+
+    .support-main .support-text-box h1 {
+        font-size: 32px;
+        margin-bottom: 32px;
+    }
+
+    .support-main .support-text-box h3 {
+        font-size: 22px;
+    }
+
+    .support-main .support-text-box p {
+        font-size: 16px;
+    }
+
+    .support-main .create-ticket-box h2 {
+        font-size: 24px;
+    }
+
+    .support-main .create-ticket-box p {
+        font-size: 14px;
+    }
+
+    .create-ticket-box .ticket-form-wrapper {
+        margin-top: 32px;
+    }
+
+    .account-cancel-wrapper {
+        padding: 60px 0;
+    }
+
+    .account-cancel-wrapper .cancel-box {
+        padding: 32px 24px;
+    }
+
+    .account-cancel-wrapper .cancel-box h1 {
+        font-size: 24px;
+    }
+
+    .account-cancel-wrapper .cancel-box p {
+        font-size: 16px;
+    }
+
+    .account-cancel-wrapper .cancel-box .btn.btn-primary {
+        margin-top: 40px;
+    }
+
+    .payment-main-wrapper .payment-header .go-back-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .payment-main-wrapper .order-summary-wrap {
+        margin: 32px 0 24px 0;
+    }
+
+    .payment-main-wrapper .basic-container {
+        padding: 24px;
+    }
+
+    .popup-container .report-bug-box {
+        width: auto;
+        padding: 32px 16px;
+        left: 20px;
+    }
+
+    .report-bug-box #popupClose {
+        font-size: 12px;
+        top: 16px;
+        right: 16px;
+    }
+
+    .delete-account-wrapper,
+    .cancel-plan-wrapper,
+    .reset-password-wrapper,
+    .forgot-email-wrapper,
+    .forgot-password-wrapper {
+        padding: 60px 0;
+    }
+
+
+    .payment-successful .success-box {
+        padding: 40px 24px;
+    }
+
+    .payment-successful .success-box .go-back {
+        top: 14px;
+        right: 16px;
+        font-size: 20px;
+    }
+
+    .payment-successful .success-box .success-icon {
+        margin-bottom: 24px;
+    }
+
+    .payment-successful .success-box .success-icon>img {
+        width: 90px;
+        height: auto;
+    }
+
+    .payment-successful .success-box h1 {
+        font-size: 24px;
+        padding-bottom: 16px;
+    }
+
+    .payment-successful .success-box h3 {
+        font-size: 18px;
+        padding-top: 24px;
+        padding-bottom: 8px;
+    }
+
+    .payment-successful .success-box p {
+        font-size: 14px;
+    }
+
+    .payment-successful .success-box .link-box {
+        margin-top: 8px;
+    }
+
+    .payment-successful .social-icon-row .social-icon {
+        padding-right: 26px;
+    }
+
+
+
+
+    .username {
+        font-size: 12px;
+    }
+
+    .gradient-bg::before {
+        bottom: -100px;
+    }
+
+    .order-summary-wrap .basic-container {
+        padding: 16px;
+    }
+
+    .select-card-wrap .payment-card .card-details img {
+        width: 40px;
+    }
+
+    .select-card-wrap .payment-card .card-details span {
+        font-size: 12px;
+    }
+
+    .select-card-wrap .payment-card .card-details i {
+        font-size: 20px;
+    }
+
+
+
+    .mission-wrapper {
+        padding: 40px 0 40px 0;
+        margin-top: 32px;
+    }
+
+    .story-wrapper .main-para,
+    .mission-wrapper .main-para {
+        font-size: 18px;
+        padding-bottom: 24px;
+    }
+
+    .story-wrapper .wrapper-content {
+        padding: 40px 0;
+    }
+
+    .video-wrapper .video-container .play-icon-wrapper {
+        width: 4rem;
+        height: 4rem;
+        margin-top: -2.25rem;
+        margin-left: -2rem;
+    }
+
+    .video-container .play-icon-wrapper .play-icon {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .video-wrapper .video-container {
+        margin-bottom: 60px;
+    }
+
+    .quote-wrapper .quote-text {
+        padding-left: 0;
+    }
+
+    .quote-wrapper .quote-text p {
+        font-size: 20px;
+    }
+
+    .featurette-section .featurette-wrapper {
+        padding: 40px 0;
+    }
+
+    .featurette-section .featurette-wrapper h2 {
+        margin-bottom: 40px;
+    }
+
+    .featurette-section .featurette-wrapper h2::before {
+        bottom: -20px;
+    }
+
+    .donation-section .donation-section-right h2 {
+        font-size: 24px;
+        padding: 24px 0 8px 0;
+    }
+
+    .donation-section .donation-section-right p {
+        font-size: 16px;
+        padding-bottom: 32px;
+    }
+
+    .donation-section .donation-section-right .btn.btn-primary {
+        padding: 12px 32px;
+    }
+
+    .join-team-section .box-container p {
+        font-size: 16px;
+        margin: 40px 0 24px 0
+    }
+
+    .join-team-section h2::before {
+        bottom: -20px;
+    }
+
+
+    .join-team-section .box-container .btn.btn-primary {
+        height: 50px;
+        padding: 12px 32px;
+    }
+
+    .join-team-section {
+        margin: 40px 0;
+    }
+
+    .join-team-section::before {
+        bottom: -40px;
+        height: 100px;
+    }
+
+
+    .donation-hero-section {
+        margin-top: 24px;
+    }
+
+    .donation-hero-section h1 {
+        font-size: 28px;
+        margin: 20px 0 24px 0;
+    }
+
+    .donation-hero-section h1 span::before {
+        bottom: 5px;
+    }
+
+    .donation-hero-section p {
+        padding: 0 16px;
+        font-size: 20px;
+    }
+
+    .donation-hero-section p span {
+        padding: 0;
+    }
+
+    .donation-hero-section p::before {
+        display: none;
+    }
+
+    .disbursement-section {
+        padding: 60px 0;
+    }
+
+    .faq-section .faq-items-wrapper,
+    .disbursement-section .disbursement-box-wrapper {
+        margin-top: 60px;
+    }
+
+    .faq-section h2,
+    .disbursement-section h2 {
+        font-size: 26px;
+    }
+
+    .faq-section h2::before,
+    .disbursement-section h2::before {
+        bottom: -24px;
+        width: 80px;
+    }
+
+
+    .disbursement-box span {
+        font-size: 18px;
+    }
+
+    .disbursement-box h3 {
+        font-size: 32px;
+        padding: 14px 0 20px 0;
+    }
+
+    .disbursement-box ul {
+        margin-top: 24px;
+    }
+
+    .faq-section {
+        padding: 40px 0;
+    }
+
+    .cannot-find-question {
+        margin-bottom: 40px;
+        padding: 32px 0;
+    }
+
+    .cannot-find-question p {
+        font-size: 16px;
+    }
+
+    .join-form-wrapper h1 {
+        font-size: 32px;
+        margin: 24px 0 50px 0
+    }
+
+    .join-form-wrapper h1::before {
+        bottom: -20px;
+    }
+
+    .form-image .image-content h2 {
+        font-size: 40px;
+        padding-bottom: 8px;
+    }
+
+    .form-image .image-content>p {
+        font-size: 18px;
+        padding-bottom: 24px;
+    }
+
+
+    .support-message-sent .message-box {
+        padding: 32px 24px;
+    }
+
+    .support-message-sent .message-box .message-icon {
+        margin-bottom: 24px;
+    }
+
+    .support-message-sent .message-box .message-icon>img {
+        width: 90px;
+    }
+
+    .support-message-sent .message-box h1 {
+        font-size: 24px;
+        padding-bottom: 16px;
+    }
+
+    .support-message-sent .message-box p {
+        padding-bottom: 40px;
+        font-size: 14px;
+    }
+
+    .tc-hero-section {
+        border-radius: 20px;
+        margin-top: 24px;
+    }
+
+    .tc-content.privacy h2,
+    .tc-hero-section h1 {
+        font-size: 32px;
+        padding: 20px 0 24px 0;
+    }
+
+    .tc-hero-section p {
+        font-size: 16px;
+    }
+
+    .tc-content.terms {
+        padding-top: 40px;
+    }
+
+    .tc-content h3 {
+        font-size: 24px;
+        padding-bottom: 16px;
+    }
+
+    .tc-content .text-block p {
+        padding-bottom: 14px;
+        font-size: 16px;
+    }
+
+    .tc-content.privacy h2 {
+        padding: 32px 0;
+    }
+
+
+    .team-submission-box .thankyou-box {
+        padding: 32px 24px;
+    }
+
+    .team-submission-box .thankyou-box .message-icon {
+        margin-bottom: 24px;
+    }
+
+    .team-submission-box .thankyou-box .message-icon>img {
+        width: 80px;
+    }
+
+    .team-submission-box .thankyou-box h1 {
+        font-size: 24px;
+        padding-bottom: 24px;
+    }
+
+    .team-submission-box .thankyou-box p {
+        font-size: 14px;
+        padding-bottom: 40px;
+    }
+
+    .more-about-us {
+        padding: 40px 0;
+    }
+
+    .more-about-us .content-wrap {
+        padding: 16px;
+    }
+
+    .more-about-us p {
+        font-size: 18px;
+    }
+
+
+    .plan .price .value {
+        font-size: 18px;
+    }
+
+    .plan-items .plan .main-block {
+        padding: 10px 20px;
+    }
+
+    .plan .price p {
+        font-size: 10px;
+    }
+
+    .screening-detail-hero {
+        padding: 60px 0;
+    }
+
+    .screening-detail-hero h1 {
+        padding: 24px 0;
+    }
+
+    .screening-detail-hero span {
+        font-size: 16px;
+    }
+
+    .screening-detail-hero span::before {
+        display: none;
+    }
+
+    .tabs-wrapper .tabs-wrapper--panel {
+        padding: 32px 8px;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    .tabs-wrapper--panel .prayer-cards-wrapper {
+        padding-top: 32px;
+    }
+
+    .prayer-card .prayer-card--user>img {
+        max-width: 60px;
+    }
+
+    .prayer-card .prayer-card--user .user-info>.request-date {
+        font-size: 13px;
+        padding-top: 8px;
+    }
+
+    .comment-wrapper .comment-box {
+        min-width: 260px;
+    }
+
+    .comment-wrapper .comment-box ul>li>.comment-info {
+        padding-top: 0;
+    }
+
+    .prayer-cards-wrapper .prayer-card.is-urgent:after,
+    .prayer-cards-wrapper .prayer-card.is-group::before {
+        width: 50px;
+        height: 58px;
+    }
+
+    .testimony-cards-wrapper .testimony-header h1 {
+        font-size: 24px;
+    }
+
+    .testimony-cards-wrapper .testimony-header p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .tabs-wrapper--panel .testimony-cards-wrapper .testimony-card {
+        padding: 24px 16px;
+        margin-bottom: 16px;
+    }
+
+    .divine-meet-register .divine-register-left .divine-icon {
+        max-width: 90px;
+    }
+
+    .divine-meet-register .divine-register-left h1 {
+        font-size: 32px;
+        padding-top: 16px;
+    }
+
+    .divine-meet-register .divine-register-left p {
+        font-size: 16px;
+        padding-top: 16px;
+    }
+
+    .divine-meet-register .divine-register-left .couple-img {
+        margin-top: 40px;
+    }
+
+    .divine-meet-register .divine-register-right {
+        padding: 24px 16px;
+    }
+
+
+
+    .tabs-wrapper--header .nav li {
+        padding: 0 4px;
+        max-width: 20%;
+    }
+
+    .tabs-wrapper--header .nav li.active {
+        max-width: 40%;
+    }
+
+    .tabs-wrapper--header .nav li a {
+        padding: 14px 0;
+        font-size: 12px;
+    }
+
+    .tabs-wrapper--header .nav li.active a {
+        color: #fff;
+        border-color: #72bd2f;
+        background-color: #72bd2f;
+    }
+
+    .tabs-wrapper--header .nav li a span {
+        display: none;
+    }
+
+    .tabs-wrapper--header .nav li.active a span {
+        display: block;
+    }
+
+    .tabs-wrapper--header .nav li.active a>.img-fluid {
+        margin-right: 6px;
+    }
+
+    .tabs-wrapper--header .nav li a>.img-fluid {
+        max-width: 24px;
+        margin-right: 0;
+    }
+
+    .add-testimony-modal .modal-dialog,
+    .add-request-modal .modal-dialog,
+    .testimony-submitted-modal .modal-dialog,
+    .prayer-submitted-modal .modal-dialog {
+        padding: 24px;
+    }
+
+    .testimony-submitted-modal .modal-content,
+    .add-testimony-modal .modal-content,
+    .prayer-submitted-modal .modal-content,
+    .add-request-modal .modal-content {
+        padding: 24px 16px;
+    }
+
+    .testimony-submitted-modal .modal-content h2,
+    .add-testimony-modal .modal-content h2,
+    .prayer-submitted-modal .modal-content h2,
+    .add-request-modal .modal-content h2 {
+        font-size: 18px;
+    }
+
+    .add-testimony-modal .modal-content .form-control,
+    .add-request-modal .modal-content .form-control {
+        height: 140px;
+    }
+
+    .add-testimony-modal .priority-block h3,
+    .add-request-modal .priority-block h3 {
+        font-size: 18px;
+    }
+
+    .add-testimony-modal .priority-block,
+    .add-request-modal .priority-block {
+        margin-bottom: 24px;
+    }
+
+    .testimony-submitted-modal .modal-content .btn-close,
+    .add-testimony-modal .modal-content .btn-close,
+    .prayer-submitted-modal .modal-content .btn-close,
+    .add-request-modal .modal-content .btn-close {
+        top: 22px;
+        right: 12px;
+    }
+
+    .add-testimony-modal .modal-content p,
+    .prayer-submitted-modal .modal-content p,
+    .add-request-modal .modal-footer p {
+        font-size: 12px;
+    }
+
+    .add-testimony-modal .form-check .form-check-label,
+    .add-request-modal .form-check .form-check-label {
+        margin-left: 4px;
+        font-size: 12px;
+    }
+
+    .add-testimony-modal .modal-footer .btn.btn-primary,
+    .add-request-modal .modal-footer .btn.btn-primary {
+        height: 40px;
+        font-size: 16px;
+        max-width: 180px;
+    }
+
+    .add-testimony-modal .modal-content .form-control,
+    .add-request-modal .modal-content .form-control {
+        font-size: 14px;
+    }
+
+    .testimony-submitted-modal .check-icon>i,
+    .prayer-submitted-modal .check-icon>i {
+        font-size: 70px;
+    }
+
+    .testimony-submitted-modal .modal-content h2,
+    .prayer-submitted-modal .modal-content h2 {
+        margin-top: 20px;
+    }
+
+    .testimony-submitted-modal .btn.btn-primary,
+    .prayer-submitted-modal .btn.btn-primary {
+        margin-top: 32px;
+    }
+
+
+    .tabs-wrapper--panel .divine-meet-step .divine-steps-left {
+        padding: 50px 14px;
+    }
+
+    .divine-steps-left .divine-steps-progress {
+        padding-bottom: 50px;
+    }
+
+    .divine-steps-left .divine-steps-progress .progress-bar {
+        height: 10px;
+    }
+
+    .divine-steps-left .divine-steps-progress .divine-steps-name>li {
+        font-size: 11px;
+    }
+
+    .divine-meet-step .divine-steps-left h1 {
+        font-size: 30px;
+    }
+
+    .divine-meet-step .divine-steps-left p {
+        font-size: 16px;
+        margin-top: 12px;
+    }
+
+    .divine-meet-step .divine-steps-form {
+        padding: 40px 16px;
+    }
+
+    .divine-meet-step .divine-steps-form h3 {
+        font-size: 20px;
+        padding-bottom: 24px;
+    }
+
+    .divine-steps-form .upload-file-box p {
+        margin-top: 16px;
+    }
+
+    .divine-steps-form .upload-file-box .btn.btn-primary {
+        margin-top: 16px;
+    }
+
+    .divine-steps-form .upload-instruction {
+        padding-left: 24px;
+    }
+
+    .divine-steps-form .upload-instruction li {
+        font-size: 14px;
+    }
+
+    .divine-steps-form .form-btn-group .btn.btn-primary {
+        height: 40px;
+        padding: 5px;
+        max-width: 100%;
+        font-size: 16px;
+    }
+
+    .quality-video-popup.modal .modal-dialog {
+        padding: 24px;
+    }
+
+    .quality-video-popup.modal .modal-dialog .modal-content {
+        padding: 32px 0 0 0;
+    }
+
+    .quality-video-popup.modal h1 {
+        font-size: 18px;
+        padding: 16px 20px 16px;
+    }
+
+    .quality-video-popup.modal .quality-instruction {
+        padding-right: 16px;
+    }
+
+    .quality-video-popup.modal .quality-instruction li>h5 {
+        font-size: 13px;
+    }
+
+    .quality-video-popup.modal .quality-instruction li>p {
+        font-size: 12px;
+    }
+
+
+    .divine-meet-step .divine-steps-form.details-form h3 {
+        padding-bottom: 40px;
+    }
+
+    .divine-steps-form .preferences-info-block .form-check,
+    .divine-steps-form .detail-info-block .form-check {
+        margin-bottom: 8px;
+    }
+
+    .divine-steps-form .preferences-info-block .form-check>label,
+    .divine-steps-form .detail-info-block .form-check>label {
+        margin-left: 6px;
+    }
+
+    .interest-category .interest-pill {
+        margin-right: 6px;
+    }
+
+    .interest-category .interest-pill .interest-label {
+        padding: 6px 12px;
+    }
+
+
+    .tabs-wrapper--panel .review-request-wrapper h2 {
+        font-size: 18px;
+    }
+
+    .review-request-wrapper .review-item {
+        padding-bottom: 20px;
+    }
+
+    .review-request-wrapper .review-item .item-label {
+        font-size: 18px;
+    }
+
+    .review-request-wrapper .review-item .item-value {
+        font-size: 14px;
+        color: #777;
+    }
+
+    .review-request-wrapper .review-item .edit-request-btn {
+        font-size: 13px;
+    }
+
+    .layout-main .matches-wrapper {
+        padding: 24px;
+    }
+
+    .matches-wrapper .header-area .header-area-left h1 {
+        font-size: 24px;
+    }
+
+    .matches-wrapper .header-area .header-area-left p {
+        font-size: 14px;
+    }
+
+    .matches-wrapper .header-area .header-area-right .btn.btn-primary {
+        height: 40px;
+        padding-right: 16px;
+        padding-left: 16px;
+        font-size: 16px;
+    }
+
+    .matches-wrapper .match-accepted-wrapper,
+    .layout-main .matches-wrapper .match-found-block {
+        padding: 50px 0;
+    }
+
+    .matches-wrapper .match-accepted-wrapper h3,
+    .layout-main .matches-wrapper .match-found-block h3 {
+        font-size: 20px;
+    }
+
+    .matches-wrapper .match-accepted-wrapper p,
+    .layout-main .matches-wrapper .match-found-block p {
+        font-size: 16px;
+    }
+
+    .matches-wrapper .match-found-block .match-slider .swiper-wrapper {
+        height: 130px;
+    }
+
+    .match-found-block .match-slider .match-area .img-fluid {
+        max-width: 120px;
+    }
+
+    .match-found-block .match-slider .match-area .heart-icon {
+        font-size: 32px;
+    }
+
+    .layout-main .matches-wrapper .match-found-block p.command-text {
+        font-size: 14px;
+    }
+
+    .layout-main .matches-wrapper .match-found-block .action-buttons {
+        padding-top: 40px;
+    }
+
+    .matches-wrapper .match-found-block .action-buttons .btn.btn-primary {
+        height: 40px;
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+    .toast.match-toaster {
+        max-width: 250px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .matches-wrapper .match-accepted-wrapper .contact-info-box {
+        padding: 24px 16px;
+        margin-top: 32px;
+    }
+
+    .match-accepted-wrapper .contact-info-box .info-block .block-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .match-accepted-wrapper .contact-info-box .info-block .block-icon>img {
+        max-width: 24px;
+    }
+
+    .match-accepted-wrapper .contact-info-box .info-block .block-text p {
+        font-size: 16px;
+    }
+
+}
