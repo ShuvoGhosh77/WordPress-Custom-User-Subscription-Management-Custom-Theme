@@ -18,7 +18,13 @@ get_header();
             </a>
 
             <div class="username">
-                Hello, <Span>John Doe</Span>
+                <?php
+                $current_user = wp_get_current_user();
+                $firstname = get_user_meta($current_user->ID, 'first_name', true);
+                $lastname = get_user_meta($current_user->ID, 'last_name', true);
+                ?>
+                
+                Hello, <Span><?php echo esc_attr($firstname); ?> </Span><Span><?php echo esc_attr($lastname); ?></Span>
             </div>
 
             <button type="button" class="open-sidebar d-lg-none" onclick="openNav()">
@@ -129,7 +135,7 @@ get_header();
                     <!-- Delete Account Section -->
                     <div class="delete-ac-section">
                         <h3>
-                            <a href="delete-account.html">Delete Account <i
+                            <a href="/delete-account">Delete Account <i
                                     class="fa-solid fa-trash-can text-muted ms-2"></i></a>
                         </h3>
                         <p>This account will no longer be available, and all your saved data will be permanently
@@ -177,7 +183,7 @@ get_header();
                 <div class="modal-body">
 
                     <!-- First Name Input -->
-                    <div class="mb-3">
+                    <div class="mb-3"> 
                         <?php
                         $current_user = wp_get_current_user();
                         $firstname = get_user_meta($current_user->ID, 'first_name', true);
@@ -189,6 +195,7 @@ get_header();
                     <!-- Last Name Input -->
                     <div>
                         <?php
+                         $current_user = wp_get_current_user();
                         $lastname = get_user_meta($current_user->ID, 'last_name', true);
                         ?>
                         <input type="text" class="form-control" id="UpdateLastname" name="last_name"

@@ -56,3 +56,21 @@ function EmaiUpdatePassword(EmaiUpdatePassword) {
   /****************************************************
        Update Password Account Settings page end
 *******************************************************/
+
+
+/****************************************************
+       Deletet  Account 
+*******************************************************/
+// VERIFY ACCOUNT PASSWORD EYE TOGGLE
+function deletetogglePassword(DelPasswordVerify) {
+    const passwordInput = document.getElementById(DelPasswordVerify);
+    const passwordToggle = document.querySelector('.password-toggle');
+  
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        passwordToggle.innerHTML = '<i class="far fa-eye-slash" aria-hidden="true"></i>';
+    } else {
+        passwordInput.type = 'password';
+        passwordToggle.innerHTML = '<i class="far fa-eye" aria-hidden="true"></i>';
+    }
+  }

@@ -173,3 +173,34 @@ function handle_user_password_update() {
         }
     }
 }
+
+
+/***********************************************************
+           deletion user Account
+ ******************************************************** */ 
+
+add_action('template_redirect', 'handle_account_deletion');
+
+function handle_account_deletion() {
+    if (
+        is_user_logged_in() &&
+        $_SERVER['REQUEST_METHOD'] === 'POST' &&
+        isset($_POST['delete_account']) &&
+        isset($_POST['del_password'])
+    ) {
+        $current_user = wp_get_current_user();
+        $password = sanitize_text_field($_POST['del_password']);
+
+        if (wp_check_password($password, $current_user->user_pass, $current_user->ID)) {
+            require_once ABSPATH . 'wp-admin/includes/user.php';
+            wp_delete_user($current_user->ID);
+            wp_redirect(home_url('/account-cancelled'));
+            exit;
+        } else {
+            // Store error in session or use a transient
+            set_transient('account_deletion_error', 'Incorrect password. Please try again.', 30);
+            wp_redirect($_SERVER['HTTP_REFERER']);
+            exit;
+        }
+    }
+}
