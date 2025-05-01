@@ -95,6 +95,19 @@ if (!empty($registration_success)) {
                             <label for="signup-username">Username</label>
                         </div>
 
+                        <!-- FirstName Input -->
+                        <div class="form-floating mb-4">
+                            <input type="text" id="signup-firstname" name="firstname" placeholder="First Name"
+                                class="form-control" required>
+                            <label for="signup-username">First Name</label>
+                        </div>
+                        <!-- LasttName Input -->
+                        <div class="form-floating mb-4">
+                            <input type="text" id="signup-lastname" name="lastname" placeholder="Last Name"
+                                class="form-control" required>
+                            <label for="signup-lastname">Last Name</label>
+                        </div>
+
                         <!-- Password Input -->
                         <div class="form-floating mb-4">
                             <input type="password" id="signup-password" name="password" placeholder="Password"
@@ -120,7 +133,7 @@ if (!empty($registration_success)) {
                         <button type="submit" name="submit_register" class="btn btn-primary w-100">Register
                             Now!</button>
                         <?php
-                       
+
                         if (!empty($registration_error)) {
                             echo '<div class="alert alert-danger">' . esc_html($registration_error) . '</div>';
                         }

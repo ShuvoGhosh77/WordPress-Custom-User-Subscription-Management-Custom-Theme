@@ -41,7 +41,7 @@ get_header();
 
                 <!-- Invoice -->
                 <li class="nav-item">
-                    <a class="nav-link active" href="about-us.html">About Us</a>
+                    <a class="nav-link" href="/about-us">About Us</a>
                 </li>
 
                 <!-- Support -->
@@ -62,7 +62,18 @@ get_header();
 </header>
 <!-- / HEADER -->
 <main class="container-fluid">
+<?php get_sidebar(); ?>
+
 <article>
+<?php
+$current_user = wp_get_current_user();
+
+if ( $current_user->exists() ) {
+    echo 'Full Name: ' . esc_html($current_user->first_name . ' ' . $current_user->last_name);
+}
+?>
+
+
     <h2>Empowered by the Holy Spirit and entrusted with the great commission by Christ Jesus</h2>
     <div class="entry-content">
     Empowered by the Holy Spirit and entrusted with the great commission by Christ Jesus, our mission is to make disciples of all nations. We are dedicated to sharing the uncompromising message of salvation and demonstrating God's love through a comprehensive approach that addresses the diverse needs of humanity, ultimately leading to the attainment of eternal life.

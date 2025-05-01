@@ -22,6 +22,10 @@ a {
 }
 
 
+.alert-danger2 {
+    margin: 0 30px;
+    margin-top: 10px !important;
+}
 /* Full Container */
 .container-fluid {
     padding-right: 70px !important;
