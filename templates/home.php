@@ -31,7 +31,7 @@ get_header();
             <ul class="navbar-nav pt-lg-0 pt-3 ms-auto">
                 <!-- Account Settings -->
                 <li class="nav-item">
-                    <a class="nav-link" href="account-setting.html">Account Settings</a>
+                    <a class="nav-link" href="/account-setting">Account Settings</a>
                 </li>
 
                 <!-- Donation Plan -->
