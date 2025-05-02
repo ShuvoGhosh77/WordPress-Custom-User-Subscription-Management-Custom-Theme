@@ -23,32 +23,40 @@
                 <ul class="list-unstyled">
 
                     <li>
-                        <a class="active" href="/account-setting"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/account-setting-icon.png"
+                        <a class="active" href="/account-setting"><img
+                                src="<?php echo get_template_directory_uri(); ?>/assets/images/account-setting-icon.png"
                                 alt="Account Setting">Account
                             Setting</a>
                     </li>
 
                     <li>
-                        <a href="donation-plan.html"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/donation-plan-icon.png" alt="Donation Plan">Donation
+                        <a href="donation-plan.html"><img
+                                src="<?php echo get_template_directory_uri(); ?>/assets/images/donation-plan-icon.png"
+                                alt="Donation Plan">Donation
                             Plan</a>
                     </li>
 
                     <li>
-                        <a href="matches.html"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/heart-icon.png" alt="Matches">Matches <span
-                                class="notification">1</span></a>
+                        <a href="matches.html"><img
+                                src="<?php echo get_template_directory_uri(); ?>/assets/images/heart-icon.png"
+                                alt="Matches">Matches <span class="notification">1</span></a>
                     </li>
 
                     <li>
-                        <a href="invoice-blank.html"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/invoice-icon.png" alt="Invoice">Invoice <span
-                                class="notification">1</span></a>
+                        <a href="invoice-blank.html"><img
+                                src="<?php echo get_template_directory_uri(); ?>/assets/images/invoice-icon.png"
+                                alt="Invoice">Invoice <span class="notification">1</span></a>
                     </li>
 
                     <li>
-                        <a href="support.html"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/customer-support-icon.png" alt="Support">Support</a>
+                        <a href="support.html"><img
+                                src="<?php echo get_template_directory_uri(); ?>/assets/images/customer-support-icon.png"
+                                alt="Support">Support</a>
                     </li>
 
                     <li>
-                        <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/sign-out-icon.png" alt="Sign out">Sign out</a>
+                        <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/sign-out-icon.png"
+                                alt="Sign out">Sign out</a>
                     </li>
 
                 </ul>
@@ -59,3 +67,4 @@
 
     </aside>
 <?php endif; ?>
+
