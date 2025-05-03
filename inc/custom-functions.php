@@ -66,10 +66,107 @@ function save_custom_user_profile_data()
     update_user_meta($user_id, 'smoking_habit', sanitize_text_field($_POST['smokingHabit']));
 
     // Redirect
-    wp_redirect(home_url('/divine-meet-step-1'));
+    wp_redirect(home_url('/divine-meet-step-3'));
     exit;
 }
 
+/***************************************
+          Upload User details
+****************************************/
+
+add_action('admin_post_save_user_summary_data', 'save_user_summary_data');
+add_action('admin_post_nopriv_save_user_summary_data', 'save_user_summary_data');
+
+function save_user_summary_data() {
+    if (!is_user_logged_in()) {
+        wp_redirect(home_url()); 
+        exit;
+    }
+
+    $user_id = get_current_user_id();
+
+    if (isset($_POST['user_summary'])) {
+        $summary = sanitize_textarea_field($_POST['user_summary']);
+        update_user_meta($user_id, 'user_summary', $summary);
+    }
+
+    wp_redirect(home_url('/divine-meet-step-4'));
+    exit;
+}
+
+/***************************************
+          Upload User details
+****************************************/
+add_action('admin_post_save_user_interests_data', 'save_user_interests_data');
+
+function save_user_interests_data() {
+    if (!is_user_logged_in()) {
+        wp_redirect(home_url());
+        exit;
+    }
+
+    if (!isset($_POST['save_user_interests_data_nonce_field']) || 
+        !wp_verify_nonce($_POST['save_user_interests_data_nonce_field'], 'save_user_interests_data_nonce')) {
+        wp_die('Security check failed');
+    }
+
+    $user_id = get_current_user_id();
+
+    // Save Sport and Fitness Interests
+    if (isset($_POST['sports_interests']) && is_array($_POST['sports_interests'])) {
+        $sports = array_map('sanitize_text_field', $_POST['sports_interests']);
+        update_user_meta($user_id, 'user_sports_interests', $sports);
+    } else {
+        delete_user_meta($user_id, 'user_sports_interests');
+    }
+
+    // Save Activities Interests
+    if (isset($_POST['activity_interests']) && is_array($_POST['activity_interests'])) {
+        $activities = array_map('sanitize_text_field', $_POST['activity_interests']);
+        update_user_meta($user_id, 'user_activity_interests', $activities);
+    } else {
+        delete_user_meta($user_id, 'user_activity_interests');
+    }
+
+    wp_redirect(home_url('/divine-meet-step-5'));
+    exit;
+}
+
+/***************************************
+          Upload User details
+****************************************/
+add_action('admin_post_nopriv_save_user_preferences', 'save_user_preferences');
+add_action('admin_post_save_user_preferences', 'save_user_preferences');
+
+function save_user_preferences() {
+    if (
+        !isset($_POST['save_user_preferences_nonce_field']) ||
+        !wp_verify_nonce($_POST['save_user_preferences_nonce_field'], 'save_user_preferences_nonce')
+    ) {
+        wp_die('Nonce verification failed');
+    }
+
+    if (!is_user_logged_in()) {
+        wp_die('You must be logged in to save preferences.');
+    }
+
+    $user_id = get_current_user_id();
+
+    // Sanitize and save each field
+    $seeking_for = isset($_POST['seekingFor']) ? sanitize_text_field($_POST['seekingFor']) : '';
+    $age = isset($_POST['age']) ? sanitize_text_field($_POST['age']) : '';
+    $body_type = isset($_POST['bodyType']) ? sanitize_text_field($_POST['bodyType']) : '';
+    $skin_complexion = isset($_POST['skinComplextion']) ? sanitize_text_field($_POST['skinComplextion']) : '';
+
+    update_user_meta($user_id, 'seeking_for', $seeking_for);
+    update_user_meta($user_id, 'preferred_age_range', $age);
+    update_user_meta($user_id, 'body_type', $body_type);
+    update_user_meta($user_id, 'skin_complexion', $skin_complexion);
+
+    // Redirect to next step
+    wp_redirect(home_url());
+    exit;
+}
 
 
 /************************************************
@@ -93,11 +190,19 @@ function show_user_uploaded_media_fields($user)
     $relationship_type = get_user_meta($user->ID, 'relationship_type', true);
     $drinking_habit = get_user_meta($user->ID, 'drinking_habit', true);
     $smoking_habit = get_user_meta($user->ID, 'smoking_habit', true);
+    $current_summary = get_user_meta(get_current_user_id(), 'user_summary', true);
+    $sports = get_user_meta(get_current_user_id(), 'user_sports_interests', true);
+    $activities = get_user_meta(get_current_user_id(), 'user_activity_interests', true);
 
+    $seeking = get_user_meta($user->ID, 'seeking_for', true);
+    $age_range = get_user_meta($user->ID, 'preferred_age_range', true);
+    $body_type = get_user_meta($user->ID, 'body_type', true);
+    $skin_complexion = get_user_meta($user->ID, 'skin_complexion', true);
+    
 
     ?>
     <h2>User Uploaded Media</h2>
-    <table class="form-table">
+    <table class="form-table profile-table">
         <?php if ($photo_url): ?>
             <tr>
                 <th><label>Uploaded Photo</label></th>
@@ -150,6 +255,51 @@ function show_user_uploaded_media_fields($user)
                 <td><?php echo esc_html($smoking_habit); ?></td>
             </tr>
         <?php endif; ?>
+        <?php if ($current_summary): ?>
+            <tr>
+                <th><label>summary about myself</label></th>
+                <td><?php echo esc_html($current_summary); ?></td>
+            </tr>
+        <?php endif; ?>
+        <?php if (!empty($sports) && is_array($sports)): ?>
+            <tr>
+                <th><label>Interests Sports</label></th>
+                <td><?php echo esc_html(implode(', ', $sports)); ?></td>
+            </tr>
+        <?php endif; ?>
+
+        <?php if (!empty($activities) && is_array($activities)): ?>
+            <tr>
+                <th><label>Interests Activities</label></th>
+                <td><?php echo esc_html(implode(', ', $activities)); ?></td>
+            </tr>
+        <?php endif; ?>
+
+        <?php if ($seeking): ?>
+            <tr>
+                <th><label>Seeking</label></th>
+                <td><?php echo esc_html($seeking); ?></td>
+            </tr>
+        <?php endif; ?>
+        <?php if ($age_range): ?>
+            <tr>
+                <th><label>Preferred Age Range</label></th>
+                <td><?php echo esc_html($age_range); ?></td>
+            </tr>
+        <?php endif; ?>
+        <?php if ($current_summary): ?>
+            <tr>
+                <th><label>Body Type</label></th>
+                <td><?php echo esc_html($body_type); ?></td>
+            </tr>
+        <?php endif; ?>
+        <?php if ($skin_complexion): ?>
+            <tr>
+                <th><label>Skin Complexion</label></th>
+                <td><?php echo esc_html($skin_complexion); ?></td>
+            </tr>
+        <?php endif; ?>
+
     </table>
     <?php
 }

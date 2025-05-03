@@ -5242,13 +5242,20 @@ a {
 }
 
 /* STEP PROGRESS FILL ~ STEP THREE */
+#divien-step-left3 .progress-bar .progress-fill {
+    width: 60%;
+}
 
 
 /* STEP PROGRESS FILL ~ STEP FOUR */
-
+#divien-step-left3 .progress-bar .progress-fill {
+    width: 80%;
+}
 
 /* STEP PROGRESS FILL ~ STEP FIVE */
-
+#divien-step-left5 .progress-bar .progress-fill {
+    width: 100%;
+}
 
 /* DIVINE STEPS NAME */
 .divine-steps-left .divine-steps-progress .divine-steps-name {
