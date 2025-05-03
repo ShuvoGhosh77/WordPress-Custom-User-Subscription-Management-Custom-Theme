@@ -41,7 +41,7 @@ get_header();
                         <div class="row">
 
 
-                            <div class="col-lg-6 d-flex p-0">
+                            <div class="col-lg-6 d-flex p-0" id="divien-step-left1">
 
                                 <!-- Divine Step Left -->
                                 <?php get_template_part('templates/sections/divine-step-left'); ?>

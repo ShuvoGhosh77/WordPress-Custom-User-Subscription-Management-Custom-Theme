@@ -26,6 +26,8 @@ a {
     margin: 0 30px;
     margin-top: 10px !important;
 }
+
+
 /* Full Container */
 .container-fluid {
     padding-right: 70px !important;
@@ -5231,29 +5233,22 @@ a {
 }
 
 /* STEP PROGRESS FILL ~ STEP ONE */
-.divine-steps-progress.upload-photo-step .progress-bar .progress-fill {
+#divien-step-left1 .progress-bar .progress-fill {
     width: 20%;
 }
-
 /* STEP PROGRESS FILL ~ STEP TWO */
-.divine-steps-progress.details-step .progress-bar .progress-fill {
+#divien-step-left2 .progress-bar .progress-fill {
     width: 40%;
 }
 
 /* STEP PROGRESS FILL ~ STEP THREE */
-.divine-steps-progress.summary-step .progress-bar .progress-fill {
-    width: 60%;
-}
+
 
 /* STEP PROGRESS FILL ~ STEP FOUR */
-.divine-steps-progress.interest-step .progress-bar .progress-fill {
-    width: 80%;
-}
+
 
 /* STEP PROGRESS FILL ~ STEP FIVE */
-.divine-steps-progress.preferences-step .progress-bar .progress-fill {
-    width: 100%;
-}
+
 
 /* DIVINE STEPS NAME */
 .divine-steps-left .divine-steps-progress .divine-steps-name {
