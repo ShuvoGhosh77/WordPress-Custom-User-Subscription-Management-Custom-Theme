@@ -908,14 +908,14 @@ a {
 }
 
 /* Carosuel Indicator */
-.carousel-indicators {
+#carouselExampleIndicators  .carousel-indicators {
     position: relative;
     margin-top: 40px;
     margin-bottom: 0;
 }
 
 /* Carousel Dots */
-.carousel-indicators [data-bs-target] {
+#carouselExampleIndicators  .carousel-indicators [data-bs-target] {
     transition: 0.3s ease;
     border-radius: 50%;
     background-color: #ccc;
@@ -927,7 +927,7 @@ a {
 }
 
 /* Carousel Dot Active */
-.carousel-indicators .active {
+#carouselExampleIndicators  .carousel-indicators .active {
     background-color: #72bd2f;
 }
 
@@ -5248,7 +5248,7 @@ a {
 
 
 /* STEP PROGRESS FILL ~ STEP FOUR */
-#divien-step-left3 .progress-bar .progress-fill {
+#divien-step-left4 .progress-bar .progress-fill {
     width: 80%;
 }
 

@@ -21,3 +21,7 @@ function yourtheme_register_sidebar() {
     ));
 }
 add_action('widgets_init', 'yourtheme_register_sidebar');
+
+add_filter('wp_mail_content_type', function() {
+    return 'text/html';
+});

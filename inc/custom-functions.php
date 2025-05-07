@@ -1,7 +1,7 @@
 <?php
 
 /***************************************
-          Upload Your Photos 
+          Upload Your Photos step-1
 ****************************************/
 
 add_action('template_redirect', 'handle_user_media_upload_post');
@@ -39,7 +39,7 @@ function handle_user_media_upload_post()
 
 
 /***************************************
-          Upload User details
+          Upload User details step-2
 ****************************************/
 
 add_action('admin_post_save_custom_user_profile_data', 'save_custom_user_profile_data');
@@ -71,7 +71,7 @@ function save_custom_user_profile_data()
 }
 
 /***************************************
-          Upload User details
+          Upload User details step-3
 ****************************************/
 
 add_action('admin_post_save_user_summary_data', 'save_user_summary_data');
@@ -95,7 +95,7 @@ function save_user_summary_data() {
 }
 
 /***************************************
-          Upload User details
+          Upload User details step-4
 ****************************************/
 add_action('admin_post_save_user_interests_data', 'save_user_interests_data');
 
@@ -133,7 +133,7 @@ function save_user_interests_data() {
 }
 
 /***************************************
-          Upload User details
+          Upload User details step-5
 ****************************************/
 add_action('admin_post_nopriv_save_user_preferences', 'save_user_preferences');
 add_action('admin_post_save_user_preferences', 'save_user_preferences');
@@ -190,9 +190,9 @@ function show_user_uploaded_media_fields($user)
     $relationship_type = get_user_meta($user->ID, 'relationship_type', true);
     $drinking_habit = get_user_meta($user->ID, 'drinking_habit', true);
     $smoking_habit = get_user_meta($user->ID, 'smoking_habit', true);
-    $current_summary = get_user_meta(get_current_user_id(), 'user_summary', true);
-    $sports = get_user_meta(get_current_user_id(), 'user_sports_interests', true);
-    $activities = get_user_meta(get_current_user_id(), 'user_activity_interests', true);
+    $current_summary = get_user_meta($user->ID, 'user_summary', true);
+    $sports = get_user_meta($user->ID, 'user_sports_interests', true);
+    $activities = get_user_meta($user->ID, 'user_activity_interests', true);
 
     $seeking = get_user_meta($user->ID, 'seeking_for', true);
     $age_range = get_user_meta($user->ID, 'preferred_age_range', true);
@@ -303,3 +303,4 @@ function show_user_uploaded_media_fields($user)
     </table>
     <?php
 }
+

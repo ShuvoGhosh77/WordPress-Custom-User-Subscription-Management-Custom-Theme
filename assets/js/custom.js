@@ -1,5 +1,47 @@
 jQuery(document).ready(function ($) {
 
+  // start select-screening page js 
+  var selectedOption = null;
+  $('#next-button').hide(); 
+
+  $('.screening-box').click(function () {
+      $('.screening-box').removeClass('selected');
+      $(this).addClass('selected');
+      selectedOption = $(this).data('page');
+      $('#next-button').show();
+  });
+
+  $('#next-button').click(function () {
+      if (selectedOption) {
+          window.location.href = selectedOption;
+      }
+  });
+
+    // Get the elements
+    var $popupToggle = $("#popupToggle");
+    var $popupBox = $("#popupBox");
+    var $popupClose = $("#popupClose");
+  
+    // Add event listener to toggle button
+    $popupToggle.on("click", function() {
+      // Toggle the display of the popup box
+      if ($popupBox.css("display") === "none") {
+        $popupBox.fadeIn(100);
+      } else {
+        $popupBox.fadeOut(100);
+      }
+    });
+  
+    // Add event listener to close button
+    $popupClose.on("click", function() {
+      // Hide the popup box
+      $popupBox.fadeOut(100);
+    });
+
+ // end select-screening page js 
+
+
+  // height rang slider for input 
   $('.input-range').each(function () {
     var value = parseFloat($(this).attr('data-slider-value'));
 

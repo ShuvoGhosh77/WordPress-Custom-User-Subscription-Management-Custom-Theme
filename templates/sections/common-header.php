@@ -21,12 +21,12 @@
             <ul class="navbar-nav pt-lg-0 pt-3 ms-auto">
                 <!-- Account Settings -->
                 <li class="nav-item">
-                    <a class="nav-link" href="/account-setting">Account Settings</a>
+                    <a class="nav-link  <?php if (is_page('account-setting')) echo 'active'; ?>" href="/account-setting">Account Settings</a>
                 </li>
 
                 <!-- Donation Plan -->
                 <li class="nav-item">
-                    <a class="nav-link" href="donation-plan.html">Donation Plan</a>
+                    <a class="nav-link" href="/donation-plan">Donation Plan</a>
                 </li>
 
                 <!-- Invoice -->
@@ -36,7 +36,7 @@
 
                 <!-- Support -->
                 <li class="nav-item">
-                    <a class="nav-link" href="support.html">Support</a>
+                    <a class="nav-link" href="/support">Support</a>
                 </li>
 
                 <!-- Sign out -->

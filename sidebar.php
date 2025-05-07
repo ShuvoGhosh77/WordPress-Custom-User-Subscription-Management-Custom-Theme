@@ -23,14 +23,14 @@
                 <ul class="list-unstyled">
 
                     <li>
-                        <a class="active" href="/account-setting"><img
+                        <a class="<?php if (is_page('account-setting')) echo 'active'; ?>" href="/account-setting"><img
                                 src="<?php echo get_template_directory_uri(); ?>/assets/images/account-setting-icon.png"
                                 alt="Account Setting">Account
                             Setting</a>
                     </li>
 
                     <li>
-                        <a href="donation-plan.html"><img
+                        <a class="<?php if (is_page('donation-plan')) echo 'active'; ?>" href="/donation-plan"><img
                                 src="<?php echo get_template_directory_uri(); ?>/assets/images/donation-plan-icon.png"
                                 alt="Donation Plan">Donation
                             Plan</a>
@@ -49,7 +49,7 @@
                     </li>
 
                     <li>
-                        <a href="support.html"><img
+                        <a  class="<?php if (is_page('support')) echo 'active'; ?>" href="/support"><img
                                 src="<?php echo get_template_directory_uri(); ?>/assets/images/customer-support-icon.png"
                                 alt="Support">Support</a>
                     </li>

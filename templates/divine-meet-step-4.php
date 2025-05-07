@@ -39,7 +39,7 @@ get_header();
                         <div class="row justify-content-between">
 
 
-                            <div class="col-lg-6 d-flex p-0" id="divien-step-left3">
+                            <div class="col-lg-6 d-flex p-0" id="divien-step-left4">
 
                                 <!-- Divine Steps Left -->
                                 <?php get_template_part('templates/sections/divine-step-left'); ?>
