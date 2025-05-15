@@ -249,3 +249,25 @@ function deletetogglePassword(DelPasswordVerify) {
 
 
 
+
+// DivineCountrySelect
+const DivineCountrySelect = document.getElementById("dm-country");
+
+// Function to fetch the list of countries
+async function fetchLocationCountries() {
+  const response = await fetch("https://restcountries.com/v2/all");
+  const countries = await response.json();
+  return countries;
+}
+
+// Generate options for countries in DivineCountrySelect
+fetchLocationCountries()
+  .then((countries) => {
+    countries.forEach((country) => {
+      const option = new Option(country.name, country.alpha2Code);
+      DivineCountrySelect.add(option);
+    });
+  })
+  .catch((error) => {
+    console.error("Error fetching countries for Divine Country Select:", error);
+  });

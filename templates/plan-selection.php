@@ -119,7 +119,8 @@ get_header();
 
                         <!-- Donate Btn -->
                         <div class="btn-block">
-                            <button type="button" class="btn btn-primary">Donate</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='/checkout/?add-to-cart=123';">Donate</button>
+
                         </div>
 
                     </div>

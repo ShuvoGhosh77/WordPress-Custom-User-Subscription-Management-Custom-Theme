@@ -19,7 +19,7 @@
                     Room</span></a>
         </li>
 
-        <li class="active"><a href="divine-meet.html">
+        <li class="active"><a href="/divine-meet">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Divine-Meet-icon--light.svg"
                     class="img-fluid" alt="Divine Meet"><span>Divine Meet</span></a>
         </li>
