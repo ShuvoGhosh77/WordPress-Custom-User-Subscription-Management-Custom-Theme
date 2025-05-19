@@ -43,23 +43,58 @@ add_action('template_redirect', 'custom_handle_user_registration');
 
 
 // login logick 
-function custom_login_redirect($user_login, $user) {
-    // Redirect to the homepage after successful login
-    wp_redirect(home_url());
-    exit;
-}
+function handle_custom_login() {
+    if ( isset($_POST['custom_login_form']) ) {
+        $creds = array();
+        $creds['user_login']    = sanitize_user($_POST['log']);
+        $creds['user_password'] = $_POST['pwd'];
+        $creds['remember']      = isset($_POST['rememberme']) ? true : false;
 
-add_action('wp_login', 'custom_login_redirect', 10, 2);
+        $user = wp_signon($creds, false);
 
-
-function custom_forgot_password_messages() {
-    if ( isset($_GET['action']) && $_GET['action'] == 'lostpassword' ) {
-        if ( isset($_GET['errors']) && $_GET['errors'] == 'invalidkey' ) {
-            echo '<div class="alert alert-danger">The email address is not registered. Please check and try again.</div>';
+        if ( is_wp_error($user) ) {
+            // Save error message temporarily using transient or global
+            global $custom_login_error;
+            $custom_login_error = $user->get_error_message();
+        } else {
+            // Successful login
+            wp_redirect(home_url()); // Or redirect to wc_get_page_permalink('myaccount');
+            exit;
         }
     }
 }
-add_action( 'wp_footer', 'custom_forgot_password_messages' );
+add_action('template_redirect', 'handle_custom_login'); 
+
+
+
+function handle_custom_forgot_password() {
+    if ( isset($_POST['custom_forgot_password']) && !empty($_POST['user_login']) ) {
+        $user_login = sanitize_text_field($_POST['user_login']);
+        $user = get_user_by('email', $user_login);
+
+        if ( $user ) {
+            // Trigger password reset email
+            $reset = retrieve_password($user_login);
+
+            if ( $reset === true ) {
+                // Show success message
+               wp_redirect(home_url('/reset-email-sent'));
+                exit;
+            } else {
+                add_filter('custom_forgot_message', function() {
+                    return '<div class="alert alert-danger">Could not send reset instructions. Please try again later.</div>';
+                });
+            }
+        } else {
+            add_filter('custom_forgot_message', function() {
+                return '<div class="alert alert-danger">No user found with that email address.</div>';
+            });
+        }
+    }
+}
+add_action('template_redirect', 'handle_custom_forgot_password');
+
+
 
 
 

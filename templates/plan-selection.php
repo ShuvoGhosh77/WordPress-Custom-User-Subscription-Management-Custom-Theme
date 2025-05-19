@@ -85,13 +85,19 @@ get_header();
                     <div class="main-block d-flex justify-content-between align-items-center">
 
                         <!-- Price -->
+						<?php
+							$product_id = 217;
+							$product = wc_get_product($product_id);
+							$price =  wc_price($product->get_regular_price());
+							$add_to_cart_url = '?add-to-cart=' . $product_id;
+						?>
                         <div class="price">
-                            <span class="value">₦5,000 ($6.57 USD)</span>
+                            <span class="value"><?php echo $price; ?> ($6.57 USD)</span>
                         </div>
 
                         <!-- Donate Btn -->
                         <div class="btn-block">
-                            <button type="button" class="btn btn-primary">Donate</button>
+                             <button type="button" class="btn btn-primary" onclick="window.location.href='/product-checkout/?add-to-cart=217';">Donate</button>
                         </div>
 
                     </div>
@@ -112,15 +118,20 @@ get_header();
                     <div class="main-block d-flex justify-content-between align-items-center">
 
                         <!-- Price -->
+						<?php
+							$product_id = 218;
+							$product = wc_get_product($product_id);
+							$price2 =  wc_price($product->get_regular_price());
+							$add_to_cart_url = '?add-to-cart=' . $product_id;
+						?>
                         <div class="price">
-                            <span class="value">₦20,000 ($26.30 USD)</span>
+                            <span class="value"><?php echo $price2; ?> ($26.30 USD)</span>
                             <span class="duration">per month</span>
                         </div>
 
                         <!-- Donate Btn -->
                         <div class="btn-block">
-                        <button type="button" class="btn btn-primary" onclick="window.location.href='/checkout/?add-to-cart=123';">Donate</button>
-
+							<button type="button" class="btn btn-primary" onclick="window.location.href='/product-checkout/?add-to-cart=218';">Donate</button>
                         </div>
 
                     </div>
@@ -149,15 +160,21 @@ get_header();
                     <div class="main-block d-flex justify-content-between align-items-center">
 
                         <!-- Price -->
+						<?php
+							$product_id = 219;
+							$product = wc_get_product($product_id);
+							$price3 =  wc_price($product->get_regular_price());
+							$add_to_cart_url = '?add-to-cart=' . $product_id;
+						?>
                         <div class="price">
-                            <span class="value">₦8,500 ($11.03 USD)</span>
+                            <span class="value"><?php echo $price3; ?> ($11.03 USD)</span>
                             <span class="duration">per month</span>
                             <p>Billed as one donation of N102,000 ($132.36 USD)</p>
                         </div>
 
                         <!-- Donate Btn -->
                         <div class="btn-block">
-                            <button type="button" class="btn btn-primary">Donate</button>
+                            <button type="button" class="btn btn-primary" onclick="window.location.href='/product-checkout/?add-to-cart=219';">Donate</button>
                         </div>
 
                     </div>

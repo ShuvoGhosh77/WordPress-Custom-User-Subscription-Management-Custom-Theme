@@ -2,43 +2,43 @@ jQuery(document).ready(function ($) {
 
   // start select-screening page js 
   var selectedOption = null;
-  $('#next-button').hide(); 
+  $('#next-button').hide();
 
   $('.screening-box').click(function () {
-      $('.screening-box').removeClass('selected');
-      $(this).addClass('selected');
-      selectedOption = $(this).data('page');
-      $('#next-button').show();
+    $('.screening-box').removeClass('selected');
+    $(this).addClass('selected');
+    selectedOption = $(this).data('page');
+    $('#next-button').show();
   });
 
   $('#next-button').click(function () {
-      if (selectedOption) {
-          window.location.href = selectedOption;
-      }
+    if (selectedOption) {
+      window.location.href = selectedOption;
+    }
   });
 
-    // Get the elements
-    var $popupToggle = $("#popupToggle");
-    var $popupBox = $("#popupBox");
-    var $popupClose = $("#popupClose");
-  
-    // Add event listener to toggle button
-    $popupToggle.on("click", function() {
-      // Toggle the display of the popup box
-      if ($popupBox.css("display") === "none") {
-        $popupBox.fadeIn(100);
-      } else {
-        $popupBox.fadeOut(100);
-      }
-    });
-  
-    // Add event listener to close button
-    $popupClose.on("click", function() {
-      // Hide the popup box
-      $popupBox.fadeOut(100);
-    });
+  // Get the elements
+  var $popupToggle = $("#popupToggle");
+  var $popupBox = $("#popupBox");
+  var $popupClose = $("#popupClose");
 
- // end select-screening page js 
+  // Add event listener to toggle button
+  $popupToggle.on("click", function () {
+    // Toggle the display of the popup box
+    if ($popupBox.css("display") === "none") {
+      $popupBox.fadeIn(100);
+    } else {
+      $popupBox.fadeOut(100);
+    }
+  });
+
+  // Add event listener to close button
+  $popupClose.on("click", function () {
+    // Hide the popup box
+    $popupBox.fadeOut(100);
+  });
+
+  // end select-screening page js 
 
 
   // height rang slider for input 
@@ -169,6 +169,38 @@ jQuery(document).ready(function ($) {
       }
     }
   }
+
+  // Mansory Grid JS
+  var $grid = $('.masonry-grid').masonry({
+    itemSelector: '.col-lg-4',
+    columnWidth: '.col-lg-4',
+    horizontalOrder: true
+  });
+
+  // DivineCountrySelect using jQuery
+  const $DivineCountrySelect = $("#dm-country");
+
+  // Function to fetch the list of countries
+  async function fetchLocationCountries() {
+    try {
+      const response = await fetch("https://restcountries.com/v2/all");
+      const countries = await response.json();
+
+      // Check if the country select element exists before trying to add options
+      if ($DivineCountrySelect.length > 0) {
+        countries.forEach((country) => {
+          const option = $("<option></option>").val(country.alpha2Code).text(country.name);
+          $DivineCountrySelect.append(option);
+        });
+      }
+    } catch (error) {
+      console.error("Error fetching countries for Divine Country Select:", error);
+    }
+  }
+
+  // Call the function to populate the country list
+  fetchLocationCountries();
+
 });
 
 
@@ -248,26 +280,30 @@ function deletetogglePassword(DelPasswordVerify) {
 
 
 
+// // contact form Divine Meet page
+
+// // DivineCountrySelect
+// const DivineCountrySelect = document.getElementById("dm-country");
+
+// // Function to fetch the list of countries
+// async function fetchLocationCountries() {
+//   const response = await fetch("https://restcountries.com/v2/all");
+//   const countries = await response.json();
+//   return countries;
+// }
+
+// // Generate options for countries in DivineCountrySelect
+// fetchLocationCountries()
+//   .then((countries) => {
+//     countries.forEach((country) => {
+//       const option = new Option(country.name, country.alpha2Code);
+//       DivineCountrySelect.add(option);
+//     });
+//   })
+//   .catch((error) => {
+//     console.error("Error fetching countries for Divine Country Select:", error);
+//   });
 
 
-// DivineCountrySelect
-const DivineCountrySelect = document.getElementById("dm-country");
 
-// Function to fetch the list of countries
-async function fetchLocationCountries() {
-  const response = await fetch("https://restcountries.com/v2/all");
-  const countries = await response.json();
-  return countries;
-}
 
-// Generate options for countries in DivineCountrySelect
-fetchLocationCountries()
-  .then((countries) => {
-    countries.forEach((country) => {
-      const option = new Option(country.name, country.alpha2Code);
-      DivineCountrySelect.add(option);
-    });
-  })
-  .catch((error) => {
-    console.error("Error fetching countries for Divine Country Select:", error);
-  });

@@ -39,7 +39,8 @@ get_header();
             <div class="forgot-password-box mx-auto">
 
                 <!-- Form -->
-                <form method="post" action="<?php echo wp_lostpassword_url(); ?>">
+                <form method="post" action="">
+                    <input type="hidden" name="custom_forgot_password" value="1">
 
                     <!-- Title -->
                     <div class="d-flex justify-content-between align-items-center mb-lg-4 mb-3">
@@ -64,6 +65,12 @@ get_header();
                     <div>
                         <button type="submit" class="btn btn-primary w-100">Send me reset instructions</button>
                     </div>
+                    <?php
+                    if (has_filter('custom_forgot_message')) {
+                        echo apply_filters('custom_forgot_message', '');
+                    }
+                    ?>
+
 
                     <!-- Forgot Email? -->
                     <div class="text-center mt-3">

@@ -62,8 +62,7 @@ get_header();
                 <div class="col-lg-6 z-1">
 
                     <!-- Login Form -->
-                    <form id="login-form" class="auth-form mx-auto" method="post"
-                        action="<?php echo wp_login_url(); ?>">
+                    <form id="login-form" class="auth-form mx-auto" method="post" action="">
 
                         <!-- Heading -->
                         <h2 class="form-title">Account Login</h2>
@@ -95,9 +94,18 @@ get_header();
                             <a href="/forget-password" class="forgetpass">Forgot Password</a>
 
                         </div>
+                        <input type="hidden" name="custom_login_form" value="1">
 
                         <!-- Login Button -->
                         <button type="submit" class="btn btn-primary w-100">Login to your Account!</button>
+                        <?php
+                        global $custom_login_error;
+                        if (!empty($custom_login_error)) {
+                            echo '<div class="alert alert-danger">' . $custom_login_error . '</div>';
+                        }
+                        ?>
+
+
 
                         <!-- Social Login Wrapper -->
                         <div class="social-login-wrapper">
@@ -146,3 +154,6 @@ get_header();
 
 
 </main>
+
+
+<?php get_footer(); ?>
