@@ -1,5 +1,9 @@
 jQuery(document).ready(function ($) {
 
+
+
+
+
   // start select-screening page js 
   var selectedOption = null;
   $('#next-button').hide();
@@ -304,6 +308,147 @@ function deletetogglePassword(DelPasswordVerify) {
 //     console.error("Error fetching countries for Divine Country Select:", error);
 //   });
 
+
+
+/*
+
+// PASSWORD MISMATCH ERROR JS
+ var passwordInput = document.getElementById("ResetNewPassword");
+ var confirmPasswordInput = document.getElementById("confirmNewPassword");
+ var passwordMismatchError = document.getElementById("passwordMismatchError");
+
+ // Add event listener to form submission
+ document.querySelector("form").addEventListener("submit", function (event) {
+     event.preventDefault(); // Prevent form submission
+
+     // Check if passwords match
+     if (passwordInput.value !== confirmPasswordInput.value) {
+         // Show password mismatch error message
+         passwordMismatchError.style.display = "block";
+     } else {
+         // Hide password mismatch error message
+         passwordMismatchError.style.display = "none";
+
+         // Show success toast
+         var passwordToast = document.getElementById("passwordToast");
+         var toast = new bootstrap.Toast(passwordToast);
+         toast.show();
+
+         // Clear the password fields
+         passwordInput.value = "";
+         confirmPasswordInput.value = "";
+     }
+ });
+
+ // Add event listener to confirmPasswordInput for realtime validation
+ confirmPasswordInput.addEventListener("input", function () {
+     if (passwordInput.value === confirmPasswordInput.value) {
+         // Hide password mismatch error message
+         passwordMismatchError.style.display = "none";
+     }
+ });
+
+
+*/
+
+
+// UPDATE PASSWORD EYE TOGGLE
+function toggleCurrentPassword(currentPassword) {
+  const passwordInput = document.getElementById(currentPassword);
+  const passwordToggle = document.querySelector('.password-toggle-current');
+  
+  if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
+  } else {
+      passwordInput.type = 'password';
+      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
+  }
+}
+function toggleNewPassword(newPassword) {
+  const passwordInput = document.getElementById(newPassword);
+  const passwordToggle = document.querySelector('.password-toggle-new');
+  
+  if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
+  } else {
+      passwordInput.type = 'password';
+      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
+  }
+}
+
+
+
+// RESET PASSWORD EYE TOGGLE
+function togglePassword(ResetNewPassword) {
+  const passwordInput = document.getElementById(ResetNewPassword);
+  const passwordToggle = document.querySelector('.new-password-toggle');
+  
+  if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
+  } else {
+      passwordInput.type = 'password';
+      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
+  }
+}
+
+function togglePasswordTwo(confirmNewPassword) {
+  const passwordInput = document.getElementById(confirmNewPassword);
+  const passwordToggle = document.querySelector('.confirm-password-toggle');
+  
+  if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
+  } else {
+      passwordInput.type = 'password';
+      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
+  }
+}
+
+
+// VERIFY ACCOUNT PASSWORD EYE TOGGLE
+function deletetogglePassword(DelPasswordVerify) {
+  const passwordInput = document.getElementById(DelPasswordVerify);
+  const passwordToggle = document.querySelector('.password-toggle');
+
+  if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
+  } else {
+      passwordInput.type = 'password';
+      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
+  }
+}
+
+// VERIFY ACCOUNT PASSWORD EYE TOGGLE
+function deletetogglePassword(DelPasswordVerify) {
+  const passwordInput = document.getElementById(DelPasswordVerify);
+  const passwordToggle = document.querySelector('.password-toggle');
+
+  if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
+  } else {
+      passwordInput.type = 'password';
+      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
+  }
+}
+
+// UPDATE EMAIL CONFIRM PASSWORD EYE TOGGLE
+function EmaiUpdatePassword(EmaiUpdatePassword) {
+  const passwordInput = document.getElementById(EmaiUpdatePassword);
+  const passwordToggle = document.querySelector('.UpdateEmail-password-toggle');
+
+  if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
+  } else {
+      passwordInput.type = 'password';
+      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
+  }
+}
 
 
 

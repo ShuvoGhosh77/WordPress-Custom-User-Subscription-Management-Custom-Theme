@@ -1,13 +1,14 @@
 <?php
 // Registation logick 
-function custom_handle_user_registration() {
+function custom_handle_user_registration()
+{
     if (isset($_POST['submit_register'])) {
-        $username   = sanitize_user($_POST['username']);
-        $firstname   = sanitize_user($_POST['firstname']);
-        $lastname   = sanitize_user($_POST['lastname']);
-        $email      = sanitize_email($_POST['email']);
-        $password   = $_POST['password'];
-        $confirm    = $_POST['confirm_password'];
+        $username = sanitize_user($_POST['username']);
+        $firstname = sanitize_user($_POST['firstname']);
+        $lastname = sanitize_user($_POST['lastname']);
+        $email = sanitize_email($_POST['email']);
+        $password = $_POST['password'];
+        $confirm = $_POST['confirm_password'];
 
         global $registration_error, $registration_success;
 
@@ -32,7 +33,7 @@ function custom_handle_user_registration() {
                 //     'display_name' => $firstname . ' ' . $lastname,
                 // ]);
                 wp_new_user_notification($user_id, null, 'user');
-                $registration_success = true; 
+                $registration_success = true;
             } else {
                 $registration_error = 'Registration failed. Try again.';
             }
@@ -43,50 +44,62 @@ add_action('template_redirect', 'custom_handle_user_registration');
 
 
 // login logick 
-function handle_custom_login() {
-    if ( isset($_POST['custom_login_form']) ) {
+function handle_custom_login()
+{
+    if (isset($_POST['custom_login_form'])) {
         $creds = array();
-        $creds['user_login']    = sanitize_user($_POST['log']);
+        $creds['user_login'] = sanitize_user($_POST['log']);
         $creds['user_password'] = $_POST['pwd'];
-        $creds['remember']      = isset($_POST['rememberme']) ? true : false;
+        $creds['remember'] = isset($_POST['rememberme']) ? true : false;
 
         $user = wp_signon($creds, false);
 
-        if ( is_wp_error($user) ) {
+        if (is_wp_error($user)) {
             // Save error message temporarily using transient or global
             global $custom_login_error;
             $custom_login_error = $user->get_error_message();
         } else {
             // Successful login
-            wp_redirect(home_url()); // Or redirect to wc_get_page_permalink('myaccount');
+            wp_redirect(home_url());
             exit;
         }
     }
 }
-add_action('template_redirect', 'handle_custom_login'); 
+add_action('template_redirect', 'handle_custom_login');
 
 
 
-function handle_custom_forgot_password() {
-    if ( isset($_POST['custom_forgot_password']) && !empty($_POST['user_login']) ) {
+function handle_custom_forgot_password()
+{
+    if (isset($_POST['custom_forgot_password']) && !empty($_POST['user_login'])) {
         $user_login = sanitize_text_field($_POST['user_login']);
         $user = get_user_by('email', $user_login);
 
-        if ( $user ) {
-            // Trigger password reset email
-            $reset = retrieve_password($user_login);
-
-            if ( $reset === true ) {
-                // Show success message
-               wp_redirect(home_url('/reset-email-sent'));
-                exit;
-            } else {
-                add_filter('custom_forgot_message', function() {
-                    return '<div class="alert alert-danger">Could not send reset instructions. Please try again later.</div>';
-                });
+        if ($user) {
+            // Generate reset key
+            $key = get_password_reset_key($user);
+            if (is_wp_error($key)) {
+                // Error generating key
+                return;
             }
+
+            $reset_link = home_url('/reset-password') . '?key=' . urlencode($key) . '&login=' . urlencode($user->user_login);
+
+            // Send custom email
+            $subject = 'Reset your password';
+            $message = '
+                <p>Someone requested a password reset for your account.</p>
+                <p>Click the button below to reset your password:</p>
+                <p><a href="' . esc_url($reset_link) . '" style="background-color:#0073aa;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;">Reset Password</a></p>
+                <p>If you didn\'t request this, just ignore this email.</p>
+            ';
+
+            wp_mail($user->user_email, $subject, $message, ['Content-Type: text/html; charset=UTF-8']);
+
+            wp_redirect(home_url('/reset-email-sent'));
+            exit;
         } else {
-            add_filter('custom_forgot_message', function() {
+            add_filter('custom_forgot_message', function () {
                 return '<div class="alert alert-danger">No user found with that email address.</div>';
             });
         }
@@ -96,14 +109,86 @@ add_action('template_redirect', 'handle_custom_forgot_password');
 
 
 
+function handle_custom_reset_password_form()
+{
+    if (isset($_POST['custom_reset_password'])) {
+        $login = sanitize_text_field($_POST['login']);
+        $key = sanitize_text_field($_POST['key']);
+        $pass1 = $_POST['pass1'];
+        $pass2 = $_POST['pass2'];
+
+        $messages = [];
+
+        if ($pass1 !== $pass2) {
+            $messages[] = '<div class="alert alert-danger">Passwords do not match.</div>';
+        }
+
+        // Password strength check (length, uppercase, number, special character)
+        if (
+            strlen($pass1) < 8 ||
+            !preg_match('/[A-Z]/', $pass1) ||
+            !preg_match('/[0-9]/', $pass1) ||
+            !preg_match('/[\W]/', $pass1) // checks for special characters
+        ) {
+            $messages[] = '<div class="alert alert-danger" style="margin-top: 10px;">Password must be at least 8 characters and include an uppercase letter, a number, and a special character.</div>';
+        }
+
+        $user = check_password_reset_key($key, $login);
+        if (is_wp_error($user)) {
+            $messages[] = '<div class="alert alert-danger" style="margin-top: 10px;">Invalid or expired reset link.</div>';
+        }
+
+        // Only proceed if there are no errors
+        if (empty($messages)) {
+            $old_passwords = get_user_meta($user->ID, 'previous_passwords', true);
+            $old_passwords = is_array($old_passwords) ? $old_passwords : [];
+
+            foreach ($old_passwords as $old) {
+                if (wp_check_password($pass1, $old)) {
+                    $messages[] = '<div class="alert alert-danger" style="margin-top: 10px;">You cannot reuse an old password. Please choose a new one.</div>';
+                    break;
+                }
+            }
+
+            if (empty($messages)) {
+                reset_password($user, $pass1);
+                $old_passwords[] = wp_hash_password($pass1);
+                if (count($old_passwords) > 5)
+                    array_shift($old_passwords);
+                update_user_meta($user->ID, 'previous_passwords', $old_passwords);
+
+                // Redirect to confirmation page
+                wp_redirect(home_url('/email-password-changed'));
+                exit;
+            }
+        }
+
+        // Save messages to a global or static var to show in form
+        global $custom_reset_messages;
+        $custom_reset_messages = $messages;
+    }
+}
+
+
+
+add_action('template_redirect', function () {
+    if (is_page('reset-password')) {
+        handle_custom_reset_password_form();
+    }
+});
+
+
+
+
 
 
 
 /***********************************************************
             upadte user frist and last name 
- ******************************************************** */ 
+ ******************************************************** */
 add_action('init', 'handle_user_name_update_form_secure');
-function handle_user_name_update_form_secure() {
+function handle_user_name_update_form_secure()
+{
     if (
         isset($_POST['update_user_name']) &&
         isset($_POST['first_name']) &&
@@ -132,10 +217,11 @@ function handle_user_name_update_form_secure() {
 
 /***********************************************************
             upadte user email
- ******************************************************** */ 
+ ******************************************************** */
 
 add_action('init', 'handle_user_email_update_form');
-function handle_user_email_update_form() {
+function handle_user_email_update_form()
+{
     if (
         isset($_POST['update_user_email']) &&
         isset($_POST['new_email']) &&
@@ -170,9 +256,10 @@ function handle_user_email_update_form() {
 
 /***********************************************************
             upadte user password
- ******************************************************** */ 
+ ******************************************************** */
 add_action('init', 'handle_user_password_update');
-function handle_user_password_update() {
+function handle_user_password_update()
+{
     if (
         isset($_POST['update_user_password']) &&
         isset($_POST['current_password']) &&
@@ -212,11 +299,12 @@ function handle_user_password_update() {
 
 /***********************************************************
            deletion user Account
- ******************************************************** */ 
+ ******************************************************** */
 
 add_action('template_redirect', 'handle_account_deletion');
 
-function handle_account_deletion() {
+function handle_account_deletion()
+{
     if (
         is_user_logged_in() &&
         $_SERVER['REQUEST_METHOD'] === 'POST' &&

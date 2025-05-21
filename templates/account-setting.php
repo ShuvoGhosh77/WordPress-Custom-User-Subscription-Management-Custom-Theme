@@ -257,7 +257,7 @@ get_header();
                                 placeholder="For security, please confirm your password" required>
                             <span class="input-group-text UpdateEmail-password-toggle"
                                 onclick="EmaiUpdatePassword('EmaiUpdatePassword')">
-                                <i class="far fa-eye"></i>
+                               <img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">
                             </span>
                         </div>
                     </div>
@@ -303,7 +303,7 @@ get_header();
                             placeholder="Current Password" required>
                         <span class="input-group-text password-toggle-current"
                             onclick="toggleCurrentPassword('currentPassword')">
-                            <i class="far fa-eye"></i>
+                            <img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">
                         </span>
                     </div>
 
@@ -312,7 +312,7 @@ get_header();
                         <input class="form-control" name="new_password" id="newPassword" type="password"
                             placeholder="New Password" required>
                         <span class="input-group-text password-toggle-new" onclick="toggleNewPassword('newPassword')">
-                            <i class="far fa-eye"></i>
+                             <img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">
                         </span>
                     </div>
                 </div>

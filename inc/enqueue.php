@@ -15,7 +15,7 @@ function yourtheme_enqueue_assets()
     wp_enqueue_style('responsive-css', get_template_directory_uri() . '/assets/css/responsive.css');
 
     // FontAwesome CSS (external CDN)
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
     // Bootstrap JS (external CDN, with jQuery as dependency)
     wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js', array('jquery'), null, true);

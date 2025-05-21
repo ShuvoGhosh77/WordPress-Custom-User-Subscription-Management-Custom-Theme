@@ -38,7 +38,7 @@ get_header();
 
     <?php
     if ($error = get_transient('account_deletion_error')) {
-        echo '<div style="color: red; text-align:center;">' . esc_html($error) . '</div>';
+        echo '<div style="color: red; text-align:center; margin-top: 20px; font-weight: 700; font-size: 20px;">' . esc_html($error) . '</div>';
         delete_transient('account_deletion_error');
     }
     ?>
@@ -74,7 +74,7 @@ get_header();
                         <div class="input-group-append">
                             <span class="input-group-text password-toggle"
                                 onclick="deletetogglePassword('DelPasswordVerify')">
-                                <i class="far fa-eye" aria-hidden="true"></i>
+                                 <img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">
                             </span>
                         </div>
                     </div>
