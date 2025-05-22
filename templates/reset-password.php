@@ -1,4 +1,4 @@
-<<?php
+<?php
 /*
 Template Name: Reset Password  Page
 */
@@ -46,7 +46,7 @@ get_header();
                         <h1>Reset password</h1>
 
                         <div>
-                            <a href="login.html">Back to Log In</a>
+                            <a href="/login">Back to Log In</a>
                         </div>
 
                     </div>

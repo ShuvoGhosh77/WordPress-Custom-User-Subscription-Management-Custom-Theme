@@ -68,7 +68,7 @@ function handle_custom_login()
 add_action('template_redirect', 'handle_custom_login');
 
 
-
+// Reset password link send in use email
 function handle_custom_forgot_password()
 {
     if (isset($_POST['custom_forgot_password']) && !empty($_POST['user_login'])) {
@@ -86,15 +86,15 @@ function handle_custom_forgot_password()
             $reset_link = home_url('/reset-password') . '?key=' . urlencode($key) . '&login=' . urlencode($user->user_login);
 
             // Send custom email
-            $subject = 'Reset your password';
-            $message = '
-                <p>Someone requested a password reset for your account.</p>
-                <p>Click the button below to reset your password:</p>
-                <p><a href="' . esc_url($reset_link) . '" style="background-color:#0073aa;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;">Reset Password</a></p>
-                <p>If you didn\'t request this, just ignore this email.</p>
-            ';
+            ob_start();
+            include get_template_directory() . '/templates/sections/email-password-reset-template.php';
+            $message = ob_get_clean();
 
-            wp_mail($user->user_email, $subject, $message, ['Content-Type: text/html; charset=UTF-8']);
+            // Send the email
+            $subject = 'Reset your password';
+            $headers = ['Content-Type: text/html; charset=UTF-8'];
+            wp_mail($user->user_email, $subject, $message, $headers);
+      
 
             wp_redirect(home_url('/reset-email-sent'));
             exit;
@@ -157,6 +157,18 @@ function handle_custom_reset_password_form()
                     array_shift($old_passwords);
                 update_user_meta($user->ID, 'previous_passwords', $old_passwords);
 
+                // Send email to the user after password is changed
+                $to = $user->user_email;
+                $subject = 'Your Password Has Been Changed';
+
+                // Capture template output
+                ob_start();
+                include get_template_directory() . '/templates/sections/email-password-changed-email.php';
+                $message = ob_get_clean();
+
+                $headers = ['Content-Type: text/html; charset=UTF-8'];
+
+                wp_mail($to, $subject, $message, $headers);
                 // Redirect to confirmation page
                 wp_redirect(home_url('/email-password-changed'));
                 exit;
