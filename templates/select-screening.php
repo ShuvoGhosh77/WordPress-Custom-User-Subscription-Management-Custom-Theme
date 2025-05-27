@@ -33,7 +33,7 @@ get_header();
                             your journey of personal and spiritual growth.</p>
 
                         <!-- Learn More Btn -->
-                        <a href="screening-details.html" class="btn btn-primary w-100">Learn More <i
+                        <a href="/screening-details" class="btn btn-primary w-100">Learn More <i
                                 class="fa fa-arrow-right"></i></a>
 
 
@@ -41,7 +41,10 @@ get_header();
                         <div class="or-divider"> <span>or</span> </div>
 
                         <!-- Intro Button -->
-                        <button class="btn btn-primary w-100"><i class="fa fa-play"></i>Quick Intro</button>
+                        <a href="#" class="video_lightbox-link" data-bs-toggle="modal" data-bs-target="#video-popup2">
+                            <button class="btn btn-primary w-100"><i class="fa fa-play"></i>Quick Intro</button>
+                        </a>
+
 
                     </div>
 
@@ -70,8 +73,8 @@ get_header();
                                         <div class="col-md-4 col-6">
                                             <!-- General Screening-->
                                             <div class="screening-box" data-page="general-screening.html">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/general-screening.png" class="img-fluid"
-                                                    alt="General Screening">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/general-screening.png"
+                                                    class="img-fluid" alt="General Screening">
                                                 <h5>General Screening</h5>
                                             </div>
                                         </div>
@@ -79,8 +82,8 @@ get_header();
                                         <div class="col-md-4 col-6">
                                             <!-- Employment Screening-->
                                             <div class="screening-box" data-page="employment-screening.html">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/employment-screening.png" class="img-fluid"
-                                                    alt="Employment Screening">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/employment-screening.png"
+                                                    class="img-fluid" alt="Employment Screening">
                                                 <h5>Employment Screening</h5>
                                             </div>
                                         </div>
@@ -88,8 +91,8 @@ get_header();
                                         <div class="col-md-4 col-6">
                                             <!-- Matial Screening-->
                                             <div class="screening-box" data-page="marital-screening.html">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/marital-screening.png" class="img-fluid"
-                                                    alt="Marital Screening">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/marital-screening.png"
+                                                    class="img-fluid" alt="Marital Screening">
                                                 <h5>Marital Screening</h5>
                                             </div>
                                         </div>
@@ -97,8 +100,8 @@ get_header();
                                         <div class="col-md-4 col-6">
                                             <!-- Ministerial Screening-->
                                             <div class="screening-box" data-page="ministerial-screening.html">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ministerial-screening.png" class="img-fluid"
-                                                    alt="Ministerial Screening">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ministerial-screening.png"
+                                                    class="img-fluid" alt="Ministerial Screening">
                                                 <h5>Ministerial Screening</h5>
                                             </div>
                                         </div>
@@ -106,8 +109,8 @@ get_header();
                                         <div class="col-md-4 col-6">
                                             <!-- House/Home Screening-->
                                             <div class="screening-box" data-page="home-screening.html">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/house-home-screening.png" class="img-fluid"
-                                                    alt="Home Screening">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/house-home-screening.png"
+                                                    class="img-fluid" alt="Home Screening">
                                                 <h5>Home Screening</h5>
                                             </div>
                                         </div>
@@ -115,8 +118,8 @@ get_header();
                                         <div class="col-md-4 col-6">
                                             <!-- God-Will Screening-->
                                             <div class="screening-box" data-page="godswill-screening.html">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/god-will-screening.png" class="img-fluid"
-                                                    alt="God's Will">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/god-will-screening.png"
+                                                    class="img-fluid" alt="God's Will">
                                                 <h5>God's Will</h5>
                                             </div>
                                         </div>
@@ -133,8 +136,8 @@ get_header();
                                         <div class="col-md-4 col-6">
                                             <!-- Request-pray Screening-->
                                             <div class="screening-box" data-page="request-pray-screening.html">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/request-pray-screening.png" class="img-fluid"
-                                                    alt="Request For Prayer">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/request-pray-screening.png"
+                                                    class="img-fluid" alt="Request For Prayer">
                                                 <h5>Request For Prayer</h5>
                                             </div>
                                         </div>
@@ -142,8 +145,8 @@ get_header();
                                         <div class="col-md-4 col-6">
                                             <!-- Request-pray Screening-->
                                             <div class="screening-box" data-page="prayer-wall.html">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/prayer-wall-screening-icon.png" class="img-fluid"
-                                                    alt="Prayer Wall">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/prayer-wall-screening-icon.png"
+                                                    class="img-fluid" alt="Prayer Wall">
                                                 <h5>Prayer Wall</h5>
                                             </div>
                                         </div>
@@ -151,8 +154,8 @@ get_header();
                                         <div class="col-md-4 col-6">
                                             <!-- Request-pray Screening-->
                                             <div class="screening-box" data-page="testimonies.html">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonies-screening-icon.png" class="img-fluid"
-                                                    alt="Testimonies">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonies-screening-icon.png"
+                                                    class="img-fluid" alt="Testimonies">
                                                 <h5>Testimonies</h5>
                                             </div>
                                         </div>
@@ -160,8 +163,8 @@ get_header();
                                         <div class="col-md-4 col-6">
                                             <!-- Request-pray Screening-->
                                             <div class="screening-box" data-page="prayer-room.html">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/prayer-room-screening-icon.png" class="img-fluid"
-                                                    alt="Prayer Room">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/prayer-room-screening-icon.png"
+                                                    class="img-fluid" alt="Prayer Room">
                                                 <h5>Prayer Room</h5>
                                             </div>
                                         </div>
@@ -169,8 +172,8 @@ get_header();
                                         <div class="col-md-4 col-6">
                                             <!-- Request-pray Screening-->
                                             <div class="screening-box" data-page="divine-meet.html">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/divine-meet-screening-icon.png" class="img-fluid"
-                                                    alt="Divine Meet">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/divine-meet-screening-icon.png"
+                                                    class="img-fluid" alt="Divine Meet">
                                                 <h5>Divine Meet</h5>
                                             </div>
                                         </div>
@@ -261,6 +264,32 @@ get_header();
 
 
 
+
+    <!-- ===========
+    # MODAL 
+==============-->
+
+    <!-- Video Popup Modal -->
+    <div class="modal fade" id="video-popup2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-content rounded-0">
+                    <div class="modal-body">
+                        <div class="embed-responsive">
+                            <iframe src="https://www.youtube.com/embed/mLwlGsRhNIU" title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </main>

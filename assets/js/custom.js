@@ -1,9 +1,5 @@
 jQuery(document).ready(function ($) {
 
-
-
-
-
   // start select-screening page js 
   var selectedOption = null;
   $('#next-button').hide();
@@ -356,25 +352,25 @@ function deletetogglePassword(DelPasswordVerify) {
 function toggleCurrentPassword(currentPassword) {
   const passwordInput = document.getElementById(currentPassword);
   const passwordToggle = document.querySelector('.password-toggle-current');
-  
+
   if (passwordInput.type === 'password') {
-      passwordInput.type = 'text';
-      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
+    passwordInput.type = 'text';
+    passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
   } else {
-      passwordInput.type = 'password';
-      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
+    passwordInput.type = 'password';
+    passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
   }
 }
 function toggleNewPassword(newPassword) {
   const passwordInput = document.getElementById(newPassword);
   const passwordToggle = document.querySelector('.password-toggle-new');
-  
+
   if (passwordInput.type === 'password') {
-      passwordInput.type = 'text';
-      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
+    passwordInput.type = 'text';
+    passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
   } else {
-      passwordInput.type = 'password';
-      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
+    passwordInput.type = 'password';
+    passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
   }
 }
 
@@ -384,26 +380,26 @@ function toggleNewPassword(newPassword) {
 function togglePassword(ResetNewPassword) {
   const passwordInput = document.getElementById(ResetNewPassword);
   const passwordToggle = document.querySelector('.new-password-toggle');
-  
+
   if (passwordInput.type === 'password') {
-      passwordInput.type = 'text';
-      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
+    passwordInput.type = 'text';
+    passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
   } else {
-      passwordInput.type = 'password';
-      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
+    passwordInput.type = 'password';
+    passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
   }
 }
 
 function togglePasswordTwo(confirmNewPassword) {
   const passwordInput = document.getElementById(confirmNewPassword);
   const passwordToggle = document.querySelector('.confirm-password-toggle');
-  
+
   if (passwordInput.type === 'password') {
-      passwordInput.type = 'text';
-      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
+    passwordInput.type = 'text';
+    passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
   } else {
-      passwordInput.type = 'password';
-      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
+    passwordInput.type = 'password';
+    passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
   }
 }
 
@@ -414,11 +410,11 @@ function deletetogglePassword(DelPasswordVerify) {
   const passwordToggle = document.querySelector('.password-toggle');
 
   if (passwordInput.type === 'password') {
-      passwordInput.type = 'text';
-      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
+    passwordInput.type = 'text';
+    passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
   } else {
-      passwordInput.type = 'password';
-      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
+    passwordInput.type = 'password';
+    passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
   }
 }
 
@@ -428,11 +424,11 @@ function deletetogglePassword(DelPasswordVerify) {
   const passwordToggle = document.querySelector('.password-toggle');
 
   if (passwordInput.type === 'password') {
-      passwordInput.type = 'text';
-      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
+    passwordInput.type = 'text';
+    passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
   } else {
-      passwordInput.type = 'password';
-      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
+    passwordInput.type = 'password';
+    passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
   }
 }
 
@@ -442,13 +438,57 @@ function EmaiUpdatePassword(EmaiUpdatePassword) {
   const passwordToggle = document.querySelector('.UpdateEmail-password-toggle');
 
   if (passwordInput.type === 'password') {
-      passwordInput.type = 'text';
-      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
+    passwordInput.type = 'text';
+    passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-hide.png" alt="">';
   } else {
-      passwordInput.type = 'password';
-      passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
+    passwordInput.type = 'password';
+    passwordToggle.innerHTML = '<img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">';
   }
 }
 
 
+
+
+/****************************************************
+      Add  Question part  for general-screening page
+*******************************************************/
+
+
+document.getElementById('add-question-btn').addEventListener('click', function () {
+  const container = document.querySelector('.question-container');
+  const addButton = document.getElementById('add-question-btn');
+
+  // Count existing questions
+  const currentQuestions = container.querySelectorAll('textarea[name="questions[]"]').length;
+
+  if (currentQuestions >= 7) {
+    alert('You can only add a maximum of 7 questions.');
+    return;
+  }
+
+  // Create a new input group
+  const newQuestion = document.createElement('div');
+  newQuestion.className = 'input-group';
+
+  newQuestion.innerHTML = `
+        <span class="input-group-text p-0 border-0 bg-white">
+            <img src="http://mysight.test/wp-content/uploads/2025/05/minus-img.png" alt="Remove Question" class="remove-question">
+        </span>
+        <textarea name="questions[]" class="form-control ms-2" placeholder="Type your question here..." maxlength="100"></textarea>
+    `;
+
+  // Insert the new question before the button
+  container.insertBefore(newQuestion, addButton);
+});
+
+// Handle removal
+document.querySelector('.question-container').addEventListener('click', function (e) {
+  if (e.target.classList.contains('remove-question')) {
+    e.target.closest('.input-group').remove();
+  }
+});
+
+/************************************************************
+      Add  Question part  for general-screening page end
+*************************************************************/
 

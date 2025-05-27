@@ -24,8 +24,7 @@
                     <!-- Account Settings -->
                     <li class="nav-item">
                         <a class="nav-link  <?php if (is_page('account-setting'))
-                            echo 'active'; ?>"
-                            href="/account-setting">Account Settings</a>
+                            echo 'active'; ?>" href="/account-setting">Account Settings</a>
                     </li>
 
                     <!-- Donation Plan -->
@@ -45,8 +44,13 @@
 
                     <!-- Sign out -->
                     <li class="nav-item">
-                        <a class=" nav-link" href="#">Sign out</a>
+                        <?php if (is_user_logged_in()): ?>
+                            <a class="nav-link" href="<?php echo wp_logout_url(home_url()); ?>">Sign out</a>
+                        <?php else: ?>
+                            <a class="nav-link" href="/login">Login</a>
+                        <?php endif; ?>
                     </li>
+
 
                 </ul>
             </div>
