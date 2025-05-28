@@ -13,7 +13,7 @@ get_header();
         <div class="d-flex justify-content-between align-items-center">
 
             <!-- LOGO -->
-            <a href="select-screening.html" class="logo">
+            <a href="/" class="logo">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="Mysight logo">
             </a>
 

@@ -81,7 +81,7 @@ get_header();
                             </ul>
 
                             <!-- Button Link -->
-                            <a href="general-screening.html" class="btn btn-primary">Discover Screening</a>
+                            <a href="/general-screening" class="btn btn-primary">Discover Screening</a>
 
                         </div>
 
@@ -130,7 +130,7 @@ get_header();
                             </ul>
 
                             <!-- Button Link -->
-                            <a href="employment-screening.html" class="btn btn-primary">Discover Screening</a>
+                            <a href="/employment-screening" class="btn btn-primary">Discover Screening</a>
 
                         </div>
 
@@ -180,7 +180,7 @@ get_header();
                             </ul>
                             <!-- Button Link -->
 
-                            <a href="marital-screening.html" class="btn btn-primary">Discover Screening</a>
+                            <a href="/marital-screening" class="btn btn-primary">Discover Screening</a>
                         </div>
 
                     </div>
@@ -228,7 +228,7 @@ get_header();
                             </ul>
 
                             <!-- Button Link -->
-                            <a href="ministerial-screening.html" class="btn btn-primary">Discover Screening</a>
+                            <a href="/ministerial-screening" class="btn btn-primary">Discover Screening</a>
 
                         </div>
 
@@ -277,7 +277,7 @@ get_header();
                             </ul>
 
                             <!-- Button Link -->
-                            <a href="home-screening.html" class="btn btn-primary">Discover Screening</a>
+                            <a href="/home-screening" class="btn btn-primary">Discover Screening</a>
 
                         </div>
 
@@ -326,7 +326,7 @@ get_header();
                             </ul>
 
                             <!-- Button Link -->
-                            <a href="godswill-screening.html" class="btn btn-primary">Discover Screening</a>
+                            <a href="/godswill-screening" class="btn btn-primary">Discover Screening</a>
 
                         </div>
 
@@ -375,7 +375,7 @@ get_header();
                             </ul>
 
                             <!-- Button Link -->
-                            <a href="request-pray-screening.html" class="btn btn-primary">Discover Screening</a>
+                            <a href="/request-pray-screening" class="btn btn-primary">Discover Screening</a>
 
                         </div>
 

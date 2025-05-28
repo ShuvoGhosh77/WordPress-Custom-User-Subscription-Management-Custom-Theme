@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: General Screening Page
+Template Name: Request Pray Screening Page
 */
 get_header();
 ?>
@@ -39,12 +39,12 @@ get_header();
                     <div class="screening-text-wrap">
 
                         <!-- Background Image -->
-                        <div class="screening-text-bg general-bg"></div>
+                        <div class="screening-text-bg requestpray-bg"></div>
 
                         <h1>Divine Insight Made Easy!</h1>
 
-                        <p>Where there is no revelation, people cast off restraint; but blessed is the one who heeds
-                            wisdom’s instruction. Proverbs 29:18</p>
+                        <p>Then Jesus told his disciples a parable to show them that they should always pray and not
+                            give up. Luke 18:1</p>
 
                     </div>
 
@@ -69,7 +69,7 @@ get_header();
                             <input type="hidden" name="custom_screening_form_submitted" value="1">
                             <!-- Form Head -->
                             <div class="form-head">
-                                <h3>General Screening</h3>
+                                <h3>Request For Prayer</h3>
                             </div>
 
 
@@ -127,17 +127,14 @@ get_header();
 
                                     <div class="form-group mb-4">
 
-                                        <label class="form-label" for="relationship">Relationship</label>
+                                        <label class="form-label" for="typeOfPrayer">Type of prayer</label>
 
-                                        <select class="form-select" id="relationship" name="relationship">
+                                        <select class="form-select" id="typeOfPrayer" name="typeOfPrayer">
                                             <option value="">&nbsp;</option>
-                                            <option value="Myself">Myself</option>
-                                            <option value="Parents: Mother or Father">Parents: Mother or Father</option>
-                                            <option value="Acquaintances">Acquaintances</option>
-                                            <option value="Relatives">Relatives</option>
-                                            <option value="Siblings: Brother or sister">Siblings: Brother or sister</option>
-                                            <option value="Adopted Parents">Adopted Parents</option>
-                                            <option value="N/A">N/A</option>
+                                            <option value="Intercession">Intercession</option>
+                                            <option value="Supplication">Supplication</option>
+                                            <option value="Petition">Petition</option>
+                                            <option value="Healing and Deliverance">Healing and Deliverance</option>
                                         </select>
 
                                     </div>
@@ -181,42 +178,6 @@ get_header();
 
 
                             </div>
-
-                            <div class="row">
-
-
-                                <!-- Maternal-Origin Field -->
-                                <div class="col-md-6">
-
-                                    <div class="form-group mb-4">
-
-                                        <label class="form-label" for="maternal-origin">Maternal State of Origin
-                                            (optional)</label>
-
-                                        <input type="text" class="form-control" id="maternal-origin" name="maternal-origin">
-
-                                    </div>
-
-                                </div>
-
-                                <!-- Paternal-Origin Field -->
-                                <div class="col-md-6">
-
-                                    <div class="form-group mb-4">
-
-                                        <label class="form-label" for="paternal-origin">Paternal State of Origin
-                                            (optional)</label>
-
-                                        <input type="text" class="form-control" id="paternal-origin" name="paternal-origin">
-
-                                    </div>
-
-                                </div>
-
-
-                            </div>
-
-
                             <!-- Photo Upload Field -->
                             <div class="form-group mb-4">
 
@@ -235,8 +196,8 @@ get_header();
                                     </p>
 
                                     <!-- File Input -->
-                                    <input type="file"  name="photos[]" class="form-control-file d-none" id="photos" accept="image/*"
-                                        multiple>
+                                    <input type="file" name="photos[]" class="form-control-file d-none" id="photos"
+                                        accept="image/*" multiple>
 
                                 </div>
 
@@ -256,14 +217,15 @@ get_header();
                                 <!-- Question Container -->
                                 <div class="question-container ms-sm-4">
 
-                                   
+
 
                                     <!-- Type Question Area -->
                                     <div class="input-group">
                                         <span class="input-group-text p-0 border-0 bg-white"><img
                                                 src="<?php echo get_template_directory_uri(); ?>/assets/images/minus-img.png"
                                                 alt="Type Question"></span>
-                                        <textarea name="questions[]" class="form-control ms-2" placeholder="Type your question here..." maxlength="100"></textarea>
+                                        <textarea name="questions[]" class="form-control ms-2"
+                                            placeholder="Type your question here..." maxlength="100"></textarea>
 
                                     </div>
 
