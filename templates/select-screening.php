@@ -72,7 +72,7 @@ get_header();
 
                                         <div class="col-md-4 col-6">
                                             <!-- General Screening-->
-                                            <div class="screening-box" data-page="general-screening.html">
+                                            <div class="screening-box" data-page="/general-screening">
                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/general-screening.png"
                                                     class="img-fluid" alt="General Screening">
                                                 <h5>General Screening</h5>
@@ -81,7 +81,7 @@ get_header();
 
                                         <div class="col-md-4 col-6">
                                             <!-- Employment Screening-->
-                                            <div class="screening-box" data-page="employment-screening.html">
+                                            <div class="screening-box" data-page="/employment-screening">
                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/employment-screening.png"
                                                     class="img-fluid" alt="Employment Screening">
                                                 <h5>Employment Screening</h5>
@@ -90,7 +90,7 @@ get_header();
 
                                         <div class="col-md-4 col-6">
                                             <!-- Matial Screening-->
-                                            <div class="screening-box" data-page="marital-screening.html">
+                                            <div class="screening-box" data-page="/marital-screening">
                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/marital-screening.png"
                                                     class="img-fluid" alt="Marital Screening">
                                                 <h5>Marital Screening</h5>
@@ -99,7 +99,7 @@ get_header();
 
                                         <div class="col-md-4 col-6">
                                             <!-- Ministerial Screening-->
-                                            <div class="screening-box" data-page="ministerial-screening.html">
+                                            <div class="screening-box" data-page="/ministerial-screening">
                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ministerial-screening.png"
                                                     class="img-fluid" alt="Ministerial Screening">
                                                 <h5>Ministerial Screening</h5>
@@ -108,7 +108,7 @@ get_header();
 
                                         <div class="col-md-4 col-6">
                                             <!-- House/Home Screening-->
-                                            <div class="screening-box" data-page="home-screening.html">
+                                            <div class="screening-box" data-page="/home-screening">
                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/house-home-screening.png"
                                                     class="img-fluid" alt="Home Screening">
                                                 <h5>Home Screening</h5>
@@ -117,7 +117,7 @@ get_header();
 
                                         <div class="col-md-4 col-6">
                                             <!-- God-Will Screening-->
-                                            <div class="screening-box" data-page="godswill-screening.html">
+                                            <div class="screening-box" data-page="/godswill-screening">
                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/god-will-screening.png"
                                                     class="img-fluid" alt="God's Will">
                                                 <h5>God's Will</h5>
@@ -135,7 +135,7 @@ get_header();
 
                                         <div class="col-md-4 col-6">
                                             <!-- Request-pray Screening-->
-                                            <div class="screening-box" data-page="request-pray-screening.html">
+                                            <div class="screening-box" data-page="/request-pray-screening">
                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/request-pray-screening.png"
                                                     class="img-fluid" alt="Request For Prayer">
                                                 <h5>Request For Prayer</h5>
@@ -144,7 +144,7 @@ get_header();
 
                                         <div class="col-md-4 col-6">
                                             <!-- Request-pray Screening-->
-                                            <div class="screening-box" data-page="prayer-wall.html">
+                                            <div class="screening-box" data-page="/prayer-wall">
                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/prayer-wall-screening-icon.png"
                                                     class="img-fluid" alt="Prayer Wall">
                                                 <h5>Prayer Wall</h5>
@@ -153,7 +153,7 @@ get_header();
 
                                         <div class="col-md-4 col-6">
                                             <!-- Request-pray Screening-->
-                                            <div class="screening-box" data-page="testimonies.html">
+                                            <div class="screening-box" data-page="/testimonies">
                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonies-screening-icon.png"
                                                     class="img-fluid" alt="Testimonies">
                                                 <h5>Testimonies</h5>
@@ -162,7 +162,7 @@ get_header();
 
                                         <div class="col-md-4 col-6">
                                             <!-- Request-pray Screening-->
-                                            <div class="screening-box" data-page="prayer-room.html">
+                                            <div class="screening-box" data-page="/prayer-room">
                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/prayer-room-screening-icon.png"
                                                     class="img-fluid" alt="Prayer Room">
                                                 <h5>Prayer Room</h5>
@@ -171,7 +171,7 @@ get_header();
 
                                         <div class="col-md-4 col-6">
                                             <!-- Request-pray Screening-->
-                                            <div class="screening-box" data-page="divine-meet.html">
+                                            <div class="screening-box" data-page="/divine-meet">
                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/divine-meet-screening-icon.png"
                                                     class="img-fluid" alt="Divine Meet">
                                                 <h5>Divine Meet</h5>
@@ -212,7 +212,9 @@ get_header();
 
     <div class="popup-container">
 
-        <button type="button" id="popupToggle" class="btn btn-primary plus-icon"><i class="fas fa-plus"></i></button>
+        <button type="button" id="popupToggle" class="btn btn-primary plus-icon"> 
+            <img src="/wp-content/uploads/2025/05/add.png" alt="add-icon">
+         </button>
 
 
         <div class="report-bug-box" id="popupBox">

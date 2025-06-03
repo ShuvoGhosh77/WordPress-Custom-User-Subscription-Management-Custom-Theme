@@ -392,7 +392,7 @@ get_header();
                                         <!-- Form Button Group -->
                                         <div class="form-btn-group">
 
-                                            <button class="btn btn-primary back-btn">Back</button>
+                                            <button class="btn btn-primary back-btn"><a href="/divine-meet-step-3" style="color:#72bd2f; text-decoration: none;">Back</a></button>
 
                                             <button type="submit" class="btn btn-primary">Next</button>
 

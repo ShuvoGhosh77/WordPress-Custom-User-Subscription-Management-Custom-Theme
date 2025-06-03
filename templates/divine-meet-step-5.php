@@ -68,13 +68,13 @@ get_header();
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="seekingFor"
-                                                    id="husbandRadio" value="Husband">
+                                                    id="husbandRadio" value="Husband" required>
                                                 <label class="form-check-label" for="husbandRadio">Husband</label>
                                             </div>
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="seekingFor"
-                                                    id="wifeRadio" value="Wife">
+                                                    id="wifeRadio" value="Wife" required>
                                                 <label class="form-check-label" for="wifeRadio">Wife</label>
                                             </div>
 
@@ -89,9 +89,36 @@ get_header();
                                             <div class="slider-wrapper">
 
                                                 <!-- Age Slider Input -->
-                                                <input class="input-range" type="text" data-slider-min="18"
+                                                <input class="input-range" type="text"  data-slider-min="18"
                                                     data-slider-tooltip="always" data-slider-max="60"
                                                     data-slider-step="1" name="age" />
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <!-- Height Preferences -->
+                                        <div class="preferences-info-block py-lg-4 py-3 border-bottom">
+
+                                            <h5>Height</h5>
+
+                                            <div class="slider-wrapper">
+
+                                                <div class="d-flex justify-content-between">
+                                                    <label class="slider-label">5</label>
+                                                    <label class="slider-label">6`5</label>
+                                                </div>
+
+                                                <!-- Height Slider Input -->
+                                                <input class="input-range" type="text" data-slider-min="5"
+                                                    data-slider-tooltip="always" data-slider-max="6.416"
+                                                    data-slider-step="0.1" name="preferencesHeight" />
+
+                                                <div class="d-flex justify-content-between">
+                                                    <label class="slider-label">Very Short</label>
+                                                    <label class="slider-label">Very Tall</label>
+                                                </div>
 
                                             </div>
 
@@ -104,19 +131,19 @@ get_header();
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="bodyType"
-                                                    id="fatRadio" value="Fat">
+                                                    id="fatRadio" value="Fat" required>
                                                 <label class="form-check-label" for="fatRadio">Fat</label>
                                             </div>
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="bodyType"
-                                                    id="mediumBodyRadio" value="Medium">
+                                                    id="mediumBodyRadio" value="Medium" required>
                                                 <label class="form-check-label" for="mediumBodyRadio">Medium</label>
                                             </div>
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="bodyType"
-                                                    id="marriageRadio" value="Slim">
+                                                    id="marriageRadio" value="Slim" required>
                                                 <label class="form-check-label" for="marriageRadio">Slim</label>
                                             </div>
 
@@ -130,33 +157,33 @@ get_header();
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="skinComplextion"
-                                                    id="extremelyLightRadio" value="Extremely Light">
+                                                    id="extremelyLightRadio" value="Extremely Light" required>
                                                 <label class="form-check-label" for="extremelyLightRadio">Extremely
                                                     Light</label>
                                             </div>
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="skinComplextion"
-                                                    id="fairRadio" value="Fair">
+                                                    id="fairRadio" value="Fair" required>
                                                 <label class="form-check-label" for="fairRadio">Fair</label>
                                             </div>
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="skinComplextion"
-                                                    id="mediumSkinRadio" value="Medium">
+                                                    id="mediumSkinRadio" value="Medium" required>
                                                 <label class="form-check-label" for="mediumSkinRadio">Medium</label>
                                             </div>
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="skinComplextion"
-                                                    id="naturallyBrownRadio" value="Naturally brown">
+                                                    id="naturallyBrownRadio" value="Naturally brown" required>
                                                 <label class="form-check-label" for="naturallyBrownRadio">Naturally
                                                     brown</label>
                                             </div>
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="skinComplextion"
-                                                    id="veryDarkBrownRadio" value="very dark brown/black">
+                                                    id="veryDarkBrownRadio" value="very dark brown/black" required>
                                                 <label class="form-check-label" for="veryDarkBrownRadio">Very dark
                                                     brown/black</label>
                                             </div>
@@ -171,7 +198,8 @@ get_header();
                                         <!-- Form Button Group -->
                                         <div class="form-btn-group">
 
-                                            <button class="btn btn-primary back-btn">Back</button>
+                                            <button class="btn btn-primary back-btn"><a href="/divine-meet-step-3"
+                                                    style="color:#72bd2f; text-decoration: none;">Back</a></button>
 
                                             <button type="submit" class="btn btn-primary">Next</button>
 

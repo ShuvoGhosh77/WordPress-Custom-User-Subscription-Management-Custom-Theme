@@ -4,6 +4,40 @@
           Upload Your Photos step-1
 ****************************************/
 
+// add_action('template_redirect', 'handle_user_media_upload_post');
+// function handle_user_media_upload_post()
+// {
+//     if (
+//         isset($_POST['user_media_upload']) &&
+//         is_user_logged_in() &&
+//         !empty($_FILES['main_photo']['name']) &&
+//         !empty($_FILES['short_video']['name'])
+//     ) {
+//         require_once ABSPATH . 'wp-admin/includes/file.php';
+//         require_once ABSPATH . 'wp-admin/includes/media.php';
+//         require_once ABSPATH . 'wp-admin/includes/image.php';
+
+//         $user_id = get_current_user_id();
+
+//         // Handle main photo upload
+//         $photo_id = media_handle_upload('main_photo', 0);
+//         if (!is_wp_error($photo_id)) {
+//             update_user_meta($user_id, 'main_photo', $photo_id);
+//         }
+
+//         // Handle short video upload
+//         $video_id = media_handle_upload('short_video', 0);
+//         if (!is_wp_error($video_id)) {
+//             update_user_meta($user_id, 'short_video', $video_id);
+//         }
+
+//         // Redirect to home after successful upload
+//         wp_redirect(home_url('/divine-meet-step-2'));
+//         exit;
+//     }
+// }
+
+
 add_action('template_redirect', 'handle_user_media_upload_post');
 function handle_user_media_upload_post()
 {
@@ -13,6 +47,16 @@ function handle_user_media_upload_post()
         !empty($_FILES['main_photo']['name']) &&
         !empty($_FILES['short_video']['name'])
     ) {
+        $max_size = 10 * 1024 * 1024; // 10MB in bytes
+
+        $main_photo = $_FILES['main_photo'];
+        $short_video = $_FILES['short_video'];
+
+        // Validate file sizes
+        if ($main_photo['size'] > $max_size || $short_video['size'] > $max_size) {
+            wp_die('Each file must be less than 10MB. Please go back and upload smaller files.');
+        }
+
         require_once ABSPATH . 'wp-admin/includes/file.php';
         require_once ABSPATH . 'wp-admin/includes/media.php';
         require_once ABSPATH . 'wp-admin/includes/image.php';
@@ -31,11 +75,13 @@ function handle_user_media_upload_post()
             update_user_meta($user_id, 'short_video', $video_id);
         }
 
-        // Redirect to home after successful upload
+        // Redirect to next step
         wp_redirect(home_url('/divine-meet-step-2'));
         exit;
     }
 }
+
+
 
 
 /***************************************
@@ -60,6 +106,9 @@ function save_custom_user_profile_data()
 
     // Sanitize and save data
     update_user_meta($user_id, 'height', sanitize_text_field($_POST['height']));
+    update_user_meta($user_id, 'myage', sanitize_text_field($_POST['myage']));
+    update_user_meta($user_id, 'mybodyType', sanitize_text_field($_POST['mybodyType']));
+    update_user_meta($user_id, 'myskinComplextion', sanitize_text_field($_POST['myskinComplextion']));
     update_user_meta($user_id, 'marital_status', sanitize_text_field($_POST['maritalStatus']));
     update_user_meta($user_id, 'relationship_type', sanitize_text_field($_POST['relationshipType']));
     update_user_meta($user_id, 'drinking_habit', sanitize_text_field($_POST['drinkingHabit']));
@@ -159,11 +208,13 @@ function save_user_preferences()
 
     // Sanitize and save each field
     $seeking_for = isset($_POST['seekingFor']) ? sanitize_text_field($_POST['seekingFor']) : '';
+    $preferencesHeight = isset($_POST['preferencesHeight']) ? sanitize_text_field($_POST['preferencesHeight']) : '';
     $age = isset($_POST['age']) ? sanitize_text_field($_POST['age']) : '';
     $body_type = isset($_POST['bodyType']) ? sanitize_text_field($_POST['bodyType']) : '';
     $skin_complexion = isset($_POST['skinComplextion']) ? sanitize_text_field($_POST['skinComplextion']) : '';
 
     update_user_meta($user_id, 'seeking_for', $seeking_for);
+    update_user_meta($user_id, 'preferencesHeight', $preferencesHeight);
     update_user_meta($user_id, 'preferred_age_range', $age);
     update_user_meta($user_id, 'body_type', $body_type);
     update_user_meta($user_id, 'skin_complexion', $skin_complexion);
@@ -184,6 +235,17 @@ function show_user_uploaded_media_fields($user)
 {
     // if (!current_user_can('edit_users')) return;
 
+    $first_name = get_user_meta($user->ID, 'first_name', true);
+    $last_name = get_user_meta($user->ID, 'last_name', true);
+    $gender = get_user_meta($user->ID, 'gender', true);
+    $birthday = get_user_meta($user->ID, 'birthday', true);
+    $mobile = get_user_meta($user->ID, 'mobile', true);
+    $whatsapp = get_user_meta($user->ID, 'whatsapp', true);
+    $facetime = get_user_meta($user->ID, 'facetime', true);
+    $country = get_user_meta($user->ID, 'country', true);
+    $state = get_user_meta($user->ID, 'state', true);
+    $city = get_user_meta($user->ID, 'city', true);
+
     $photo_id = get_user_meta($user->ID, 'main_photo', true);
     $photo_url = wp_get_attachment_url($photo_id);
 
@@ -191,6 +253,9 @@ function show_user_uploaded_media_fields($user)
     $video_url = wp_get_attachment_url($video_id);
 
     $height = get_user_meta($user->ID, 'height', true);
+    $myage = get_user_meta($user->ID, 'myage', true);
+    $mybodyType= get_user_meta($user->ID, 'mybodyType', true);
+    $myskinComplextion= get_user_meta($user->ID, 'myskinComplextion', true);
     $marital_status = get_user_meta($user->ID, 'marital_status', true);
     $relationship_type = get_user_meta($user->ID, 'relationship_type', true);
     $drinking_habit = get_user_meta($user->ID, 'drinking_habit', true);
@@ -200,6 +265,7 @@ function show_user_uploaded_media_fields($user)
     $activities = get_user_meta($user->ID, 'user_activity_interests', true);
 
     $seeking = get_user_meta($user->ID, 'seeking_for', true);
+    $preferencesHeight = get_user_meta($user->ID, 'preferencesHeight', true);
     $age_range = get_user_meta($user->ID, 'preferred_age_range', true);
     $body_type = get_user_meta($user->ID, 'body_type', true);
     $skin_complexion = get_user_meta($user->ID, 'skin_complexion', true);
@@ -207,7 +273,74 @@ function show_user_uploaded_media_fields($user)
 
     ?>
     <h2>User Uploaded Media</h2>
-    <table class="form-table profile-table">
+    <table class="form-table profile-table" style="border: 1px solid #0000;">
+        <?php if ($first_name): ?>
+            <tr>
+                <th><label>First Name</label></th>
+                <td><?php echo esc_html($first_name); ?></td>
+            </tr>
+        <?php endif; ?>
+        <?php if ($last_name): ?>
+            <tr>
+                <th><label>Last Name</label></th>
+                <td><?php echo esc_html($last_name); ?></td>
+            </tr>
+        <?php endif; ?>
+        <?php if ($gender): ?>
+            <tr>
+                <th><label>Gender</label></th>
+                <td><?php echo esc_html($gender); ?></td>
+            </tr>
+        <?php endif; ?>
+
+        <?php if ($birthday): ?>
+            <tr>
+                <th><label>Birthday</label></th>
+                <td><?php echo esc_html($birthday); ?></td>
+            </tr>
+        <?php endif; ?>
+
+        <?php if ($mobile): ?>
+            <tr>
+                <th><label>Mobile</label></th>
+                <td><?php echo esc_html($mobile); ?></td>
+            </tr>
+        <?php endif; ?>
+
+        <?php if ($whatsapp): ?>
+            <tr>
+                <th><label>WhatsApp</label></th>
+                <td><?php echo esc_html($whatsapp); ?></td>
+            </tr>
+        <?php endif; ?>
+
+        <?php if ($facetime): ?>
+            <tr>
+                <th><label>Facetime ID/Number</label></th>
+                <td><?php echo esc_html($facetime); ?></td>
+            </tr>
+        <?php endif; ?>
+
+        <?php if ($country): ?>
+            <tr>
+                <th><label>Country</label></th>
+                <td><?php echo esc_html($country); ?></td>
+            </tr>
+        <?php endif; ?>
+
+        <?php if ($state): ?>
+            <tr>
+                <th><label>State</label></th>
+                <td><?php echo esc_html($state); ?></td>
+            </tr>
+        <?php endif; ?>
+
+        <?php if ($city): ?>
+            <tr>
+                <th><label>City</label></th>
+                <td><?php echo esc_html($city); ?></td>
+            </tr>
+        <?php endif; ?>
         <?php if ($photo_url): ?>
             <tr>
                 <th><label>Uploaded Photo</label></th>
@@ -230,6 +363,24 @@ function show_user_uploaded_media_fields($user)
             <tr>
                 <th><label>Height</label></th>
                 <td><?php echo esc_html($height); ?></td>
+            </tr>
+        <?php endif; ?>
+        <?php if ($myage): ?>
+            <tr>
+                <th><label>my age</label></th>
+                <td><?php echo esc_html($myage); ?></td>
+            </tr>
+        <?php endif; ?>
+        <?php if ($mybodyType): ?>
+            <tr>
+                <th><label>My body Type</label></th>
+                <td><?php echo esc_html($mybodyType); ?></td>
+            </tr>
+        <?php endif; ?>
+        <?php if ($myskinComplextion): ?>
+            <tr>
+                <th><label>My Skin Complextion</label></th>
+                <td><?php echo esc_html($myskinComplextion); ?></td>
             </tr>
         <?php endif; ?>
 
@@ -286,6 +437,12 @@ function show_user_uploaded_media_fields($user)
                 <td><?php echo esc_html($seeking); ?></td>
             </tr>
         <?php endif; ?>
+        <?php if ($preferencesHeight): ?>
+            <tr>
+                <th><label>Preferences Height</label></th>
+                <td><?php echo esc_html($preferencesHeight); ?></td>
+            </tr>
+        <?php endif; ?>
         <?php if ($age_range): ?>
             <tr>
                 <th><label>Preferred Age Range</label></th>
@@ -310,3 +467,69 @@ function show_user_uploaded_media_fields($user)
 }
 
 
+/************************************************
+     protected some pages
+**************************************************/
+function restrict_custom_pages_to_logged_in_users()
+{
+    $protected_pages = array('support', 'account-setting');
+
+    if (is_page($protected_pages) && !is_user_logged_in()) {
+        wp_redirect(home_url('/login'));
+        exit;
+    }
+}
+add_action('template_redirect', 'restrict_custom_pages_to_logged_in_users');
+
+
+
+/************************************************
+    divine meet form submition
+**************************************************/
+
+add_action('init', 'handle_divinemeet_form_submission');
+
+function handle_divinemeet_form_submission()
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['dm-form-submitted'])) {
+        // Ensure user is logged in
+        if (is_user_logged_in()) {
+            $user_id = get_current_user_id();
+
+            // Sanitize inputs
+            $first_name = sanitize_text_field($_POST['first_name'] ?? '');
+            $last_name = sanitize_text_field($_POST['last_name'] ?? '');
+            $gender = sanitize_text_field($_POST['gender'] ?? '');
+            $day = sanitize_text_field($_POST['day'] ?? '');
+            $month = sanitize_text_field($_POST['month'] ?? '');
+            $year = sanitize_text_field($_POST['year'] ?? '');
+            $birthday = "$day/$month/$year";
+            $mobile = sanitize_text_field($_POST['mobile'] ?? '');
+            $whatsapp = sanitize_text_field($_POST['whatsapp'] ?? '');
+            $facetime = sanitize_text_field($_POST['facetime'] ?? '');
+            $country = sanitize_text_field($_POST['country'] ?? '');
+            $state = sanitize_text_field($_POST['state'] ?? '');
+            $city = sanitize_text_field($_POST['city'] ?? '');
+
+            // Save as user meta
+            update_user_meta($user_id, 'first_name', $first_name);
+            update_user_meta($user_id, 'last_name', $last_name);
+            update_user_meta($user_id, 'gender', $gender);
+            update_user_meta($user_id, 'gender', $gender);
+            update_user_meta($user_id, 'birthday', $birthday);
+            update_user_meta($user_id, 'mobile', $mobile);
+            update_user_meta($user_id, 'whatsapp', $whatsapp);
+            update_user_meta($user_id, 'facetime', $facetime);
+            update_user_meta($user_id, 'country', $country);
+            update_user_meta($user_id, 'state', $state);
+            update_user_meta($user_id, 'city', $city);
+
+            wp_redirect(home_url('/divine-meet-step-1'));
+            exit;
+        } else {
+            wp_redirect(wp_login_url());
+            exit;
+        }
+    }
+
+}

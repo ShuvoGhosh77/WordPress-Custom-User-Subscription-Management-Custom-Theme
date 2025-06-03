@@ -75,12 +75,12 @@ get_header();
                     $user_id = get_current_user_id();
 
                     if ($message = get_transient('password_update_success_' . $user_id)) {
-                        echo '<div class="success-message" style="color:green;">' . esc_html($message) . '</div>';
+                        echo '<div class="success-message" style="color:green;font-size: 25px;text-align: center;line-height: 30px;font-weight: 700;">' . esc_html($message) . '</div>';
                         delete_transient('password_update_success_' . $user_id);
                     }
 
                     if ($error = get_transient('password_update_error_' . $user_id)) {
-                        echo '<div class="error-message" style="color:red;">' . esc_html($error) . '</div>';
+                        echo '<div class="error-message" style="color:red; font-size: 25px;text-align: center;line-height: 30px;font-weight: 700;">' . esc_html($error) . '</div>';
                         delete_transient('password_update_error_' . $user_id);
                     }
                     ?>
@@ -257,7 +257,7 @@ get_header();
                                 placeholder="For security, please confirm your password" required>
                             <span class="input-group-text UpdateEmail-password-toggle"
                                 onclick="EmaiUpdatePassword('EmaiUpdatePassword')">
-                               <img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">
+                               <img src="/wp-content/uploads/2025/05/eye-view.png" alt="">
                             </span>
                         </div>
                     </div>
@@ -303,7 +303,7 @@ get_header();
                             placeholder="Current Password" required>
                         <span class="input-group-text password-toggle-current"
                             onclick="toggleCurrentPassword('currentPassword')">
-                            <img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">
+                            <img src="/wp-content/uploads/2025/05/eye-view.png" alt="">
                         </span>
                     </div>
 
@@ -312,7 +312,7 @@ get_header();
                         <input class="form-control" name="new_password" id="newPassword" type="password"
                             placeholder="New Password" required>
                         <span class="input-group-text password-toggle-new" onclick="toggleNewPassword('newPassword')">
-                             <img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">
+                             <img src="/wp-content/uploads/2025/05/eye-view.png" alt="">
                         </span>
                     </div>
                 </div>

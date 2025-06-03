@@ -75,14 +75,98 @@ get_header();
 
                                                 <!-- Height Slider Input -->
                                                 <input class="input-range" type="text" data-slider-min="5"
-                                                    data-slider-tooltip="always" data-slider-max="6.416"
-                                                    data-slider-step="0.083333333" name="height" />
+                                                    data-slider-tooltip="always" data-slider-max="6.5"
+                                                    data-slider-step="0.1" name="height" required />
 
                                                 <div class="d-flex justify-content-between">
                                                     <label class="slider-label">Very Short</label>
                                                     <label class="slider-label">Very Tall</label>
                                                 </div>
 
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <!-- my Age -->
+                                        <div class="preferences-info-block py-lg-4 py-3 border-bottom">
+
+                                            <h5>Age</h5>
+
+                                            <div class="slider-wrapper">
+
+                                                <!-- Age Slider Input -->
+                                                <input class="input-range" type="text" data-slider-min="18"
+                                                    data-slider-tooltip="always" data-slider-max="60"
+                                                    data-slider-step="1" name="myage" required/>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <!-- my Body Type -->
+                                        <div class="preferences-info-block py-lg-4 py-3 border-bottom">
+
+                                            <h5>Body Type</h5>
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="mybodyType"
+                                                    id="fatRadio" value="Fat" required>
+                                                <label class="form-check-label" for="fatRadio">Fat</label>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="mybodyType"
+                                                    id="mediumBodyRadio" value="Medium" required>
+                                                <label class="form-check-label" for="mediumBodyRadio">Medium</label>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="mybodyType"
+                                                    id="marriageRadio" value="Slim" required>
+                                                <label class="form-check-label" for="marriageRadio">Slim</label>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- my Skin complextion-->
+                                        <div class="preferences-info-block py-lg-4 py-3">
+
+                                            <h5>Skin complextion</h5>
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="myskinComplextion"
+                                                    id="extremelyLightRadio" value="Extremely Light" required>
+                                                <label class="form-check-label" for="extremelyLightRadio">Extremely
+                                                    Light</label>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="myskinComplextion"
+                                                    id="fairRadio" value="Fair" required>
+                                                <label class="form-check-label" for="fairRadio">Fair</label>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="myskinComplextion"
+                                                    id="mediumSkinRadio" value="Medium" required>
+                                                <label class="form-check-label" for="mediumSkinRadio">Medium</label>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="myskinComplextion"
+                                                    id="naturallyBrownRadio" value="Naturally brown" required>
+                                                <label class="form-check-label" for="naturallyBrownRadio">Naturally
+                                                    brown</label>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="myskinComplextion"
+                                                    id="veryDarkBrownRadio" value="very dark brown/black" required>
+                                                <label class="form-check-label" for="veryDarkBrownRadio">Very dark
+                                                    brown/black</label>
                                             </div>
 
                                         </div>
@@ -96,19 +180,19 @@ get_header();
                                             <!-- Form Checkboxes -->
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="maritalStatus"
-                                                    id="divorcedRadio" value="divorced">
+                                                    id="divorcedRadio" value="divorced" required>
                                                 <label class="form-check-label" for="divorcedRadio">Divorced</label>
                                             </div>
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="maritalStatus"
-                                                    id="widowedRadio" value="widowed">
+                                                    id="widowedRadio" value="widowed" required>
                                                 <label class="form-check-label" for="widowedRadio">Widowed</label>
                                             </div>
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="maritalStatus"
-                                                    id="neverMarriedRadio" value="neverMarried">
+                                                    id="neverMarriedRadio" value="neverMarried" required>
                                                 <label class="form-check-label" for="neverMarriedRadio">Never
                                                     Married</label>
                                             </div>
@@ -124,14 +208,14 @@ get_header();
                                             <!-- Form Checkboxes -->
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="relationshipType"
-                                                    id="committedRadio" value="committed">
+                                                    id="committedRadio" value="committed" required>
                                                 <label class="form-check-label" for="committedRadio">Commited
                                                     Relationship</label>
                                             </div>
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="relationshipType"
-                                                    id="marriageRadio" value="marriage">
+                                                    id="marriageRadio" value="marriage" required>
                                                 <label class="form-check-label" for="marriageRadio">Marriage</label>
                                             </div>
 
@@ -146,21 +230,21 @@ get_header();
                                             <!-- Form Checkboxes -->
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="drinkingHabit"
-                                                    id="socialDrinkerRadio" value="socialDrinker">
+                                                    id="socialDrinkerRadio" value="socialDrinker" required>
                                                 <label class="form-check-label" for="socialDrinkerRadio">Social Drinker
                                                     (a person who drinks on an occasional basis)</label>
                                             </div>
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="drinkingHabit"
-                                                    id="nonDrinkerRadio" value="nonDrinker">
+                                                    id="nonDrinkerRadio" value="nonDrinker" required>
                                                 <label class="form-check-label" for="nonDrinkerRadio">No, I don’t take
                                                     alcohol</label>
                                             </div>
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="drinkingHabit"
-                                                    id="undisclosedDrinkerRadio" value="undisclosedDrinker">
+                                                    id="undisclosedDrinkerRadio" value="undisclosedDrinker" required>
                                                 <label class="form-check-label"
                                                     for="undisclosedDrinkerRadio">Undisclosed</label>
                                             </div>
@@ -176,21 +260,21 @@ get_header();
                                             <!-- Form Checkboxes -->
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="smokingHabit"
-                                                    id="socialSmokerRadio" value="socialSmoker">
+                                                    id="socialSmokerRadio" value="socialSmoker" required>
                                                 <label class="form-check-label" for="socialSmokerRadio">Social Smoker
                                                     (who only smoke in specific settings)</label>
                                             </div>
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="smokingHabit"
-                                                    id="nonSmokerRadio" value="nonSmoker">
+                                                    id="nonSmokerRadio" value="nonSmoker" required>
                                                 <label class="form-check-label" for="nonSmokerRadio">No, I don’t
                                                     Smoke</label>
                                             </div>
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="smokingHabit"
-                                                    id="undisclosedSmokerRadio" value="undisclosedSmoker">
+                                                    id="undisclosedSmokerRadio" value="undisclosedSmoker" required>
                                                 <label class="form-check-label"
                                                     for="undisclosedSmokerRadio">Undisclosed</label>
                                             </div>
@@ -203,7 +287,8 @@ get_header();
                                         <!-- Form Button Group -->
                                         <div class="form-btn-group">
 
-                                            <button class="btn btn-primary back-btn">Back</button>
+                                            <button class="btn btn-primary back-btn"><a href="/divine-meet-step-1"
+                                                    style="color:#72bd2f; text-decoration: none;">Back</a></button>
 
                                             <button type="submit" class="btn btn-primary">Next</button>
 

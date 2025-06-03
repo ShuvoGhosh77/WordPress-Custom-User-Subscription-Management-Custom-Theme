@@ -74,7 +74,7 @@ get_header();
                         <div class="input-group-append">
                             <span class="input-group-text password-toggle"
                                 onclick="deletetogglePassword('DelPasswordVerify')">
-                                 <img src="http://mysight.test/wp-content/uploads/2025/05/eye-view.png" alt="">
+                                 <img src="/wp-content/uploads/2025/05/eye-view.png" alt="">
                             </span>
                         </div>
                     </div>

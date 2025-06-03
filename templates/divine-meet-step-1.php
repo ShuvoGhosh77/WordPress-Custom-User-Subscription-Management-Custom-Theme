@@ -24,7 +24,7 @@ get_header();
 
 
             <!-- Common Tab-Header -->
-            
+
             <?php get_template_part('templates/sections/tab-header'); ?>
 
 
@@ -86,9 +86,10 @@ get_header();
                                                             Select file</a>
 
                                                         <!-- File Input -->
-                                                        <input type="file" name="main_photo" class="form-control-file d-none" id="photos"
-                                                            accept="image/*">
-                                                        
+                                                        <input type="file" name="main_photo"
+                                                            class="form-control-file d-none" id="photos"
+                                                            accept="image/*" required>
+
 
                                                     </div>
 
@@ -121,14 +122,15 @@ get_header();
                                                             <i class="fa-solid fa-arrow-up-from-bracket"></i>
                                                         </div>
 
-                                                        <p>Drag and drop  files less than 10MB</p>
+                                                        <p>Drag and drop files less than 10MB</p>
 
                                                         <a href="#" class="btn btn-primary" id="chooseFileLink2">Or
                                                             Select file</a>
 
                                                         <!-- File Input -->
-                                                        <input type="file"  name="short_video" class="form-control-file d-none" id="photos2"
-                                                        accept="video/*,image/*">
+                                                        <input type="file" name="short_video"
+                                                            class="form-control-file d-none" id="photos2"
+                                                            accept="video/*,image/*" required>
 
                                                     </div>
 
@@ -158,9 +160,12 @@ get_header();
                                         </p>
                                         <input type="hidden" name="user_media_upload" value="1">
 
+                                        <!-- Error Message -->
+                                        <div id="uploadError" class="text-danger mb-3" style="display: none;"></div>
+
                                         <!-- Form Button Group -->
                                         <div class="form-btn-group">
-                                            <button class="btn btn-primary back-btn">Back</button>
+                                            <button class="btn btn-primary back-btn"><a href="/divine-meet" style="color:#72bd2f; text-decoration: none;">Back</a></button>
                                             <button type="submit" class="btn btn-primary">Next</button>
                                         </div>
 
@@ -198,50 +203,55 @@ get_header();
 
 </main>
 
-   <!-- Produce Quality Video Modal -->
-   <div class="quality-video-popup  modal fade" id="QualityVideoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
-    
+<!-- Produce Quality Video Modal -->
+<div class="quality-video-popup  modal fade" id="QualityVideoModal" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-hidden="true">
+
     <div class="modal-dialog modal-dialog-centered">
-     
+
         <div class="modal-content">
 
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
-          <h1>How to produce Hight-Quality Video for Divine Meet</h1>
-
-
-          <ol class="quality-instruction">
-            <li>
-                <h5>Camera Position</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-            </li>
-            <li>
-                <h5>Camera Position</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </li>
-            <li>
-                <h5>Background</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-            </li>
-            <li>
-                <h5>Dressing</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.</p>
-            </li>
-            <li>
-                <h5>Audiablity</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do incididunt ut labore et dolore magna aliqu ipsum dolor sit amet, consectetur elit.</p>
-            </li>
-          </ol>
+            <h1>How to produce Hight-Quality Video for Divine Meet</h1>
 
 
-      </div>
+            <ol class="quality-instruction">
+                <li>
+                    <h5>Camera Position</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                </li>
+                <li>
+                    <h5>Camera Position</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
+                </li>
+                <li>
+                    <h5>Background</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                </li>
+                <li>
+                    <h5>Dressing</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.</p>
+                </li>
+                <li>
+                    <h5>Audiablity</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do incididunt ut labore et dolore
+                        magna aliqu ipsum dolor sit amet, consectetur elit.</p>
+                </li>
+            </ol>
+
+
+        </div>
 
     </div>
 
-  </div>
+</div>
 
 
 <?php get_footer(); ?>

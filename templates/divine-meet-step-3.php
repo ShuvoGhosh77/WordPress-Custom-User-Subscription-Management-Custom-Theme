@@ -59,7 +59,7 @@ get_header();
                                             <h3>Write a summary about yourself</h3>
                                     
                                             <!-- Textarea for Summary -->
-                                            <textarea class="form-control" name="user_summary" id="summaryTextarea" rows="10" placeholder="We suggest you include your real name and not a made up name. Include your interests/hobbies/likes/dislikes. Describe yourself in a way that people see you/how you see yourself. Mention favorite meals/activities."></textarea>
+                                            <textarea class="form-control" name="user_summary" id="summaryTextarea" rows="10" placeholder="We suggest you include your real name and not a made up name. Include your interests/hobbies/likes/dislikes. Describe yourself in a way that people see you/how you see yourself. Mention favorite meals/activities." minlength="100" maxlength="5000" required></textarea>
                                     
                                             <!-- Word Limit Information -->
                                             <div class="text-end">
@@ -76,7 +76,7 @@ get_header();
                                             <!-- Form Button Group -->
                                             <div class="form-btn-group">
                                                 
-                                                <button class="btn btn-primary back-btn">Back</button>
+                                                <button class="btn btn-primary back-btn"><a href="/divine-meet-step-2" style="color:#72bd2f; text-decoration: none;">Back</a></button>
                                                
                                                 <button type="submit" class="btn btn-primary">Next</button>
                                             

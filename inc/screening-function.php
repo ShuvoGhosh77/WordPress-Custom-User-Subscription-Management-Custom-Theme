@@ -98,7 +98,7 @@ function handle_custom_screening_form()
 
 
         // Send email
-        $subject = "New General Screening Form Submission";
+        $subject = "New Screening Form Submission";
         $headers = ['Content-Type: text/plain; charset=UTF-8'];
 
         wp_mail($admin_email, $subject, $message, $headers, $attachments);
@@ -108,3 +108,127 @@ function handle_custom_screening_form()
         exit;
     }
 }
+
+
+// home screening 
+
+add_action('init', 'handle_custom_screening_form2');
+function handle_custom_screening_form2()
+{
+    if (isset($_POST['custom_screening_form_submitted2'])) {
+
+        // Get admin email
+        $admin_email = get_option('admin_email');
+
+        // Sanitize inputs
+        $home_first_name = sanitize_text_field($_POST['home-first-name'] ?? '');
+        $home_last_name = sanitize_text_field($_POST['home-last-name'] ?? '');
+        $home_dob = sanitize_text_field($_POST['home-date-of-birth'] ?? '');
+        $home_Ownership = sanitize_text_field($_POST['home-Ownership'] ?? '');
+        $home_gender = sanitize_text_field($_POST['home-gender'] ?? '');
+        $home_state_origin = sanitize_text_field($_POST['home-state-origin'] ?? '');
+        $home_maternal_origin = sanitize_text_field($_POST['home-maternal-origin'] ?? '');
+        $home_paternal_origin = sanitize_text_field($_POST['home-paternal-origin'] ?? '');
+        $house_address = sanitize_text_field($_POST['house-address'] ?? '');
+        $city = sanitize_text_field($_POST['city'] ?? '');
+        $landmark = sanitize_text_field($_POST['landmark'] ?? '');
+        $State = sanitize_text_field($_POST['State'] ?? '');
+        $LGA_address = sanitize_text_field($_POST['LGA'] ?? '');
+        $questions = $_POST['questions'] ?? [];
+
+        // Build email body
+        $message = '<html><body>';
+        $message .= '<h2>New Screening Form Submission</h2>';
+        $message .= '<table style="border-collapse: collapse; width: 100%;">';
+
+        $rows = [
+            'First Name' => $home_first_name,
+            'Last Name' => $home_last_name,
+            'Date of Birth' => $home_dob,
+            'Ownership' => $home_Ownership,
+            'Gender' => $home_gender,
+            'State of Origin and LGA' => $home_state_origin,
+            'Maternal State of Origin' => $home_maternal_origin,
+            'Paternal State of Origin' => $home_paternal_origin,
+            'House Address'=> $house_address,
+            'City'=> $city,
+            'Landmark'=> $landmark,
+            'State'=> $State,
+            'LGA Address'=> $LGA_address,
+        ];
+
+        foreach ($rows as $label => $value) {
+            $message .= '<tr>';
+            $message .= '<td style="border: 1px solid #000; padding: 8px;"><strong>' . esc_html($label) . ':</strong></td>';
+            $message .= '<td style="border: 1px solid #000; padding: 8px;">' . esc_html($value) . '</td>';
+            $message .= '</tr>';
+        }
+
+        if (!empty($questions)) {
+            $message .= '<tr>';
+            $message .= '<td style="border: 1px solid #000; padding: 8px;"><strong>Questions:</strong></td>';
+            $message .= '<td style="border: 1px solid #000; padding: 8px;"><ul style="margin:0; padding-left: 20px;">';
+            foreach ($questions as $index => $question) {
+                $message .= '<li>Q' . ($index + 1) . ': ' . esc_html($question) . '</li>';
+            }
+            $message .= '</ul></td></tr>';
+        }
+
+        $message .= '</table>';
+        $message .= '</body></html>';
+
+
+
+        // Handle file uploads (if any)
+        $attachments1 = [];
+        if (!empty($_FILES['home-photos1']['name'][0])) {
+            foreach ($_FILES['home-photos1']['name'] as $key => $name) {
+                if ($_FILES['home-photos1']['error'][$key] === UPLOAD_ERR_OK) {
+                    $tmp_name = $_FILES['home-photos1']['tmp_name'][$key];
+                    $file_name = $_FILES['home-photos1']['name'][$key];
+
+                    // Upload using wp_upload_bits
+                    $upload = wp_upload_bits($file_name, null, file_get_contents($tmp_name));
+                    if (!$upload['error']) {
+                        $attachments1[] = $upload['file']; // Add file to email attachments
+                    }
+                }
+            }
+        }
+        $attachments2 = [];
+        if (!empty($_FILES['home-photos2']['name'][0])) {
+            foreach ($_FILES['home-photos2']['name'] as $key => $name) {
+                if ($_FILES['home-photos2']['error'][$key] === UPLOAD_ERR_OK) {
+                    $tmp_name = $_FILES['home-photos2']['tmp_name'][$key];
+                    $file_name = $_FILES['home-photos2']['name'][$key];
+
+                    // Upload using wp_upload_bits
+                    $upload = wp_upload_bits($file_name, null, file_get_contents($tmp_name));
+                    if (!$upload['error']) {
+                        $attachments2[] = $upload['file']; // Add file to email attachments
+                    }
+                }
+            }
+        }
+
+        
+
+
+
+        // Send email
+        $subject = "New Screening Form Submission";
+        $headers = ['Content-Type: text/plain; charset=UTF-8'];
+
+
+
+        $all_attachments = array_merge($attachments1, $attachments2);
+        wp_mail($admin_email, $subject, $message, $headers, $all_attachments);
+
+        // Optional: redirect after submission
+        wp_redirect(home_url('//plan-selection')); // Replace with your thank you page
+        exit;
+    }
+}
+
+
+

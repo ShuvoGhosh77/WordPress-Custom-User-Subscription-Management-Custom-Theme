@@ -94,7 +94,7 @@ function handle_custom_forgot_password()
             $subject = 'Reset your password';
             $headers = ['Content-Type: text/html; charset=UTF-8'];
             wp_mail($user->user_email, $subject, $message, $headers);
-      
+
 
             wp_redirect(home_url('/reset-email-sent'));
             exit;
@@ -247,6 +247,13 @@ function handle_user_email_update_form()
 
             $provided_password = $_POST['user_password'];
             $new_email = sanitize_email($_POST['new_email']);
+            $last_update_timestamp = get_user_meta($user_id, 'last_email_update_timestamp', true);
+
+            if ($last_update_timestamp && (time() - $last_update_timestamp) < YEAR_IN_SECONDS) {
+                set_transient('email_update_error_' . $user_id, 'You can only update your email once per year.', 60);
+                wp_redirect($_SERVER['REQUEST_URI']);
+                exit;
+            }
 
             if (wp_check_password($provided_password, $current_user->user_pass, $user_id)) {
                 // Success: Update email
@@ -254,6 +261,7 @@ function handle_user_email_update_form()
                     'ID' => $user_id,
                     'user_email' => $new_email,
                 ]);
+                update_user_meta($user_id, 'last_email_update_timestamp', time());
                 wp_redirect($_SERVER['REQUEST_URI']);
                 exit;
             } else {
@@ -266,47 +274,12 @@ function handle_user_email_update_form()
     }
 }
 
-/***********************************************************
-            upadte user password
- ******************************************************** */
-add_action('init', 'handle_user_password_update');
-function handle_user_password_update()
-{
-    if (
-        isset($_POST['update_user_password']) &&
-        isset($_POST['current_password']) &&
-        isset($_POST['new_password']) &&
-        isset($_POST['update_user_password_nonce']) &&
-        wp_verify_nonce($_POST['update_user_password_nonce'], 'update_user_password_action')
-    ) {
-        if (is_user_logged_in()) {
-            $user = wp_get_current_user();
-            $user_id = $user->ID;
-            $current_password = $_POST['current_password'];
-            $new_password = $_POST['new_password'];
 
-            if (wp_check_password($current_password, $user->user_pass, $user_id)) {
-                $update_result = wp_update_user([
-                    'ID' => $user_id,
-                    'user_pass' => $new_password,
-                ]);
+add_action('init', 'handle_user_email_update_form');
 
-                if (!is_wp_error($update_result)) {
-                    set_transient('password_update_success_' . $user_id, 'Password updated successfully.', 60);
-                } else {
-                    set_transient('password_update_error_' . $user_id, 'Something went wrong. Please try again.', 60);
-                }
 
-                wp_redirect($_SERVER['REQUEST_URI']);
-                exit;
-            } else {
-                set_transient('password_update_error_' . $user_id, 'Incorrect current password.', 60);
-                wp_redirect($_SERVER['REQUEST_URI']);
-                exit;
-            }
-        }
-    }
-}
+
+
 
 
 /***********************************************************
@@ -335,6 +308,414 @@ function handle_account_deletion()
             // Store error in session or use a transient
             set_transient('account_deletion_error', 'Incorrect password. Please try again.', 30);
             wp_redirect($_SERVER['HTTP_REFERER']);
+            exit;
+        }
+    }
+}
+
+
+
+
+/***********************************************************
+     divine-review-request  page upadte user Gender
+ ******************************************************** */
+add_action('init', 'handle_user_gender_update_form_secure');
+function handle_user_gender_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_gender']) &&
+        isset($_POST['gender']) &&
+        isset($_POST['update_user_gender_nonce']) &&
+        wp_verify_nonce($_POST['update_user_gender_nonce'], 'update_user_gender_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+
+            $new_gender = sanitize_text_field($_POST['gender']);
+
+
+            update_user_meta($user_id, 'gender', $new_gender);
+
+            // Optional: redirect to avoid resubmission on refresh
+            wp_redirect($_SERVER['REQUEST_URI']);
+            exit;
+        }
+    }
+}
+
+add_action('init', 'handle_user_mobile_update_form_secure');
+function handle_user_mobile_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_mobile']) &&
+        isset($_POST['mobile']) &&
+        isset($_POST['update_user_mobile_nonce']) &&
+        wp_verify_nonce($_POST['update_user_mobile_nonce'], 'update_user_mobile_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+
+            $new_mobile = sanitize_text_field($_POST['mobile']);
+
+
+            update_user_meta($user_id, 'mobile', $new_mobile);
+
+            // Optional: redirect to avoid resubmission on refresh
+            wp_redirect($_SERVER['REQUEST_URI']);
+            exit;
+        }
+    }
+}
+add_action('init', 'handle_user_whatsapp_update_form_secure');
+function handle_user_whatsapp_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_whatsapp']) &&
+        isset($_POST['whatsapp']) &&
+        isset($_POST['update_user_whatsapp_nonce']) &&
+        wp_verify_nonce($_POST['update_user_whatsapp_nonce'], 'update_user_whatsapp_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+
+            $new_whatsapp = sanitize_text_field($_POST['whatsapp']);
+
+
+            update_user_meta($user_id, 'whatsapp', $new_whatsapp);
+
+            // Optional: redirect to avoid resubmission on refresh
+            wp_redirect($_SERVER['REQUEST_URI']);
+            exit;
+        }
+    }
+}
+add_action('init', 'handle_user_myage_update_form_secure');
+function handle_user_myage_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_myage']) &&
+        isset($_POST['myage']) &&
+        isset($_POST['update_user_myage_nonce']) &&
+        wp_verify_nonce($_POST['update_user_myage_nonce'], 'update_user_myage_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+
+            $new_myage = sanitize_text_field($_POST['myage']);
+
+
+            update_user_meta($user_id, 'myage', $new_myage);
+
+            // Optional: redirect to avoid resubmission on refresh
+            wp_redirect($_SERVER['REQUEST_URI']);
+            exit;
+        }
+    }
+}
+add_action('init', 'handle_user_height_update_form_secure');
+function handle_user_height_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_height']) &&
+        isset($_POST['height']) &&
+        isset($_POST['update_user_height_nonce']) &&
+        wp_verify_nonce($_POST['update_user_height_nonce'], 'update_user_height_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+
+            $new_height = sanitize_text_field($_POST['height']);
+
+
+            update_user_meta($user_id, 'height', $new_height);
+
+            // Optional: redirect to avoid resubmission on refresh
+            wp_redirect($_SERVER['REQUEST_URI']);
+            exit;
+        }
+    }
+}
+add_action('init', 'handle_user_maritalStatus_update_form_secure');
+function handle_user_maritalStatus_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_maritalStatus']) &&
+        isset($_POST['maritalStatus']) &&
+        isset($_POST['update_user_maritalStatus_nonce']) &&
+        wp_verify_nonce($_POST['update_user_maritalStatus_nonce'], 'update_user_maritalStatus_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+
+            $new_maritalStatus = sanitize_text_field($_POST['maritalStatus']);
+
+            update_user_meta($user_id, 'marital_status', $new_maritalStatus);
+
+            // Optional: redirect to avoid resubmission on refresh
+            wp_redirect($_SERVER['REQUEST_URI']);
+            exit;
+        }
+    }
+}
+add_action('init', 'handle_user_relationship_update_form_secure');
+function handle_user_relationship_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_relationship']) &&
+        isset($_POST['relationshipType']) &&
+        isset($_POST['update_user_relationship_nonce']) &&
+        wp_verify_nonce($_POST['update_user_relationship_nonce'], 'update_user_relationship_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+
+            $new_relationship = sanitize_text_field($_POST['relationshipType']);
+
+
+            update_user_meta($user_id, 'relationship_type', $new_relationship);
+
+            // Optional: redirect to avoid resubmission on refresh
+            wp_redirect($_SERVER['REQUEST_URI']);
+            exit;
+        }
+    }
+}
+add_action('init', 'handle_user_drinking_habit_update_form_secure');
+function handle_user_drinking_habit_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_drinking_habit']) &&
+        isset($_POST['drinkingHabit']) &&
+        isset($_POST['update_user_drinking_habit_nonce']) &&
+        wp_verify_nonce($_POST['update_user_drinking_habit_nonce'], 'update_user_drinking_habit_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+
+            $new_rinkingHabit = sanitize_text_field($_POST['drinkingHabit']);
+
+
+            update_user_meta($user_id, 'drinking_habit', $new_rinkingHabit);
+
+            // Optional: redirect to avoid resubmission on refresh
+            wp_redirect($_SERVER['REQUEST_URI']);
+            exit;
+        }
+    }
+}
+add_action('init', 'handle_user_smoking_habit_update_form_secure');
+function handle_user_smoking_habit_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_smoking_habit']) &&
+        isset($_POST['smokingHabit']) &&
+        isset($_POST['update_user_smoking_habit_nonce']) &&
+        wp_verify_nonce($_POST['update_user_smoking_habit_nonce'], 'update_user_smoking_habit_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+
+            $new_smoking = sanitize_text_field($_POST['smokingHabit']);
+
+
+            update_user_meta($user_id, 'smoking_habit', $new_smoking);
+
+            // Optional: redirect to avoid resubmission on refresh
+            wp_redirect($_SERVER['REQUEST_URI']);
+            exit;
+        }
+    }
+}
+add_action('init', 'handle_user_seeking_update_form_secure');
+function handle_user_seeking_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_seeking']) &&
+        isset($_POST['seekingFor']) &&
+        isset($_POST['update_user_seeking_nonce']) &&
+        wp_verify_nonce($_POST['update_user_seeking_nonce'], 'update_user_seeking_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+
+            $new_seeking_for = sanitize_text_field($_POST['seekingFor']);
+
+
+            update_user_meta($user_id, 'seeking_for', $new_seeking_for);
+
+            // Optional: redirect to avoid resubmission on refresh
+            wp_redirect($_SERVER['REQUEST_URI']);
+            exit;
+        }
+    }
+}
+
+add_action('init', 'handle_user_preferred_age_range_update_form_secure');
+function handle_user_preferred_age_range_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_preferred_age_range']) &&
+        isset($_POST['age']) &&
+        isset($_POST['update_user_preferred_age_range_nonce']) &&
+        wp_verify_nonce($_POST['update_user_preferred_age_range_nonce'], 'update_user_preferred_age_range_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+
+            $new_preferred_age_range = sanitize_text_field($_POST['age']);
+
+
+            update_user_meta($user_id, 'preferred_age_range', $new_preferred_age_range);
+
+            // Optional: redirect to avoid resubmission on refresh
+            wp_redirect($_SERVER['REQUEST_URI']);
+            exit;
+        }
+    }
+}
+
+add_action('init', 'handle_user_preferencesHeight_update_form_secure');
+function handle_user_preferencesHeight_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_preferencesHeight']) &&
+        isset($_POST['preferencesHeight']) &&
+        isset($_POST['update_user_preferencesHeight_nonce']) &&
+        wp_verify_nonce($_POST['update_user_preferencesHeight_nonce'], 'update_user_preferencesHeight_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+
+            $new_preferencesHeight = sanitize_text_field($_POST['preferencesHeight']);
+
+
+            update_user_meta($user_id, 'preferencesHeight', $new_preferencesHeight);
+
+            // Optional: redirect to avoid resubmission on refresh
+            wp_redirect($_SERVER['REQUEST_URI']);
+            exit;
+        }
+    }
+}
+add_action('init', 'handle_user_bodyType_update_form_secure');
+function handle_user_bodyType_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_bodyType']) &&
+        isset($_POST['bodyType']) &&
+        isset($_POST['update_user_bodyType_nonce']) &&
+        wp_verify_nonce($_POST['update_user_bodyType_nonce'], 'update_user_bodyType_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+
+            $new_bodyType = sanitize_text_field($_POST['bodyType']);
+
+
+            update_user_meta($user_id, 'body_type', $new_bodyType);
+
+            // Optional: redirect to avoid resubmission on refresh
+            wp_redirect($_SERVER['REQUEST_URI']);
+            exit;
+        }
+    }
+}
+add_action('init', 'handle_user_skin_complexion_update_form_secure');
+function handle_user_skin_complexion_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_skin_complexion']) &&
+        isset($_POST['skinComplextion']) &&
+        isset($_POST['update_user_skin_complexion_nonce']) &&
+        wp_verify_nonce($_POST['update_user_skin_complexion_nonce'], 'update_user_skin_complexion_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+
+            $new_skin_complexion = sanitize_text_field($_POST['skinComplextion']);
+
+
+            update_user_meta($user_id, 'skin_complexion', $new_skin_complexion);
+
+            // Optional: redirect to avoid resubmission on refresh
+            wp_redirect($_SERVER['REQUEST_URI']);
+            exit;
+        }
+    }
+}
+add_action('init', 'handle_user_Interest_update_form_secure');
+function handle_user_Interest_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_Interest']) &&
+        isset($_POST['update_user_Interest_nonce']) &&
+        wp_verify_nonce($_POST['update_user_Interest_nonce'], 'update_user_Interest_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+
+            // Save Sport and Fitness Interests
+            if (isset($_POST['sports_interests']) && is_array($_POST['sports_interests'])) {
+                $sports = array_map('sanitize_text_field', $_POST['sports_interests']);
+                update_user_meta($user_id, 'user_sports_interests', $sports);
+            } else {
+                delete_user_meta($user_id, 'user_sports_interests');
+            }
+
+            // Save Activities Interests
+            if (isset($_POST['activity_interests']) && is_array($_POST['activity_interests'])) {
+                $activities = array_map('sanitize_text_field', $_POST['activity_interests']);
+                update_user_meta($user_id, 'user_activity_interests', $activities);
+            } else {
+                delete_user_meta($user_id, 'user_activity_interests');
+            }
+
+            // Optional: redirect to avoid resubmission on refresh
+            wp_redirect($_SERVER['REQUEST_URI']);
+            exit;
+        }
+    }
+}
+
+
+add_action('init', 'handle_user_location_update_form_secure');
+function handle_user_location_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_location']) &&
+        isset($_POST['update_user_location_nonce']) &&
+        wp_verify_nonce($_POST['update_user_location_nonce'], 'update_user_location_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+            
+            $new_country = sanitize_text_field($_POST['country'] ?? '');
+            $new_state = sanitize_text_field($_POST['state'] ?? '');
+            $new_city = sanitize_text_field($_POST['city'] ?? '');
+
+            update_user_meta($user_id, 'country', $new_country);
+            update_user_meta($user_id, 'state', $new_state);
+            update_user_meta($user_id, 'city', $new_city);
+
+
+            // Optional: redirect to avoid resubmission on refresh
+            wp_redirect($_SERVER['REQUEST_URI']);
             exit;
         }
     }

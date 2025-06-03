@@ -58,7 +58,7 @@ get_header();
 
                         <!-- Cancel-Form Button -->
                         <a href="/" class="cancel-form">
-                            <img src="http://mysight.test/wp-content/uploads/2025/05/close.png" alt="close">
+                            <img src="/wp-content/uploads/2025/05/close.png" alt="close">
                         </a>
 
                         <!-- Head -->
@@ -83,7 +83,7 @@ get_header();
 
                                         <label class="form-label" for="first-name">First Name</label>
 
-                                        <input type="text" class="form-control" id="first-name" name="first-name">
+                                        <input type="text" class="form-control" id="first-name" name="first-name" required>
 
                                     </div>
 
@@ -96,7 +96,7 @@ get_header();
 
                                         <label class="form-label" for="last-name">Last Name</label>
 
-                                        <input type="text" class="form-control" id="last-name" name="last-name">
+                                        <input type="text" class="form-control" id="last-name" name="last-name" required>
 
                                     </div>
 
@@ -116,7 +116,7 @@ get_header();
 
                                         <label class="form-label" for="date-of-birth">Date of Birth</label>
 
-                                        <input type="date" class="form-control" id="date-of-birth" name="date-of-birth">
+                                        <input type="date" class="form-control" id="date-of-birth" name="date-of-birth" required>
 
                                     </div>
 
@@ -129,7 +129,7 @@ get_header();
 
                                         <label class="form-label" for="typeOfPrayer">Type of prayer</label>
 
-                                        <select class="form-select" id="typeOfPrayer" name="typeOfPrayer">
+                                        <select class="form-select" id="typeOfPrayer" name="typeOfPrayer" required>
                                             <option value="">&nbsp;</option>
                                             <option value="Intercession">Intercession</option>
                                             <option value="Supplication">Supplication</option>
@@ -153,7 +153,7 @@ get_header();
 
                                         <label class="form-label" for="gender">Gender</label>
 
-                                        <select class="form-select" id="gender" name="gender">
+                                        <select class="form-select" id="gender" name="gender" required>
                                             <option value="">&nbsp;</option>
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
@@ -170,7 +170,7 @@ get_header();
 
                                         <label class="form-label" for="state-origin">State of Origin and LGA</label>
 
-                                        <input type="text" class="form-control" id="state-origin" name="state-origin">
+                                        <input type="text" class="form-control" id="state-origin" name="state-origin" required>
 
                                     </div>
 
