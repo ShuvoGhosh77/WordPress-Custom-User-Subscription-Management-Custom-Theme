@@ -1,4 +1,11 @@
 <?php
+
+function enqueue_swiper_assets() {
+    wp_enqueue_style('swiper-css', 'https://unpkg.com/swiper/swiper-bundle.min.css');
+    wp_enqueue_script('swiper-js', 'https://unpkg.com/swiper/swiper-bundle.min.js', array(), null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_swiper_assets');
+
 function yourtheme_enqueue_assets()
 {
     // Main theme CSS (this includes your style.css)
@@ -29,16 +36,21 @@ function yourtheme_enqueue_assets()
         true
     );
 
+
     wp_enqueue_style(
         'bootstrap-slider-css',
         'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/css/bootstrap-slider.min.css'
     );
+
+    wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css');
+    wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js', array(), null, true);
 
     // masonry JS 
     wp_enqueue_script('masonry', 'https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js', array('jquery'), null, true);
 
     // Custom JS (local)
     wp_enqueue_script('custom-js', get_template_directory_uri() . '/assets/js/custom.js', array('jquery', 'bootstrap-slider'), null, true);
+    
 }
 add_action('wp_enqueue_scripts', 'yourtheme_enqueue_assets');
 

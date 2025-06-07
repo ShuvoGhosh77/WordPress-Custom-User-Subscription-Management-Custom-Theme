@@ -346,7 +346,7 @@ get_header();
                     </div>
 
                     <div class="review-btn-group">
-                        <a href="/">
+                        <a href="/matches">
                             <button type="button" class="btn btn-primary cancel-btn">Cancel</button>
                         </a>
 

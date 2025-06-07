@@ -8,8 +8,16 @@
 
         <!-- User Info -->
         <div class="user-info">
-            <h2 class="username">John Doe</h2>
-            <div class="useremail">johndoe@mail.com</div>
+            <h2 class="username">
+                <?php
+                $current_user = wp_get_current_user();
+                $firstname = get_user_meta($current_user->ID, 'first_name', true);
+                $lastname = get_user_meta($current_user->ID, 'last_name', true);
+                ?>
+
+                <Span><?php echo esc_attr($firstname); ?> </Span><Span><?php echo esc_attr($lastname); ?></Span>
+            </h2>
+            <div class="useremail"><?php echo esc_html($current_user->user_email); ?></div>
         </div>
 
         <!-- Sidebar Menu Wrap-->
@@ -37,9 +45,9 @@
                     </li>
 
                     <li>
-                        <a href="matches.html"><img
+                        <a class="<?php if (is_page('matches')) echo 'active'; ?>"  href="/matches"><img
                                 src="<?php echo get_template_directory_uri(); ?>/assets/images/heart-icon.png"
-                                alt="Matches">Matches <span class="notification">1</span></a>
+                                alt="Matches">Matches</a>
                     </li>
 
                     <li>

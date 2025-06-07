@@ -1,22 +1,45 @@
 jQuery(document).ready(function ($) {
 
+  // match hide and show in click accept-match buttom
+  $('.accept-match').on('click', function () {
+    var $parent = $(this).closest('.match');
+    $parent.find('.extra-info').show();
+    $parent.find('.match-container-image').hide();
+    $parent.find('.congratulation-massage').hide();
+  });
 
-     const maxSelection = 5;
-    const checkboxes = $('#sportInterests input[type="checkbox"]');
-    const checkboxes2 = $('#activityInterests input[type="checkbox"]');
+    $('.accept-match').on('click', function () {
+    var $parent = $(this).closest('.match-container');
+    $parent.find('.congratulation-massage').hide();
+  });
 
-    checkboxes.on('change', function() {
-        if (checkboxes.filter(':checked').length > maxSelection) {
-            this.checked = false;
-            alert('You can select up to 5 sports only.');
-        }
-    });
-    checkboxes2.on('change', function() {
-        if (checkboxes2.filter(':checked').length > maxSelection) {
-            this.checked = false;
-            alert('You can select up to 5 Activities only.');
-        }
-    });
+  // match slider 
+  var swiper = new Swiper('.swiper-container', {
+    loop: false,
+    navigation: false,
+    pagination: false,
+    slidesPerView: 1,
+    spaceBetween: 30,
+  });
+
+
+// divine-meet-step-5 protect not select more then 5
+  const maxSelection = 5;
+  const checkboxes = $('#sportInterests input[type="checkbox"]');
+  const checkboxes2 = $('#activityInterests input[type="checkbox"]');
+
+  checkboxes.on('change', function () {
+    if (checkboxes.filter(':checked').length > maxSelection) {
+      this.checked = false;
+      alert('You can select up to 5 sports only.');
+    }
+  });
+  checkboxes2.on('change', function () {
+    if (checkboxes2.filter(':checked').length > maxSelection) {
+      this.checked = false;
+      alert('You can select up to 5 Activities only.');
+    }
+  });
 
   // start select-screening page js 
   var selectedOption = null;
@@ -195,17 +218,39 @@ jQuery(document).ready(function ($) {
     horizontalOrder: true
   });
 
-  // DivineCountrySelect using jQuery
+  // // DivineCountrySelect using jQuery
+  // const $DivineCountrySelect = $("#dm-country");
+
+  // // Function to fetch the list of countries
+  // async function fetchLocationCountries() {
+  //   try {
+  //     const response = await fetch("https://restcountries.com/v2/all");
+  //     const countries = await response.json();
+  //     console.log(countries)
+
+  //     // Check if the country select element exists before trying to add options
+  //     if ($DivineCountrySelect.length > 0) {
+  //       countries.forEach((country) => {
+  //         const option = $("<option></option>").val(country.alpha2Code).text(country.name);
+  //         $DivineCountrySelect.append(option);
+  //       });
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching countries for Divine Country Select:", error);
+  //   }
+  // }
+
+  // // Call the function to populate the country list
+  // fetchLocationCountries();
+
   const $DivineCountrySelect = $("#dm-country");
 
-  // Function to fetch the list of countries
   async function fetchLocationCountries() {
     try {
-      const response = await fetch("https://restcountries.com/v2/all");
+      const response = await fetch("https://restcountries.com/v2/all?fields=name,alpha2Code");
       const countries = await response.json();
 
-      // Check if the country select element exists before trying to add options
-      if ($DivineCountrySelect.length > 0) {
+      if ($DivineCountrySelect.length > 0 && Array.isArray(countries)) {
         countries.forEach((country) => {
           const option = $("<option></option>").val(country.alpha2Code).text(country.name);
           $DivineCountrySelect.append(option);
@@ -216,8 +261,8 @@ jQuery(document).ready(function ($) {
     }
   }
 
-  // Call the function to populate the country list
   fetchLocationCountries();
+
 
 });
 
@@ -510,3 +555,28 @@ document.querySelector('.question-container').addEventListener('click', function
       Add  Question part  for general-screening page end
 *************************************************************/
 
+
+// Sidebar JS
+function openNav() {
+  document.getElementById("sidebar").style.left = "0";
+}
+
+function closeNav() {
+  document.getElementById("sidebar").style.left = "-350px";
+}
+
+function handleWindowResize() {
+  if (window.innerWidth <= 991) {
+    document.getElementById("sidebar").style.left = "-350px";
+  } else {
+    document.getElementById("sidebar").style.left = "0";
+  }
+}
+
+// Initial handling of window resize
+handleWindowResize();
+
+// Add event listener for window resize
+window.addEventListener("resize", function() {
+  handleWindowResize();
+});

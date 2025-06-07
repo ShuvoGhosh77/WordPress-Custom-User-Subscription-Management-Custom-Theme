@@ -47,7 +47,7 @@
                         <?php if (is_user_logged_in()): ?>
                             <a class="nav-link" href="<?php echo wp_logout_url(home_url()); ?>">Sign out</a>
                         <?php else: ?>
-                            <a class="nav-link" href="/login">Login</a>
+                            <a class="nav-link" href="/login">Sign In</a>
                         <?php endif; ?>
                     </li>
 

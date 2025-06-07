@@ -587,6 +587,13 @@
 
 
 @media screen and (max-width:768px) {
+
+    #match-container .match-area .img-fluid2 {
+        width: 150px;
+        min-height: 150px;
+        height: 150px;
+    }
+
     .member-box .header {
         padding: 24px 32px 50px 32px;
     }

@@ -212,14 +212,15 @@ get_header();
 
     <div class="popup-container">
 
-        <button type="button" id="popupToggle" class="btn btn-primary plus-icon"> 
-            <img src="/wp-content/uploads/2025/05/add.png" alt="add-icon">
-         </button>
+        <button type="button" id="popupToggle" class="btn btn-primary plus-icon">
+            <img src="/wp-content/uploads/2025/06/plus.png" alt="add-icon">
+        </button>
 
 
         <div class="report-bug-box" id="popupBox">
 
-            <button type="button" id="popupClose" class="popup-close"><i class="fa fa-x"></i></button>
+            <button type="button" id="popupClose" class="popup-close"><img src="/wp-content/uploads/2025/05/close.png"
+                    alt="add-icon"></button>
 
             <!-- Form -->
             <form>
@@ -263,7 +264,6 @@ get_header();
 
 
     </div>
-
 
 
 

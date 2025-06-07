@@ -75,7 +75,7 @@ get_header();
 
                                                     <!-- Intrest -->
                                                     <label class="interest-pill">
-                                                        <input type="checkbox" name="sports_interests[]" value="Basketball">
+                                                        <input type="checkbox"  name="sports_interests[]" value="Basketball" required>
                                                         <span class="interest-label">Basketball</span>
                                                     </label>
 
@@ -265,7 +265,7 @@ get_header();
 
                                                     <!-- Intrest -->
                                                     <label class="interest-pill">
-                                                        <input type="checkbox" name="activity_interests[]" value="Blogging">
+                                                        <input type="checkbox" name="activity_interests[]" value="Blogging" required>
                                                         <span class="interest-label">Blogging</span>
                                                     </label>
 

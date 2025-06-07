@@ -2987,6 +2987,8 @@ a {
 .match-found-block .match-slider .match-area .img-fluid {
     border-radius: 100px;
     max-width: 190px;
+    height: 188px !important;
+    object-fit: cover;
 }
 
 .match-found-block .match-slider .match-area .heart-icon {
@@ -3005,7 +3007,7 @@ a {
 }
 
 .layout-main .matches-wrapper .match-found-block .action-buttons {
-    padding-top: 50px;
+    padding-top: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -5867,4 +5869,59 @@ a {
     font-weight: 500;
     padding: 0;
     margin: 0;
+    
 }
+ #match-container .match-area .img-fluid2 {
+    border-radius: 100px;
+    max-width: 190px;
+    width: 190px;
+    min-height: 188px;
+    height: 188px;
+    object-fit: cover;
+}
+#match-container .match-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 32px;
+}
+ #match-container .match-area .heart-icon {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    color: #ff292e;
+    font-size: 40px;
+}
+#match-container .action-buttons .btn.btn-primary.reject-match {
+    border-color: #ff292e;
+    color: #ff292e;
+    background-color: #fff;
+    margin-right: 16px;
+}
+
+#match-container .action-buttons .btn.btn-primary.reject-match:hover {
+    background-color: #ff292e;
+    color: #fff;
+    border-color: #ff292e;
+}
+
+#match-container .action-buttons .btn.btn-primary {
+    background-color: #72bd2f;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #72bd2f;
+}
+#match-container .action-buttons .btn.btn-primary:hover {
+    background-color: #62a329;
+    border-color: #62a329;
+}
+
+#match-container p.command-text {
+    font-size: 16px;
+    color: #777;
+    font-weight: 600;
+    margin-top: 40px;
+}
+

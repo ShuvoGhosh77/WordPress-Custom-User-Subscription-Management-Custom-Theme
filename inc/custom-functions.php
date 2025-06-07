@@ -220,7 +220,7 @@ function save_user_preferences()
     update_user_meta($user_id, 'skin_complexion', $skin_complexion);
 
     // Redirect to next step
-    wp_redirect(home_url());
+    wp_redirect(home_url('/divine-review-request'));
     exit;
 }
 
@@ -254,8 +254,8 @@ function show_user_uploaded_media_fields($user)
 
     $height = get_user_meta($user->ID, 'height', true);
     $myage = get_user_meta($user->ID, 'myage', true);
-    $mybodyType= get_user_meta($user->ID, 'mybodyType', true);
-    $myskinComplextion= get_user_meta($user->ID, 'myskinComplextion', true);
+    $mybodyType = get_user_meta($user->ID, 'mybodyType', true);
+    $myskinComplextion = get_user_meta($user->ID, 'myskinComplextion', true);
     $marital_status = get_user_meta($user->ID, 'marital_status', true);
     $relationship_type = get_user_meta($user->ID, 'relationship_type', true);
     $drinking_habit = get_user_meta($user->ID, 'drinking_habit', true);
@@ -533,3 +533,11 @@ function handle_divinemeet_form_submission()
     }
 
 }
+
+
+
+
+
+
+
+
