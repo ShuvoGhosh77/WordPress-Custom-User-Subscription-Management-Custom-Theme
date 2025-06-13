@@ -1,6 +1,8 @@
 jQuery(document).ready(function ($) {
 
-  // match hide and show in click accept-match buttom
+  
+
+  // matches page  match hide and show in when click accept-match buttom
   $('.accept-match').on('click', function () {
     var $parent = $(this).closest('.match');
     $parent.find('.extra-info').show();
@@ -8,11 +10,10 @@ jQuery(document).ready(function ($) {
     $parent.find('.congratulation-massage').hide();
   });
 
-    $('.accept-match').on('click', function () {
+  $('.accept-match').on('click', function () {
     var $parent = $(this).closest('.match-container');
     $parent.find('.congratulation-massage').hide();
   });
-
   // match slider 
   var swiper = new Swiper('.swiper-container', {
     loop: false,
@@ -23,7 +24,7 @@ jQuery(document).ready(function ($) {
   });
 
 
-// divine-meet-step-5 protect not select more then 5
+  // divine-meet-step-5 protect not select more then 5
   const maxSelection = 5;
   const checkboxes = $('#sportInterests input[type="checkbox"]');
   const checkboxes2 = $('#activityInterests input[type="checkbox"]');
@@ -517,39 +518,88 @@ function EmaiUpdatePassword(EmaiUpdatePassword) {
 *******************************************************/
 
 
-document.getElementById('add-question-btn').addEventListener('click', function () {
-  const container = document.querySelector('.question-container');
+// document.getElementById('add-question-btn').addEventListener('click', function () {
+//   const container = document.querySelector('.question-container');
+//   const addButton = document.getElementById('add-question-btn');
+
+//   // Count existing questions
+//   const currentQuestions = container.querySelectorAll('textarea[name="questions[]"]').length;
+
+//   if (currentQuestions >= 7) {
+//     alert('You can only add a maximum of 7 questions.');
+//     return;
+//   }
+
+//   // Create a new input group
+//   const newQuestion = document.createElement('div');
+//   newQuestion.className = 'input-group';
+
+//   newQuestion.innerHTML = `
+//         <span class="input-group-text p-0 border-0 bg-white">
+//             <img src="/wp-content/uploads/2025/05/minus-img.png" alt="Remove Question" class="remove-question">
+//         </span>
+//         <textarea name="questions[]" class="form-control ms-2" placeholder="Type your question here..." maxlength="100"></textarea>
+//     `;
+
+//   // Insert the new question before the button
+//   container.insertBefore(newQuestion, addButton);
+// });
+
+
+document.addEventListener('DOMContentLoaded', function () {
   const addButton = document.getElementById('add-question-btn');
+  
+  if (addButton) {
+    addButton.addEventListener('click', function () {
+      const container = document.querySelector('.question-container');
 
-  // Count existing questions
-  const currentQuestions = container.querySelectorAll('textarea[name="questions[]"]').length;
+      // Count existing questions
+      const currentQuestions = container.querySelectorAll('textarea[name="questions[]"]').length;
 
-  if (currentQuestions >= 7) {
-    alert('You can only add a maximum of 7 questions.');
-    return;
+      if (currentQuestions >= 7) {
+        alert('You can only add a maximum of 7 questions.');
+        return;
+      }
+
+      // Create a new input group
+      const newQuestion = document.createElement('div');
+      newQuestion.className = 'input-group';
+
+      newQuestion.innerHTML = `
+            <span class="input-group-text p-0 border-0 bg-white">
+                <img src="/wp-content/uploads/2025/05/minus-img.png" alt="Remove Question" class="remove-question">
+            </span>
+            <textarea name="questions[]" class="form-control ms-2" placeholder="Type your question here..." maxlength="100"></textarea>
+        `;
+
+      // Insert the new question before the button
+      container.insertBefore(newQuestion, addButton);
+    });
   }
-
-  // Create a new input group
-  const newQuestion = document.createElement('div');
-  newQuestion.className = 'input-group';
-
-  newQuestion.innerHTML = `
-        <span class="input-group-text p-0 border-0 bg-white">
-            <img src="/wp-content/uploads/2025/05/minus-img.png" alt="Remove Question" class="remove-question">
-        </span>
-        <textarea name="questions[]" class="form-control ms-2" placeholder="Type your question here..." maxlength="100"></textarea>
-    `;
-
-  // Insert the new question before the button
-  container.insertBefore(newQuestion, addButton);
 });
 
-// Handle removal
-document.querySelector('.question-container').addEventListener('click', function (e) {
-  if (e.target.classList.contains('remove-question')) {
-    e.target.closest('.input-group').remove();
+// // Handle removal
+// document.querySelector('.question-container').addEventListener('click', function (e) {
+//   if (e.target.classList.contains('remove-question')) {
+//     e.target.closest('.input-group').remove();
+//   }
+// });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const container = document.querySelector('.question-container');
+  
+  if (container) {
+    container.addEventListener('click', function (e) {
+      if (e.target.classList.contains('remove-question')) {
+        const inputGroup = e.target.closest('.input-group');
+        if (inputGroup) {
+          inputGroup.remove();
+        }
+      }
+    });
   }
 });
+
 
 /************************************************************
       Add  Question part  for general-screening page end
@@ -565,18 +615,30 @@ function closeNav() {
   document.getElementById("sidebar").style.left = "-350px";
 }
 
+// function handleWindowResize() {
+//   if (window.innerWidth <= 991) {
+//     document.getElementById("sidebar").style.left = "-350px";
+//   } else {
+//     document.getElementById("sidebar").style.left = "0";
+//   }
+// }
+
 function handleWindowResize() {
+  const sidebar = document.getElementById("sidebar");
+  if (!sidebar) return; 
+
   if (window.innerWidth <= 991) {
-    document.getElementById("sidebar").style.left = "-350px";
+    sidebar.style.left = "-350px";
   } else {
-    document.getElementById("sidebar").style.left = "0";
+    sidebar.style.left = "0";
   }
 }
+
 
 // Initial handling of window resize
 handleWindowResize();
 
 // Add event listener for window resize
-window.addEventListener("resize", function() {
+window.addEventListener("resize", function () {
   handleWindowResize();
 });

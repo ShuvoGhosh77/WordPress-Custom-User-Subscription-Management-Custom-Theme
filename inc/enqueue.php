@@ -1,6 +1,7 @@
 <?php
 
-function enqueue_swiper_assets() {
+function enqueue_swiper_assets()
+{
     wp_enqueue_style('swiper-css', 'https://unpkg.com/swiper/swiper-bundle.min.css');
     wp_enqueue_script('swiper-js', 'https://unpkg.com/swiper/swiper-bundle.min.js', array(), null, true);
 }
@@ -48,9 +49,21 @@ function yourtheme_enqueue_assets()
     // masonry JS 
     wp_enqueue_script('masonry', 'https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js', array('jquery'), null, true);
 
+
     // Custom JS (local)
     wp_enqueue_script('custom-js', get_template_directory_uri() . '/assets/js/custom.js', array('jquery', 'bootstrap-slider'), null, true);
-    
+    wp_enqueue_script('prayer-wall-script', get_template_directory_uri() . '/assets/js/prayer-wall.js', array('jquery'), null, true);
+    wp_localize_script('prayer-wall-script', 'prayerWallAjax', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('load_prayers_nonce')
+    ));
+    wp_enqueue_script('testimonies', get_template_directory_uri() . '/assets/js/testimonies.js', array('jquery'), null, true);
+    wp_localize_script('testimonies', 'testimony_ajax_object', [
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('testimony_nonce'),
+    ]);
+
+
 }
 add_action('wp_enqueue_scripts', 'yourtheme_enqueue_assets');
 

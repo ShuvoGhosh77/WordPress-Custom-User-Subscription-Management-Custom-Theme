@@ -263,6 +263,7 @@ function show_user_uploaded_media_fields($user)
     $current_summary = get_user_meta($user->ID, 'user_summary', true);
     $sports = get_user_meta($user->ID, 'user_sports_interests', true);
     $activities = get_user_meta($user->ID, 'user_activity_interests', true);
+    $wants_group_contact = get_user_meta($user->ID, 'wants_group_contact', true);
 
     $seeking = get_user_meta($user->ID, 'seeking_for', true);
     $preferencesHeight = get_user_meta($user->ID, 'preferencesHeight', true);
@@ -284,6 +285,12 @@ function show_user_uploaded_media_fields($user)
             <tr>
                 <th><label>Last Name</label></th>
                 <td><?php echo esc_html($last_name); ?></td>
+            </tr>
+        <?php endif; ?>
+        <?php if ($wants_group_contact): ?>
+            <tr>
+                <th><label>wants group contact</label></th>
+                <td><?php echo esc_html($wants_group_contact); ?></td>
             </tr>
         <?php endif; ?>
         <?php if ($gender): ?>

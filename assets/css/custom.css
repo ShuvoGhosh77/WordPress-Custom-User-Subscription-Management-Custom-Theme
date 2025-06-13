@@ -4811,9 +4811,11 @@ a {
 /* Prayer Card ~ Button Group */
 .prayer-card .praying-btn-group {
     padding-top: 28px;
-    min-height: 140px;
+    /* min-height: 140px; */
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
 }
 
 /* Prayer Card ~ Button Group btn */
@@ -4838,8 +4840,8 @@ a {
 
 /* Button Group ~ Group Pray Btn  */
 .prayer-card .praying-btn-group .group-pray-btn {
-    margin-top: 12px;
-    display: none;
+    /* margin-top: 12px; */
+    margin-left: 8px;
 }
 
 /* Button Group ~ Btn Active  */
@@ -5863,15 +5865,17 @@ a {
     color: #777;
     font-weight: bold;
 }
-.Thank-modal-content p{
+
+.Thank-modal-content p {
     font-size: 18px;
     line-height: 30px;
     font-weight: 500;
     padding: 0;
     margin: 0;
-    
+
 }
- #match-container .match-area .img-fluid2 {
+
+#match-container .match-area .img-fluid2 {
     border-radius: 100px;
     max-width: 190px;
     width: 190px;
@@ -5879,6 +5883,7 @@ a {
     height: 188px;
     object-fit: cover;
 }
+
 #match-container .match-area {
     display: flex;
     align-items: center;
@@ -5886,7 +5891,8 @@ a {
     position: relative;
     margin-top: 32px;
 }
- #match-container .match-area .heart-icon {
+
+#match-container .match-area .heart-icon {
     position: absolute;
     left: 50%;
     bottom: 50%;
@@ -5894,6 +5900,7 @@ a {
     color: #ff292e;
     font-size: 40px;
 }
+
 #match-container .action-buttons .btn.btn-primary.reject-match {
     border-color: #ff292e;
     color: #ff292e;
@@ -5913,6 +5920,7 @@ a {
     font-weight: bold;
     border: 2px solid #72bd2f;
 }
+
 #match-container .action-buttons .btn.btn-primary:hover {
     background-color: #62a329;
     border-color: #62a329;
@@ -5925,3 +5933,68 @@ a {
     margin-top: 40px;
 }
 
+
+#no-comment img {
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    background-color: #72bd2f;
+    border-color: #72bd2f;
+    padding: 9px;
+}
+
+.prayer-card .prayer-card--request .request-text p {
+    font-size: 14px;
+    color: #111;
+    line-height: 1.7;
+}
+
+.img-fluid44 {
+    width: 100%;
+    max-width: 80px !important;
+    height: 80px !important;
+    margin-right: 20px;
+    border-radius: 100px;
+}
+
+#prayer-request-list {
+    position: relative;
+    min-height: 700px;
+}
+
+#prayer-request-list .loading {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55px;
+    height: 55px;
+    background: url("/wp-content/themes/mysight/assets/images/loader.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.comment-user-img img {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 100px !important;
+}
+
+.group-contact-icon {
+    position: absolute;
+    top: 0;
+    right: 20px;
+}
+
+.group-contact-icon img {
+    width: 60px;
+    height: 70px;
+}
+.img-testimony-fluid{
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+}
