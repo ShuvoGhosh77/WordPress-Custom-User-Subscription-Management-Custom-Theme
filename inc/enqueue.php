@@ -63,6 +63,11 @@ function yourtheme_enqueue_assets()
         'nonce' => wp_create_nonce('testimony_nonce'),
     ]);
 
+     wp_enqueue_script('prayer-room', get_template_directory_uri() . '/assets/js/prayer-room.js', array('jquery'), null, true);
+     wp_localize_script('prayer-room', 'prayerRoomData', array(
+            'ajax_url' => admin_url('admin-ajax.php')
+        ));
+
 
 }
 add_action('wp_enqueue_scripts', 'yourtheme_enqueue_assets');
