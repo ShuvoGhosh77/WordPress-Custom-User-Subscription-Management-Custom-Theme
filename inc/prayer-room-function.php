@@ -165,7 +165,7 @@ function prayer_room_shortcode()
                     <!-- Search Bar -->
                     <div class="search-bar input-group">
                         <span class="input-group-text bg-white" id="searchbar">
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/search.png" alt="">
                         </span>
                         <input type="text" id="prayerRoomSearch" class="form-control" placeholder="Search"
                             aria-describedby="searchbar">
@@ -190,7 +190,7 @@ function prayer_room_shortcode()
                         $file_url = get_post_meta(get_the_ID(), 'file', true);
                         $doc_count = (int) get_post_meta(get_the_ID(), 'document_count', true);
                         ?>
-                        <div class="col-lg-4 prayer-room-item">
+                        <div class="col-lg-4 prayer-room-item prayer-room-item2">
                             <!-- Upload Period -->
                             <?php
                             $post_date = get_the_date('Y-m-d');

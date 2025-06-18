@@ -153,10 +153,31 @@ jQuery(function ($) {
         });
     });
 
-    
+
 
 
 });
 
 
 
+
+// Facebook share function
+function shareOnFacebook(url) {
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank', 'width=600,height=400');
+}
+
+// Instagram doesn't have a direct share API, so we'll just open the URL
+function shareOnInstagram(url) {
+    // Note: Instagram doesn't support direct sharing from web, this will just open the URL
+    window.open('https://www.instagram.com/', '_blank');
+}
+
+// Twitter share function
+function shareOnTwitter(text, url) {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url), '_blank', 'width=600,height=400');
+}
+
+// LinkedIn share function
+function shareOnLinkedIn(url) {
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url), '_blank', 'width=600,height=400');
+}

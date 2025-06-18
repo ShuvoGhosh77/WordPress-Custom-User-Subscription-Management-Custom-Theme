@@ -204,7 +204,7 @@ function display_user_matches()
         </script>
         <?php
     } else {
-        echo '<p>Invalid value. Please update your profile preferences.</p>';
+        get_template_part('templates/sections/no-matches');
     }
 
     return ob_get_clean();
@@ -321,7 +321,7 @@ function display_user_match_count()
     $match_gender = $seeking_for === 'Wife' ? 'female' : ($seeking_for === 'Husband' ? 'male' : '');
 
     if (empty($match_gender)) {
-        return '<span>Update profile to see matches.</span>';
+        return '<span>0</span>';
     }
 
     $args = array(

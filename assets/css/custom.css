@@ -5998,3 +5998,25 @@ a {
     height: 40px;
     border-radius: 100px;
 }
+.form-control-comment:focus{
+    border: none !important;
+    outline: none;
+}
+#comment-submit{
+    background: #72bd2f;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 5px 10px;
+}
+/* #no-comment {
+	opacity: 0;
+} */
+ /* #prayerRoomList{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 24px;
+ }
+ #prayerRoomList  .prayer-room-item2{
+    width: 100%;
+ } */

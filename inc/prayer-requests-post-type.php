@@ -198,14 +198,14 @@ function prayer_wall_shortcode()
                                         Urgent
                                     </label>
                                 </li>
-
+<!-- 
                                 <li>
                                     <label>
                                         <input type="checkbox" class="form-check-input filter-checkbox"
                                             value="Group Prayer">
                                         Group Prayer
                                     </label>
-                                </li>
+                                </li> -->
 
                             </ul>
 
@@ -336,7 +336,7 @@ function load_prayer_requests_callback()
             <div class="col-lg-4">
                 <div class="prayer-card">
                     <div class="prayer-card--user">
-                        <?php if ($photo_url): ?>
+                        <?php if (!$anonymous && $photo_url): ?>
                             <img src="<?php echo esc_url($photo_url); ?>" style="max-width: 80px;" alt="User Image"
                                 class="img-fluid44" />
                         <?php else: ?>
@@ -351,6 +351,7 @@ function load_prayer_requests_callback()
                     <?php
                     $has_urgent = has_term('Urgent', 'prayer_category', get_the_ID());
                     $has_group = !empty($group_contact);
+                    $anonymous = get_post_meta(get_the_ID(), 'anonymous', true);
                     ?>
 
                     <?php if ($has_group): ?>
@@ -453,13 +454,13 @@ function load_prayer_requests_callback()
                                                     alt="User Image" class="img-fluid">
                                             <?php endif; ?>
 
-                                            <textarea class="form-control ms-2" name="comment" placeholder="Write a comment"></textarea>
+                                            <textarea class="form-control form-control-comment ms-2" name="comment" placeholder="Write a comment"></textarea>
                                             <input type="hidden" name="comment_post_ID" value="<?php echo get_the_ID(); ?>">
                                             <input type="hidden" name="action" value="submit_prayer_comment">
                                             <input type="hidden" name="nonce"
                                                 value="<?php echo wp_create_nonce('submit_prayer_comment'); ?>">
                                         </div>
-                                        <button type="submit" class="btn btn-sm btn-success mt-2">Post Comment</button>
+                                        <button type="submit" id="comment-submit" class="btn btn-sm btn-success mt-2">Post Comment</button>
                                     </form>
                                 </div>
                             </div>

@@ -22,22 +22,22 @@ jQuery(function ($) {
     });
 
 
-    // Submit comment via AJAX
-    $(document).on('submit', '.prayer-comment-form', function (e) {
-        e.preventDefault();
-        var form = $(this);
-        var data = form.serialize();
+    // // Submit comment via AJAX
+    // $(document).on('submit', '.prayer-comment-form', function (e) {
+    //     e.preventDefault();
+    //     var form = $(this);
+    //     var data = form.serialize();
 
-        $.post(prayerWallAjax.ajax_url, data, function (response) {
-            if (response.success) {
-                // alert(response.data.message);
-                form.closest('.comment-box').find('textarea').val('');
-                loadPrayerRequests(); // Reload to show new comment count
-            } else {
-                alert(response.data.message);
-            }
-        });
-    });
+    //     $.post(prayerWallAjax.ajax_url, data, function (response) {
+    //         if (response.success) {
+    //             // alert(response.data.message);
+    //             form.closest('.comment-box').find('textarea').val('');
+    //             loadPrayerRequests(); // Reload to show new comment count
+    //         } else {
+    //             alert(response.data.message);
+    //         }
+    //     });
+    // });
 
 
 

@@ -318,6 +318,6 @@ function handle_testimonies_request_submission()
         update_post_meta($post_id, 'testimonies_anonymous', $anonymous);
 
     }
-    wp_redirect(home_url('/testimonies/'));
+    wp_redirect(home_url('/testimonie/'));
     exit;
 }
