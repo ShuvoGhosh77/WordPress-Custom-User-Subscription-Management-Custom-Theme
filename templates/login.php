@@ -86,7 +86,7 @@ get_header();
                             <!-- Remember Me Checkbox -->
                             <div class="form-check rememberme">
                                 <input class="form-check-input" type="checkbox" name="rememberme"
-                                    id="RemembermeCheckbox">
+                                    id="RemembermeCheckbox" required>
                                 <label class="form-check-label" for="RemembermeCheckbox">Remember Me</label>
                             </div>
 

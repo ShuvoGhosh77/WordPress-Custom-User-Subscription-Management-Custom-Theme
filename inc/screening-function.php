@@ -104,7 +104,7 @@ function handle_custom_screening_form()
         wp_mail($admin_email, $subject, $message, $headers, $attachments);
 
         // Optional: redirect after submission
-        wp_redirect(home_url('//plan-selection')); // Replace with your thank you page
+        wp_redirect(home_url('/plan-selection')); // Replace with your thank you page
         exit;
     }
 }
@@ -232,3 +232,49 @@ function handle_custom_screening_form2()
 
 
 
+/****************************************************
+     Bug/Feature Form Submission 
+*******************************************************/
+
+add_action('init', 'handle_bug_feature_form_submission');
+function handle_bug_feature_form_submission() {
+    if (
+        isset($_POST['custom_bug_feature_form_submitted']) &&
+        isset($_POST['custom_bug_feature_nonce']) &&
+        wp_verify_nonce($_POST['custom_bug_feature_nonce'], 'custom_bug_feature_action')
+    ) {
+        // Get current user email
+        $user = wp_get_current_user();
+        $user_email = $user->exists() ? $user->user_email : 'Guest';
+
+        // Sanitize fields
+        $type = sanitize_text_field($_POST['bugfeature']);
+        $type_label = $type === '1' ? 'Report a Bug' : ($type === '2' ? 'Request a Feature' : 'Unknown');
+        $title = sanitize_text_field($_POST['bugTitle']);
+        $description = sanitize_textarea_field($_POST['bugDescription']);
+
+        // Create email body
+        $message = '
+        <html><body>
+        <h2>Bug / Feature Submission</h2>
+        <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse;">
+            <tr><td><strong>Type</strong></td><td>' . esc_html($type_label) . '</td></tr>
+            <tr><td><strong>Title</strong></td><td>' . esc_html($title) . '</td></tr>
+            <tr><td><strong>Description</strong></td><td>' . nl2br(esc_html($description)) . '</td></tr>
+            <tr><td><strong>User Email</strong></td><td>' . esc_html($user_email) . '</td></tr>
+        </table>
+        </body></html>';
+
+        // Send email
+        $to = get_option('admin_email');
+        $subject = 'New Bug/Feature Submission';
+        $headers = ['Content-Type: text/html; charset=UTF-8'];
+
+        wp_mail($to, $subject, $message, $headers);
+
+        // Redirect to thank you page (optional)
+        // wp_safe_redirect(home_url());
+        wp_safe_redirect(add_query_arg('submitted', '1', wp_get_referer()));
+        exit;
+    }
+}

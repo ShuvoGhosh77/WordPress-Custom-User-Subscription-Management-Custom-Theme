@@ -225,6 +225,44 @@ function handle_user_name_update_form_secure()
     }
 }
 
+/***********************************************************
+            upadte password
+ ******************************************************** */
+
+add_action('init', 'handle_user_password_update_form_secure');
+function handle_user_password_update_form_secure()
+{
+    if (
+        isset($_POST['update_user_password']) &&
+        isset($_POST['current_password']) &&
+        isset($_POST['new_password']) &&
+        isset($_POST['update_user_password_nonce']) &&
+        wp_verify_nonce($_POST['update_user_password_nonce'], 'update_user_password_action')
+    ) {
+        if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            $user_id = $current_user->ID;
+
+            $current_password = $_POST['current_password'];
+            $new_password = $_POST['new_password'];
+            if (wp_check_password($current_password, $current_user->user_pass, $user_id)) {
+                wp_set_password($new_password, $user_id);
+                wp_set_auth_cookie($user_id);
+                wp_set_current_user($user_id);
+                set_transient('password_update_success_' . $user_id, 'Your password has been updated successfully.', 30);
+                wp_redirect($_SERVER['REQUEST_URI']);
+                exit;
+
+            } else {
+                set_transient('password_update_error_' . $user_id, 'Current password is incorrect.', 30);
+
+                wp_redirect($_SERVER['REQUEST_URI']);
+                exit;
+            }
+        }
+    }
+}
+
 
 
 /***********************************************************

@@ -1,6 +1,5 @@
 jQuery(document).ready(function ($) {
 
-  
 
   // matches page  match hide and show in when click accept-match buttom
   $('.accept-match').on('click', function () {

@@ -132,12 +132,20 @@ if (!empty($registration_success)) {
                         <!-- Submit Button -->
                         <button type="submit" name="submit_register" class="btn btn-primary w-100">Register
                             Now!</button>
+
                         <?php
 
                         if (!empty($registration_error)) {
                             echo '<div class="alert alert-danger">' . esc_html($registration_error) . '</div>';
                         }
                         ?>
+
+                        <!-- Form Help Text -->
+                        <div class="form-help-text">
+                            You'll receive a confirmation email in your inbox with a link to activate your account.
+                            If you have any problems, <a href="/support">contact us!</a>
+                        </div>
+
                     </form>
 
 

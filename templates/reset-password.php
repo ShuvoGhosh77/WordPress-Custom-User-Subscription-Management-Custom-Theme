@@ -46,7 +46,7 @@ get_header();
                         <h1>Reset password</h1>
 
                         <div>
-                            <a href="/login">Back to Log In</a>
+                            <a style="text-decoration: none;" href="/login">Back to Log In</a>
                         </div>
 
                     </div>
@@ -105,7 +105,7 @@ get_header();
 
 
                         <!-- Reset Submit Button -->
-                        <button type="submit" class="btn btn-primary w-100">Reset my password</button>
+                        <button type="submit" class="btn btn-primary w-100 mb-3">Reset my password</button>
 
                         <!-- Show errors or success below button -->
                         <?php

@@ -125,8 +125,8 @@ get_header();
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="mybodyType"
-                                                    id="marriageRadio" value="Slim" required>
-                                                <label class="form-check-label" for="marriageRadio">Slim</label>
+                                                    id="slimBodyRadio" value="Slim" required>
+                                                <label class="form-check-label" for="slimBodyRadio">Slim</label>
                                             </div>
 
                                         </div>

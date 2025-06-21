@@ -87,7 +87,7 @@ get_header();
 
                     <!-- Can't sign in? -->
                     <div class="text-center pt-2 mt-1">
-                        <a href="forget-password.html" class="text-muted"><small>Can’t sign in?</small></a>
+                        <a href="/forget-password" class="text-muted"><small>Can’t sign in?</small></a>
                     </div>
 
                     <!-- Bottom Text - Google Policies -->

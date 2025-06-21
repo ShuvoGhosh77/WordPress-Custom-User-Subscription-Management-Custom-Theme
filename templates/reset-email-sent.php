@@ -43,7 +43,7 @@ get_header();
                             <h1>Password Reset</h1>
 
                             <div>
-                                <a href="/login">Back to Log In</a>
+                                <a style="text-decoration: none;" href="/login">Back to Log In</a>
                             </div>
                         
                         </div>
@@ -57,7 +57,7 @@ get_header();
                         <div class="alert-success-container d-flex">
 
                             <div>
-                                <i class="fa-solid fa-check-circle"></i>
+                                <img src="/wp-content/uploads/2025/05/check.png" alt="check-icon">
                             </div>
 
                             <div class="text">

@@ -40,7 +40,7 @@ get_header();
                 <div class="forgot-email-box mx-auto">
                     
                     <div>
-                        <a href="/login">Back to Log In</a>
+                        <a style="text-decoration: none;" href="/login">Back to Log In</a>
                     </div>
 
                     <h1>Retrieving the email you used to register for Mysight</h1>
@@ -51,10 +51,10 @@ get_header();
 
                     <ul class="ps-3">
                         <li>Try logging in with any and all email addresses / passwords you may have used to create an account, or that you regularly use elsewhere.</li>
-                        <li>Enter all email addresses you use into our <a href="reset-password.html">password reset</a>  form (you must be logged out). If an account exists, you’ll receive an email with further details.</li>
+                        <li>Enter all email addresses you use into our <a href="/forget-password">password reset</a>  form (you must be logged out). If an account exists, you’ll receive an email with further details.</li>
                     </ul>
 
-                    <p>If you still can’t locate your Mysight log-in details, please <a href="support.html">contact support</a> and provide the following information: last four digits of the debit card number you used for Mysight, card network type (e.g., VISA), the charge date, the charge amount, your PayPal email address (if you paid with PayPal).</p>
+                    <p>If you still can’t locate your Mysight log-in details, please <a href="/support">contact support</a> and provide the following information: last four digits of the debit card number you used for Mysight, card network type (e.g., VISA), the charge date, the charge amount, your PayPal email address (if you paid with PayPal).</p>
 
                 </div>
                 

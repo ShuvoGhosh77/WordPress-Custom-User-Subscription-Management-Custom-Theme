@@ -120,7 +120,7 @@ get_header();
                     <!-- Modal Footer -->
                     <div class="modal-footer p-0 border-0 d-flex align-items-center justify-content-between">
                         <div>
-                            <p>In case of an emergency please contact the <a href="support.html">support team</a> to
+                            <p>In case of an emergency please contact the <a href="/support">support team</a> to
                                 help.</p>
                         </div>
                         <div class="mt-lg-0 mt-3">

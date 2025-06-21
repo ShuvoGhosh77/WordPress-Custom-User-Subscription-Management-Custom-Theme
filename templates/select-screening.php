@@ -17,6 +17,11 @@ get_header();
     <section class="select-screening d-flex align-items-center">
 
         <div class="container">
+            <?php if (isset($_GET['submitted']) && $_GET['submitted'] == '1'): ?>
+                <div class="alert alert-success" style="color: green; font-weight: bold; margin-bottom: 20px;">
+                    ✅ Your submission was successful. Thank you!
+                </div>
+            <?php endif; ?>
 
             <div class="row align-items-center">
 
@@ -223,7 +228,8 @@ get_header();
                     alt="add-icon"></button>
 
             <!-- Form -->
-            <form>
+
+            <form method="post">
 
                 <!-- Title -->
 
@@ -231,7 +237,7 @@ get_header();
 
                 <div class="form-group d-flex align-items-center mb-3">
                     <label for="bugfeature" class="form-label w-50">I would like to</label>
-                    <select class="form-select" id="bugfeature">
+                    <select class="form-select" id="bugfeature" name="bugfeature">
                         <option value="">Select an option</option>
                         <option value="1">Report a bug</option>
                         <option value="2">Request a feature</option>
@@ -241,22 +247,25 @@ get_header();
                 <!-- Bug Title Input -->
                 <div class="form-group mb-3">
                     <label for="bugTitle" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="bugTitle" placeholder="Enter a Title" required>
+                    <input type="text" class="form-control" id="bugTitle" name="bugTitle" placeholder="Enter a Title"
+                        required>
                 </div>
 
                 <!-- Bug Description Textarea -->
                 <div class="form-group">
                     <label for="bugDescription" class="form-label">Description</label>
-                    <textarea id="bugDescription" class="form-control" rows="3"
-                        placeholder="Enter a Description"></textarea>
+                    <textarea id="bugDescription" name="bugDescription" class="form-control" rows="3" minlength="10"
+                        maxlength="500" placeholder="Enter a Description"></textarea>
                 </div>
 
+                <!-- Required hidden fields for processing -->
+                <input type="hidden" name="custom_bug_feature_form_submitted" value="1">
+                <?php wp_nonce_field('custom_bug_feature_action', 'custom_bug_feature_nonce'); ?>
 
                 <!-- Submit Button -->
                 <div>
                     <button type="submit" class="btn btn-primary w-100">Submit</button>
                 </div>
-
 
             </form>
 

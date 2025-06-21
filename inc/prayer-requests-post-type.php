@@ -127,7 +127,12 @@ function handle_prayer_request_submission()
     ));
 
     if (!is_wp_error($post_id)) {
-        wp_set_object_terms($post_id, $priority, 'prayer_category');
+        $terms = [$priority];
+        if ($group_contact) {
+            $terms[] = 'Group Prayer';
+        }
+        wp_set_object_terms($post_id, $terms, 'prayer_category');
+ 
         update_post_meta($post_id, 'anonymous', $anonymous);
         update_post_meta($post_id, 'group_contact', $group_contact);
         if (is_user_logged_in() && $group_contact) {
@@ -198,14 +203,14 @@ function prayer_wall_shortcode()
                                         Urgent
                                     </label>
                                 </li>
-<!-- 
+
                                 <li>
                                     <label>
                                         <input type="checkbox" class="form-check-input filter-checkbox"
                                             value="Group Prayer">
                                         Group Prayer
                                     </label>
-                                </li> -->
+                                </li>
 
                             </ul>
 
@@ -354,7 +359,7 @@ function load_prayer_requests_callback()
                     $anonymous = get_post_meta(get_the_ID(), 'anonymous', true);
                     ?>
 
-                    <?php if ($has_group): ?>
+                    <?php if ($anonymous): ?>
                         <div class="group-contact-icon">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/group-tag.png" alt="Group Tag">
                         </div>
@@ -454,7 +459,7 @@ function load_prayer_requests_callback()
                                                     alt="User Image" class="img-fluid">
                                             <?php endif; ?>
 
-                                            <textarea class="form-control form-control-comment ms-2" name="comment" placeholder="Write a comment"></textarea>
+                                            <textarea class="form-control form-control-comment ms-2" name="comment" placeholder="Write a comment" minlength="5" maxlength="100"></textarea>
                                             <input type="hidden" name="comment_post_ID" value="<?php echo get_the_ID(); ?>">
                                             <input type="hidden" name="action" value="submit_prayer_comment">
                                             <input type="hidden" name="nonce"
@@ -532,7 +537,7 @@ function load_prayer_requests_callback()
                         </form>
 
                         <!-- Group Pray Form -->
-                        <?php if ($group_contact): ?>
+                        <?php if (has_term('Group Prayer', 'prayer_category', get_the_ID())): ?>
                             <form method="post" class="prayer-action-form">
                                 <input type="hidden" name="action_type" value="group_pray">
                                 <input type="hidden" name="post_id" value="<?php echo get_the_ID(); ?>">

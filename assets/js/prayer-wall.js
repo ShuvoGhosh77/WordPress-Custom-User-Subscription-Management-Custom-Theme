@@ -1,4 +1,5 @@
 jQuery(function ($) {
+
     function loadPrayerRequests() {
         // var search = $('#prayer-search').val().trim();
         var search = ($('#prayer-search').val() || '').trim();

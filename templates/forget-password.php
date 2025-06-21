@@ -46,7 +46,7 @@ get_header();
                     <div class="d-flex justify-content-between align-items-center mb-lg-4 mb-3">
                         <h1>Forgot Password?</h1>
                         <div>
-                            <a href="/login">Back to Log In</a>
+                            <a style="text-decoration: none;" href="/login">Back to Log In</a>
                         </div>
                     </div>
 
